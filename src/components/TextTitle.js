@@ -12,14 +12,14 @@ export default {
     }
   },
 
-  render (h, { props, slots }) {
+  render (h, { data, listeners, props, slots }) {
     // Construct the tag name
     const Heading = `h${props.level > 0 && props.level < 7
       ? props.level
       : defaultHeadingLevel}`
 
     return (
-      <Heading>
+      <Heading {...data} {...listeners}>
         { slots().default }
       </Heading>
     )
