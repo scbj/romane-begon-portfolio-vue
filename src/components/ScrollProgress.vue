@@ -56,6 +56,7 @@ export default {
   letter-spacing: 1.38px;
   line-height: 23px;
   white-space: pre;
+  color: #cccccc;
 
   display: inline-grid;
   grid-template-columns: repeat(3, auto);
@@ -67,17 +68,17 @@ export default {
 .scroll-progress__indicator-background {
   grid-column: 2 / 3;
   grid-row: 1 / calc(var(--row-count) + 1);
-  width: 2px;
+  width: 1px;
 }
 
 .scroll-progress__indicator {
-  background: black;
+  background: #cccccc;
   transform: scaleY(0.2);
   transform-origin: 50% 0%;
 }
 
 .scroll-progress__indicator-background {
-  background: rgb(226, 226, 226);
+  background: #666666;
 }
 
 .scroll-progress__label {
