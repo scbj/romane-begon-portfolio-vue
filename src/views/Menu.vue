@@ -46,7 +46,7 @@
 }
 
 .image {
-  background-image: url(/photos/photo-5-4.png);
+  background-image: url(/photos/photo-5-4-min.png);
   background-size: cover;
   background-position: right;
   grid-area: image;
