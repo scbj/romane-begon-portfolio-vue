@@ -1,8 +1,45 @@
 <template>
   <div id="app">
-    <router-view />
+    <WorkInProgress v-if="hideApp" />
+    <router-view v-else />
   </div>
 </template>
+
+<script>
+import WorkInProgress from '@/components/WorkInProgress.vue'
+
+export default {
+  components: {
+    WorkInProgress
+  },
+
+  data () {
+    return {
+      hideApp: true
+    }
+  },
+
+  mounted () {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize)
+    })
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.onResize)
+  },
+
+  methods: {
+    onResize () {
+      if (window.innerWidth < 1400) {
+        this.hideApp = true
+      } else if (this.hideApp) {
+        this.hideApp = false
+      }
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 @import '@/assets/styles/base.scss';
