@@ -15,7 +15,7 @@ export default {
 
   data () {
     return {
-      hideApp: true
+      hideApp: false
     }
   },
 
@@ -23,6 +23,7 @@ export default {
     this.$nextTick(() => {
       window.addEventListener('resize', this.onResize)
     })
+    this.onResize()
   },
 
   beforeDestroy () {

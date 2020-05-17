@@ -6,17 +6,13 @@
         <span class="subtitle">Photographie avec</span>
         <span class="title">ROMANE BÉGON</span>
       </div>
-      <ul class="navigation-list">
-        <li><a href="#">Prestations</a></li>
-        <li><a href="#">Espace Client</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">A propos</a></li>
-      </ul>
+      <ListView :items="navigationLinks" class="navigation-list">
+        <template v-slot:item="{ item }">
+          <a class="navigation-link" :href="item.path">{{ item.label }}</a>
+        </template>
+      </ListView>
       <div class="social-links" />
-      <div class="copyright">
-        <span>© Romane Bégon</span>
-        <span>Tous droits réservés</span>
-      </div>
+      <CopyrightStatement class="copyright" />
       <div class="credits">
         CREDITS
       </div>
@@ -24,6 +20,24 @@
     <div class="button-close" />
   </div>
 </template>
+
+<script>
+import CopyrightStatement from '@/components/CopyrightStatement'
+import ListView from '@/components/ListView'
+
+import { navigationLinks } from '@/assets/data/menu'
+
+export default {
+  components: {
+    CopyrightStatement,
+    ListView
+  },
+
+  computed: {
+    navigationLinks: () => navigationLinks
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .menu {
@@ -103,22 +117,15 @@
   display: grid;
   grid-auto-rows: auto;
   gap: 3px;
+}
 
-  list-style: none;
-
-  > li {
-    font-size: 58px;
-    font-weight: 500;
-    font-family: "Orpheus Pro", serif;
-    line-height: 95px;
-    letter-spacing: 3.02px;
-    text-align: left;
-
-    > a {
-      color: inherit;
-      text-decoration: none;
-    }
-  }
+.navigation-link {
+  font-size: 58px;
+  font-weight: 500;
+  font-family: "Orpheus Pro", serif;
+  line-height: 95px;
+  letter-spacing: 3.02px;
+  text-align: left;
 }
 
 .social-links {
@@ -128,22 +135,6 @@
 .copyright,
 .credits {
   grid-area: footer;
-}
-
-.copyright {
-  font-size: 22px;
-  font-weight: 300;
-  font-family: "Garamond Premier Pro Display", serif;
-  line-height: 42px;
-  letter-spacing: 1.14px;
-
-  color: var(--color-light-2);
-
-  margin-bottom: 11vh;
-
-  span {
-    display: block;
-  }
 }
 
 .credits {
