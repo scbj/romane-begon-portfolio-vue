@@ -1,36 +1,44 @@
 <template>
-  <div class="menu">
-    <div class="image" />
-    <div class="content-wrapper">
-      <div class="website-mark">
-        <span class="subtitle">Photographie avec</span>
-        <span class="title">ROMANE BÉGON</span>
+  <MenuLayout class="menu">
+    <template v-slot:left>
+      <div class="image" />
+    </template>
+    <template v-slot:right>
+      <div class="content-wrapper">
+        <div class="website-mark">
+          <span class="subtitle">Photographie avec</span>
+          <span class="title">ROMANE BÉGON</span>
+        </div>
+        <ListView :items="navigationLinks" class="navigation-list">
+          <template v-slot:item="{ item }">
+            <a class="navigation-link" :href="item.path">{{ item.label }}</a>
+          </template>
+        </ListView>
+        <div class="social-links" />
+        <CopyrightStatement class="copyright" />
+        <div class="credits">
+          CREDITS
+        </div>
       </div>
-      <ListView :items="navigationLinks" class="navigation-list">
-        <template v-slot:item="{ item }">
-          <a class="navigation-link" :href="item.path">{{ item.label }}</a>
-        </template>
-      </ListView>
-      <div class="social-links" />
-      <CopyrightStatement class="copyright" />
-      <div class="credits">
-        CREDITS
-      </div>
-    </div>
-    <div class="button-close" />
-  </div>
+    </template>
+    <template v-slot:button>
+      <div class="button-close" />
+    </template>
+  </MenuLayout>
 </template>
 
 <script>
 import CopyrightStatement from '@/components/CopyrightStatement'
 import ListView from '@/components/ListView'
+import MenuLayout from '@/layouts/MenuLayout'
 
 import { navigationLinks } from '@/assets/data/menu'
 
 export default {
   components: {
     CopyrightStatement,
-    ListView
+    ListView,
+    MenuLayout
   },
 
   computed: {
@@ -49,25 +57,15 @@ export default {
 
   color: var(--color-light-1);
   background: var(--color-dark-1);
-
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: 1fr;
-  grid-template-areas:
-    "image content";
-
-  height: 100vh;
 }
 
 .image {
   background-image: url(/photos/photo-5-4-min.png);
   background-size: cover;
   background-position: right;
-  grid-area: image;
 }
 
 .content-wrapper {
-  grid-area: content;
   display: grid;
   grid-template-rows: auto 1fr repeat(2, auto);
   grid-template-columns: 1fr;
