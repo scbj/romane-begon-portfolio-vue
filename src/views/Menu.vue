@@ -8,10 +8,12 @@
         <WebsiteMark />
         <ListView :items="navigationLinks" class="navigation-list">
           <template v-slot:item="{ item }">
-            <a class="navigation-link" :href="item.path">{{ item.label }}</a>
+            <MenuLink :route="item.path">
+              {{ item.label }}
+            </MenuLink>
           </template>
         </ListView>
-        <div class="social-links" />
+        <SocialLinks class="social" />
         <CopyrightStatement class="copyright" />
         <TextButton class="credits">
           CREDITS
@@ -28,6 +30,8 @@
 import CopyrightStatement from '@/components/CopyrightStatement'
 import ListView from '@/components/ListView'
 import MenuLayout from '@/layouts/MenuLayout'
+import MenuLink from '@/components/MenuLink'
+import SocialLinks from '@/components/SocialLinks'
 import TextButton from '@/components/TextButton'
 import WebsiteMark from '@/components/WebsiteMark'
 
@@ -38,6 +42,8 @@ export default {
     CopyrightStatement,
     ListView,
     MenuLayout,
+    MenuLink,
+    SocialLinks,
     TextButton,
     WebsiteMark
   },
@@ -75,11 +81,6 @@ export default {
     "nav"
     "social"
     "footer";
-
-  margin-bottom: 6vh;
-  margin-right: 68px;
-  margin-left: 210px;
-  margin-top: 14vh;
 }
 
 .website-mark {
@@ -96,16 +97,7 @@ export default {
   gap: 3px;
 }
 
-.navigation-link {
-  font-size: 58px;
-  font-weight: 500;
-  font-family: "Orpheus Pro", serif;
-  line-height: 95px;
-  letter-spacing: 3.02px;
-  text-align: left;
-}
-
-.social-links {
+.social {
   grid-area: social;
 }
 

@@ -31,6 +31,11 @@
 .menu-layout__right {
   grid-area: right;
   display: grid;
+
+  padding-bottom: 6vh;
+  padding-right: 68px;
+  padding-left: 210px;
+  padding-top: 14vh;
 }
 
 .menu-layout__button {
