@@ -5,10 +5,7 @@
     </template>
     <template v-slot:right>
       <div class="content-wrapper">
-        <div class="website-mark">
-          <span class="subtitle">Photographie avec</span>
-          <span class="title">ROMANE BÉGON</span>
-        </div>
+        <WebsiteMark />
         <ListView :items="navigationLinks" class="navigation-list">
           <template v-slot:item="{ item }">
             <a class="navigation-link" :href="item.path">{{ item.label }}</a>
@@ -16,9 +13,9 @@
         </ListView>
         <div class="social-links" />
         <CopyrightStatement class="copyright" />
-        <div class="credits">
+        <TextButton class="credits">
           CREDITS
-        </div>
+        </TextButton>
       </div>
     </template>
     <template v-slot:button>
@@ -31,6 +28,8 @@
 import CopyrightStatement from '@/components/CopyrightStatement'
 import ListView from '@/components/ListView'
 import MenuLayout from '@/layouts/MenuLayout'
+import TextButton from '@/components/TextButton'
+import WebsiteMark from '@/components/WebsiteMark'
 
 import { navigationLinks } from '@/assets/data/menu'
 
@@ -38,7 +37,9 @@ export default {
   components: {
     CopyrightStatement,
     ListView,
-    MenuLayout
+    MenuLayout,
+    TextButton,
+    WebsiteMark
   },
 
   computed: {
@@ -84,28 +85,6 @@ export default {
 .website-mark {
   grid-area: mark;
   justify-self: left;
-
-  span {
-    font-weight: 400;
-    font-family: "Orpheus Pro", serif;
-    text-align: center;
-
-    display: block;
-  }
-
-  .title {
-    color: var(--color-light-2);
-    font-size: 25px;
-    line-height: 40px;
-    letter-spacing: 3.5px;
-  }
-
-  .subtitle {
-    color: var(--color-light-3);
-    font-size: 12px;
-    line-height: 20px;
-    letter-spacing: 0.62px;
-  }
 }
 
 .navigation-list {
@@ -136,12 +115,6 @@ export default {
 }
 
 .credits {
-  font-size: 14px;
-  font-weight: 500;
-  font-family: "TT Commons", sans-serif;
-  line-height: 32px;
-  letter-spacing: 3.92px;
-
   align-self: end;
   justify-self: end;
 }
