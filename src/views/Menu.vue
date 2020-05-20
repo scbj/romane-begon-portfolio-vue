@@ -94,7 +94,7 @@ export default {
 
   display: grid;
   grid-auto-rows: auto;
-  gap: 3px;
+  gap: 0.3rem;
 }
 
 .social {

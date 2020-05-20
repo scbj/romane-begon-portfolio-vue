@@ -7,15 +7,13 @@
 
 <style lang="scss" scoped>
 .copyright-statement {
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: 300;
   font-family: "Garamond Premier Pro Display", serif;
-  line-height: 42px;
-  letter-spacing: 1.14px;
+  line-height: 1.909em;
+  letter-spacing: 0.0518em;
 
   color: var(--color-light-2);
-
-  margin-bottom: 11vh;
 }
 
 span {

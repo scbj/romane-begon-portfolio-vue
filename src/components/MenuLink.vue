@@ -17,10 +17,10 @@ export default {
 
 <style lang="scss" scoped>
 .menu-link {
-  font-size: 58px;
+  font-size: 5.8rem;
   font-weight: 500;
   font-family: "Orpheus Pro", serif;
-  line-height: 95px;
-  letter-spacing: 3.02px;
+  line-height: 1.64em;
+  letter-spacing: 0.05207em;
 }
 </style>

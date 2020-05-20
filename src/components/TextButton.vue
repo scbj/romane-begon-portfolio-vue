@@ -6,10 +6,10 @@
 
 <style lang="scss" scoped>
 .text-button {
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 500;
   font-family: "TT Commons", sans-serif;
-  line-height: 32px;
-  letter-spacing: 3.92px;
+  line-height: 2.286em;
+  letter-spacing: 0.28em;
 }
 </style>

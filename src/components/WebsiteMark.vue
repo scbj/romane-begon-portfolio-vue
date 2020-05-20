@@ -18,15 +18,15 @@
 
 .website-mark__title {
   color: var(--color-light-2);
-  font-size: 25px;
-  line-height: 40px;
-  letter-spacing: 3.5px;
+  font-size: 2.5rem;
+  line-height: 1.6em;
+  letter-spacing: 0.14em;
 }
 
 .website-mark__subtitle {
   color: var(--color-light-3);
-  font-size: 12px;
-  line-height: 20px;
-  letter-spacing: 0.62px;
+  font-size: 1.2rem;
+  line-height: 1.6667em;
+  letter-spacing: 0.0517em;
 }
 </style>
