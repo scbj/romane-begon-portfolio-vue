@@ -105,6 +105,7 @@ export default {
 
 .social {
   grid-area: social;
+  margin-bottom: 4rem;
 }
 
 .copyright,
