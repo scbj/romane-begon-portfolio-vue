@@ -15,9 +15,9 @@
 }
 
 .menu-cover__picture {
+  object-fit: cover;
   position: absolute;
-  bottom: -32%;
-  right: 0;
+  height: 100%;
   width: 100%;
 }
 </style>

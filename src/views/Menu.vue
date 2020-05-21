@@ -57,6 +57,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_vars.scss';
+
 .menu {
  --color-light-1: #f3f3f3;
  --color-light-2: #e4e4e4;
@@ -81,7 +83,6 @@ export default {
 
 .mark {
   grid-area: mark;
-  justify-self: left;
 }
 
 .navigation-list {
@@ -91,6 +92,15 @@ export default {
   display: grid;
   grid-auto-rows: auto;
   gap: 0.3rem;
+}
+
+.mark,
+.navigation-list {
+  justify-self: center;
+
+  @media screen and (min-width: $extraLarge) {
+    justify-self: left;
+  }
 }
 
 .social {

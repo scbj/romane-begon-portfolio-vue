@@ -1,3 +1,5 @@
+@import 'vars';
+
 *,
 *::before,
 *::after {
@@ -8,7 +10,19 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 7px;
+
+  @media screen and (min-width: $medium) {
+    font-size: 8px;
+  }
+
+  @media screen and (min-width: $large) {
+    font-size: 9px;
+  }
+
+  @media screen and (min-width: $extraLarge) {
+    font-size: 10px;
+  }
 }
 
 body {

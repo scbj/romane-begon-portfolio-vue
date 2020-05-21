@@ -1,6 +1,6 @@
 <template>
   <div class="menu-layout">
-    <div class="menu-layout__left">
+    <div v-if="gte('extraLarge')" class="menu-layout__left">
       <slot name="left" />
     </div>
     <div class="menu-layout__right">
@@ -12,15 +12,31 @@
   </div>
 </template>
 
+<script>
+import responsive from '@/mixins/responsive'
+
+export default {
+  mixins: [responsive]
+}
+</script>
+
 <style lang="scss" scoped>
+@import '@/assets/styles/_vars.scss';
+
 .menu-layout {
   display: grid;
-  grid-template-columns: 60% 40%;
   grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "left right";
+    "right";
 
   height: 100vh;
+
+  @media screen and (min-width: $extraLarge) {
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+      "left right";
+  }
 }
 
 .menu-layout__left {
@@ -31,11 +47,14 @@
 .menu-layout__right {
   grid-area: right;
   display: grid;
+  padding: 5rem;
 
-  padding-bottom: 6vh;
-  padding-right: 68px;
-  padding-left: 110px;
-  padding-top: 14vh;
+  @media screen and (min-width: $extraLarge) {
+    padding-bottom: 6vh;
+    padding-right: 68px;
+    padding-left: 110px;
+    padding-top: 14vh;
+  }
 }
 
 .menu-layout__button {
