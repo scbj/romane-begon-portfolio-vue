@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueMq from 'vue-mq'
+import VueSVGIcon from 'vue-svgicon'
 
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import '@/assets/icons'
 
 Vue.config.productionTip = false
 
@@ -17,6 +19,8 @@ Vue.use(VueMq, {
     extraLarge: Infinity
   }
 })
+
+Vue.use(VueSVGIcon)
 
 // Import all base components
 const requireComponent = require.context('./components', true, /Base[A-Z]/)
