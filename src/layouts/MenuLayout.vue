@@ -15,7 +15,7 @@
 <style lang="scss" scoped>
 .menu-layout {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: 60% 40%;
   grid-template-rows: 1fr;
   grid-template-areas:
     "left right";
@@ -34,7 +34,7 @@
 
   padding-bottom: 6vh;
   padding-right: 68px;
-  padding-left: 210px;
+  padding-left: 110px;
   padding-top: 14vh;
 }
 
