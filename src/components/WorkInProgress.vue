@@ -1,8 +1,39 @@
 <template>
-  <div class="work-in-progress">
+  <div v-if="hideApp" class="work-in-progress">
     Work in progress
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      hideApp: false
+    }
+  },
+
+  mounted () {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize)
+    })
+    this.onResize()
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.onResize)
+  },
+
+  methods: {
+    onResize () {
+      if (window.innerWidth < 1400) {
+        this.hideApp = true
+      } else if (this.hideApp) {
+        this.hideApp = false
+      }
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .work-in-progress {
