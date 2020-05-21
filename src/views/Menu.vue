@@ -1,11 +1,11 @@
 <template>
   <MenuLayout class="menu">
     <template v-slot:left>
-      <div class="image" />
+      <MenuCover />
     </template>
     <template v-slot:right>
       <div class="content-wrapper">
-        <WebsiteMark />
+        <WebsiteMark class="mark" />
         <ListView :items="navigationLinks" class="navigation-list">
           <template v-slot:item="{ item }">
             <MenuLink :route="item.path">
@@ -29,6 +29,7 @@
 <script>
 import CopyrightStatement from '@/components/CopyrightStatement'
 import ListView from '@/components/ListView'
+import MenuCover from '@/components/MenuCover'
 import MenuLayout from '@/layouts/MenuLayout'
 import MenuLink from '@/components/MenuLink'
 import SocialLinks from '@/components/SocialLinks'
@@ -41,6 +42,7 @@ export default {
   components: {
     CopyrightStatement,
     ListView,
+    MenuCover,
     MenuLayout,
     MenuLink,
     SocialLinks,
@@ -66,12 +68,6 @@ export default {
   background: var(--color-dark-1);
 }
 
-.image {
-  background-image: url(/photos/photo-5-4-min.png);
-  background-size: cover;
-  background-position: right;
-}
-
 .content-wrapper {
   display: grid;
   grid-template-rows: auto 1fr repeat(2, auto);
@@ -83,7 +79,7 @@ export default {
     "footer";
 }
 
-.website-mark {
+.mark {
   grid-area: mark;
   justify-self: left;
 }
