@@ -1,23 +1,8 @@
 <template>
   <div class="social-links">
-    <svgicon
-      icon="icon-facebook"
-      color="#fff"
-      height="20"
-      width="20"
-    />
-    <svgicon
-      icon="icon-instagram"
-      color="#fff"
-      height="20"
-      width="20"
-    />
-    <svgicon
-      icon="icon-pinterest"
-      color="#fff"
-      height="20"
-      width="20"
-    />
+    <BaseIcon name="facebook" />
+    <BaseIcon name="instagram" />
+    <BaseIcon name="pinterest" />
   </div>
 </template>
 

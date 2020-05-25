@@ -51,13 +51,20 @@ export default {
 
   @media screen and (min-width: $extraLarge) {
     padding-bottom: 6vh;
-    padding-right: 68px;
     padding-left: 110px;
+    padding-right: 68px;
     padding-top: 14vh;
   }
 }
 
 .menu-layout__button {
-  /* grid-area: button; */
+  grid-area: right;
+  justify-self: end;
+  align-self: start;
+  padding: 5rem;
+
+  @media screen and (min-width: $extraLarge) {
+    padding-right: 68px;
+  }
 }
 </style>

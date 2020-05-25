@@ -21,7 +21,11 @@
       </div>
     </template>
     <template v-slot:button>
-      <div class="button-close" />
+      <BaseIcon
+        name="cross"
+        :fill="false"
+        :size="18"
+      />
     </template>
   </MenuLayout>
 </template>
