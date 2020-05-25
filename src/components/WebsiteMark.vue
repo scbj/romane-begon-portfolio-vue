@@ -28,28 +28,30 @@ export default {
 }
 
 .website-mark__title {
-  color: var(--color-light-2);
   font-size: 2.5rem;
   line-height: 1.6em;
   letter-spacing: 0.14em;
+  color: var(--color-light-2);
 }
 
 .website-mark__subtitle {
-  color: var(--color-light-3);
   font-size: 1.2rem;
   line-height: 1.6667em;
   letter-spacing: 0.0517em;
+  color: var(--color-light-3);
 }
 
 .website-mark.large {
   .website-mark__title {
     font-size: 7rem;
     font-weight: 700;
+    color: var(--color-light-1);
   }
 
   .website-mark__subtitle {
     font-size: 3.5rem;
     font-weight: 400;
+    color: var(--color-light-2);
   }
 }
 </style>

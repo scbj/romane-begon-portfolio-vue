@@ -4,9 +4,8 @@
     <div class="picture-overlay" />
     <WebsiteMark class="mark" size="large" />
     <div class="citation">
-      <span class="sentence-1">Partager des souvenirs</span>
-      <span class="sentence-2">Photographe de mariage en France et en Europe</span>
-      <span class="sentence-3">2020</span>
+      <span class="sentence-1">« Une photographie, c'est un fragment de temps qui ne reviendra pas. »</span>
+      <span class="sentence-2">Martine Franck</span>
     </div>
     <span class="scroll-down">DÉFILER VERS LE BAS</span>
     <BaseIcon
@@ -36,7 +35,7 @@ export default {
 
 .startup {
   display: grid;
-  grid-template-rows: 62% 1fr auto;
+  grid-template-rows: 68% 1fr auto;
   grid-template-columns: 1fr;
   min-height: 100vh;
   justify-items: center;
@@ -44,6 +43,10 @@ export default {
 
   > * {
     grid-column: 1;
+  }
+
+  @media screen and (min-width: $extraLarge) {
+    grid-template-rows: 60% 1fr auto;
   }
 }
 
@@ -93,6 +96,14 @@ export default {
 
     &:first-of-type {
       margin-top: 0;
+    }
+
+    &.sentence-1 {
+      font-style: italic;
+    }
+
+    &.sentence-2 {
+      margin-top: 0.1em;
     }
   }
 }
