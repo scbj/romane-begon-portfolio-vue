@@ -13,6 +13,11 @@ const routes = [
     path: '/menu',
     name: 'menu',
     component: () => import('@/views/Menu.vue')
+  },
+  {
+    path: '/startup',
+    name: 'startup',
+    component: () => import('@/views/Startup.vue')
   }
 ]
 

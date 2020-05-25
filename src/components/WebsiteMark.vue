@@ -1,9 +1,20 @@
 <template>
-  <div class="website-mark">
+  <div class="website-mark" :class="{ large: size === 'large' }">
     <span class="website-mark__subtitle">Photographie avec</span>
     <span class="website-mark__title">ROMANE BÉGON</span>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    size: {
+      type: String,
+      default: 'small'
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .website-mark {
@@ -28,5 +39,17 @@
   font-size: 1.2rem;
   line-height: 1.6667em;
   letter-spacing: 0.0517em;
+}
+
+.website-mark.large {
+  .website-mark__title {
+    font-size: 7rem;
+    font-weight: 700;
+  }
+
+  .website-mark__subtitle {
+    font-size: 3.5rem;
+    font-weight: 400;
+  }
 }
 </style>
