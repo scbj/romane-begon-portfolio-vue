@@ -1,91 +1,105 @@
 <template>
-  <div class="startup">
-    <div class="picture" />
-    <div class="picture-overlay" />
-    <WebsiteMark class="mark" size="large" />
-    <div class="citation">
-      <span class="sentence-1">« Une photographie, c'est un fragment de temps qui ne reviendra pas. »</span>
-      <span class="sentence-2">Martine Franck</span>
-    </div>
-    <span class="scroll-down">DÉFILER VERS LE BAS</span>
-    <BaseIcon
-      class="menu-button"
-      name="menu"
-      :fill="false"
-      :size="21"
-    />
-    <SocialLinks class="social" orientation="vertical" />
-  </div>
+  <StartupLayout class="startup">
+    <template v-slot:background>
+      <div class="startup__background">
+        <div class="startup__background-picture" />
+        <div class="startup__background-overlay" />
+      </div>
+    </template>
+
+    <template v-slot:fixed>
+      <SocialLinks orientation="vertical" />
+    </template>
+
+    <template v-slot:button>
+      <BaseIcon
+        name="menu"
+        :fill="false"
+        :size="21"
+      />
+    </template>
+
+    <template v-slot:footer>
+      <span class="startup__scroll-down">DÉFILER VERS LE BAS</span>
+    </template>
+
+    <template v-slot:content>
+      <div class="startup__content">
+        <WebsiteMark size="large" />
+        <div class="startup__content-citation">
+          <span class="sentence-1">« Une photographie, c'est un fragment de temps qui ne reviendra pas. »</span>
+          <span class="sentence-2">Martine Franck</span>
+        </div>
+      </div>
+    </template>
+  </StartupLayout>
 </template>
 
 <script>
 import SocialLinks from '@/components/SocialLinks'
 import WebsiteMark from '@/components/WebsiteMark'
+import StartupLayout from '@/layouts/StartupLayout'
 
 export default {
   components: {
     SocialLinks,
+    StartupLayout,
     WebsiteMark
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/_vars.scss';
-
-.startup {
+.startup__background {
   display: grid;
-  grid-template-rows: 68% 1fr auto;
-  grid-template-columns: 1fr;
-  min-height: 100vh;
-  justify-items: center;
-  position: relative;
-
-  > * {
-    grid-column: 1;
-  }
-
-  @media screen and (min-width: $extraLarge) {
-    grid-template-rows: 60% 1fr auto;
-  }
-}
-
-.picture,
-.picture-overlay {
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
   width: 100%;
   height: 100%;
 }
 
-.picture {
+.startup__background-picture,
+.startup__background-overlay {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.startup__background-picture {
   background-image: url(/photos/site67.jpg);
   background-size: cover;
   background-position: 63%;
   background-repeat: no-repeat;
 }
 
-.picture-overlay {
+.startup__background-overlay {
   background: linear-gradient(0deg, rgba(15,14,11,0.4009978991596639) 0%, rgba(15,14,11,0.05926120448179273) 100%)
 }
 
-.mark {
-  grid-row: 1;
-  grid-column: 1;
-  align-self: end;
-  color: #F3F3F3;
+.startup__scroll-down {
+  font-family: 'TT Commons';
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  line-height: 2.667em;
+  color: var(--color-light-1);
+  opacity: .87;
 }
 
-.citation {
+.startup__content {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.startup__content-citation {
   font-family: "Garamond Premier Pro Display", serif;
   font-size: 2.2rem;
   font-weight: 300;
   line-height: 1.5em;
   letter-spacing: 0.052em;
+  text-align: center;
   color: #F3F3F3;
 
-  grid-row: 2;
-  grid-column: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,41 +121,4 @@ export default {
     }
   }
 }
-
-.scroll-down {
-  font-family: 'TT Commons';
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  line-height: 2.667em;
-
-  grid-row: 3;
-  margin-bottom: 6rem;
-  color: #F3F3F3;
-  opacity: .87;
-}
-
-.menu-button {
-  position: fixed;
-  right: 5rem;
-  top: 5rem;
-
-  @media screen and (min-width: $extraLarge) {
-    right: 68px;
-    top: 68px;
-  }
-}
-
-.social {
-  position: fixed;
-  top: 14rem;
-  right: 5rem;
-
-  @media screen and (min-width: $extraLarge) {
-    right: 68px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
 </style>
