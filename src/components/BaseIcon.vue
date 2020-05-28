@@ -18,8 +18,8 @@ export default {
       required: true
     },
     size: {
-      type: Number,
-      default: 20
+      type: String,
+      default: '20'
     }
   },
 

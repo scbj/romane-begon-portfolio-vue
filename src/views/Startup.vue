@@ -15,7 +15,7 @@
       <BaseIcon
         name="menu"
         :fill="false"
-        :size="21"
+        size="21"
       />
     </template>
 

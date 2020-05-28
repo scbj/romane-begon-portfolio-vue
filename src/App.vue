@@ -1,8 +1,20 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  <AppLayout id="app">
+    <template v-slot:page>
+      <router-view />
+    </template>
+  </AppLayout>
 </template>
+
+<script>
+import AppLayout from '@/layouts/AppLayout.vue'
+
+export default {
+  components: {
+    AppLayout
+  }
+}
+</script>
 
 <style lang="scss">
 @import '@/assets/styles/base.scss';

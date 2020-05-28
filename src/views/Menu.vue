@@ -24,7 +24,7 @@
       <BaseIcon
         name="cross"
         :fill="false"
-        :size="18"
+        size="18"
       />
     </template>
   </MenuLayout>

@@ -2,6 +2,12 @@
 @import 'vars';
 @import 'vue-svgicon';
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 html {
   font-size: 7px;
 
