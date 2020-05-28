@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:svg": "vsvg -s ./src/assets/svg -t ./src/assets/icons",
+    "clean": "rm -rf node_modules",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
