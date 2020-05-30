@@ -1,10 +1,17 @@
 <template>
   <div class="home-layout">
-    <ParallaxContainer class="home-layout__content" tag="main">
+    <ParallaxContainer
+      class="home-layout__content"
+      tag="main"
+      :perspective="220"
+    >
       <slot name="content" />
     </ParallaxContainer>
     <div class="home-layout__right">
       <slot name="right" />
+    </div>
+    <div class="home-layout__top">
+      <slot name="top" />
     </div>
     <div class="home-layout__bottom">
       <slot name="bottom" />
@@ -41,7 +48,7 @@ export default {
   z-index: 10;
 
   @media screen and (min-width: $extraLarge) {
-    right: 68px;
+    right: 6.8rem;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -52,5 +59,16 @@ export default {
   bottom: 6rem;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.home-layout__top {
+  position: fixed;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media screen and (min-width: $extraLarge) {
+    top: 3.8rem;
+  }
 }
 </style>

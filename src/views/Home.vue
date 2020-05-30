@@ -7,6 +7,9 @@
         :style="`z-index: ${n}`"
       />
     </template>
+    <template v-slot:top>
+      <WebsiteMark class="mark" />
+    </template>
     <template v-slot:right>
       <SocialLinks orientation="vertical" />
     </template>
@@ -20,12 +23,14 @@
 import HomeLayout from '@/layouts/HomeLayout'
 import SocialLinks from '@/components/SocialLinks'
 import Startup from '@/views/Startup'
+import WebsiteMark from '@/components/WebsiteMark'
 
 export default {
   components: {
     HomeLayout,
     SocialLinks,
-    Startup
+    Startup,
+    WebsiteMark
   }
 }
 </script>
