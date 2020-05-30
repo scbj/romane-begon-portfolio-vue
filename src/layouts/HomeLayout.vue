@@ -7,14 +7,17 @@
     >
       <slot name="content" />
     </ParallaxContainer>
-    <div class="home-layout__right">
-      <slot name="right" />
-    </div>
     <div class="home-layout__top">
       <slot name="top" />
     </div>
+    <div class="home-layout__right">
+      <slot name="right" />
+    </div>
     <div class="home-layout__bottom">
       <slot name="bottom" />
+    </div>
+    <div class="home-layout__left">
+      <slot name="left" />
     </div>
   </div>
 </template>
@@ -41,6 +44,17 @@ export default {
   @include hide-scrollbar;
 }
 
+.home-layout__top {
+  position: fixed;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media screen and (min-width: $extraLarge) {
+    top: 3.8rem;
+  }
+}
+
 .home-layout__right {
   position: fixed;
   right: 5rem;
@@ -61,14 +75,15 @@ export default {
   transform: translateX(-50%);
 }
 
-.home-layout__top {
+.home-layout__left {
   position: fixed;
-  top: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  left: 5rem;
+  z-index: 10;
 
   @media screen and (min-width: $extraLarge) {
-    top: 3.8rem;
+    left: 6.8rem;
   }
 }
 </style>
