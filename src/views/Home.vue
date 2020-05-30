@@ -16,11 +16,15 @@
     <template v-slot:bottom>
       <span class="home__scroll-down">DÉFILER VERS LE BAS</span>
     </template>
+    <template v-slot:left>
+      <ScrollProgress />
+    </template>
   </HomeLayout>
 </template>
 
 <script>
 import HomeLayout from '@/layouts/HomeLayout'
+import ScrollProgress from '@/components/ScrollProgress'
 import SocialLinks from '@/components/SocialLinks'
 import Startup from '@/views/Startup'
 import WebsiteMark from '@/components/WebsiteMark'
@@ -28,6 +32,7 @@ import WebsiteMark from '@/components/WebsiteMark'
 export default {
   components: {
     HomeLayout,
+    ScrollProgress,
     SocialLinks,
     Startup,
     WebsiteMark

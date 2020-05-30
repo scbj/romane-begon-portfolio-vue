@@ -16,7 +16,7 @@
     <div class="home-layout__bottom">
       <slot name="bottom" />
     </div>
-    <div class="home-layout__left">
+    <div v-if="gte('extraLarge')" class="home-layout__left">
       <slot name="left" />
     </div>
   </div>
@@ -25,10 +25,14 @@
 <script>
 import ParallaxContainer from '@/components/ParallaxContainer'
 
+import responsive from '@/mixins/responsive'
+
 export default {
   components: {
     ParallaxContainer
-  }
+  },
+
+  mixins: [responsive]
 }
 </script>
 
@@ -76,6 +80,9 @@ export default {
 }
 
 .home-layout__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   bottom: 0;
