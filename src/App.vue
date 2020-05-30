@@ -3,6 +3,13 @@
     <template v-slot:page>
       <router-view />
     </template>
+    <template v-slot:button>
+      <BaseIcon
+        name="menu"
+        :fill="false"
+        size="21"
+      />
+    </template>
   </AppLayout>
 </template>
 
