@@ -1,3 +1,4 @@
+@import 'mixins';
 @import 'reset';
 @import 'vars';
 @import 'vue-svgicon';
@@ -25,10 +26,8 @@ html {
 }
 
 body {
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow-x: hidden;
+  @include hide-scrollbar;
 }
 
 a {

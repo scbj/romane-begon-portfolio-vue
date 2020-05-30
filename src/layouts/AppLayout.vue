@@ -16,6 +16,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_vars.scss';
+
 .app-layout {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -41,8 +43,17 @@
 }
 
 .app-layout__button {
+  position: relative;
   grid-column: 2/3;
   grid-row: 1/2;
   justify-self: end;
+
+  margin-right: 5rem;
+  margin-top: 5rem;
+
+  @media screen and (min-width: $extraLarge) {
+    margin-right: 68px;
+    margin-top: 68px;
+  }
 }
 </style>
