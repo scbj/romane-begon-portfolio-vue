@@ -19,10 +19,6 @@
       />
     </template>
 
-    <template v-slot:footer>
-      <span class="startup__scroll-down">DÉFILER VERS LE BAS</span>
-    </template>
-
     <template v-slot:content>
       <div class="startup__content">
         <WebsiteMark size="large" />
@@ -71,16 +67,6 @@ export default {
 
 .startup__background-overlay {
   background: linear-gradient(0deg, rgba(15,14,11,0.4009978991596639) 0%, rgba(15,14,11,0.05926120448179273) 100%)
-}
-
-.startup__scroll-down {
-  font-family: 'TT Commons';
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  line-height: 2.667em;
-  color: var(--color-light-1);
-  opacity: .87;
 }
 
 .startup__content {

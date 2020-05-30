@@ -1,22 +1,31 @@
 <template>
-  <div class="startup-layout">
-    <div class="startup-layout__background">
+  <ParallaxGroup class="startup-layout">
+    <ParallaxLayer class="startup-layout__background" depth="back">
       <slot name="background" />
-    </div>
-    <div class="startup-layout__content">
+    </ParallaxLayer>
+    <ParallaxLayer class="startup-layout__content" depth="fore">
       <slot name="content" />
-    </div>
-    <div class="startup-layout__fixed">
+    </ParallaxLayer>
+    <ParallaxLayer class="startup-layout__fixed" depth="fore">
       <slot name="fixed" />
-    </div>
-    <div class="startup-layout__button">
+    </ParallaxLayer>
+    <ParallaxLayer class="startup-layout__button" depth="fore">
       <slot name="button" />
-    </div>
-    <div class="startup-layout__footer">
-      <slot name="footer" />
-    </div>
-  </div>
+    </ParallaxLayer>
+  </ParallaxGroup>
 </template>
+
+<script>
+import ParallaxGroup from '@/components/ParallaxGroup'
+import ParallaxLayer from '@/components/ParallaxLayer'
+
+export default {
+  components: {
+    ParallaxGroup,
+    ParallaxLayer
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
@@ -31,8 +40,7 @@
 .startup-layout__background,
 .startup-layout__content,
 .startup-layout__fixed,
-.startup-layout__button,
-.startup-layout__footer {
+.startup-layout__button {
   grid-column: 1/2;
   grid-row: 1/2;
 }
@@ -58,12 +66,6 @@
     right: 68px;
     top: 68px;
   }
-}
-
-.startup-layout__footer {
-  align-self: end;
-  justify-self: center;
-  margin-bottom: 6rem;
 }
 
 .startup-layout__content {

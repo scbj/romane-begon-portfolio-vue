@@ -1,7 +1,7 @@
 <template>
   <HomeLayout class="home">
     <template v-slot:content>
-      <StartupParallax
+      <Startup
         v-for="(n, index) of 4"
         :key="index"
         :style="`z-index: ${n}`"
@@ -19,13 +19,13 @@
 <script>
 import HomeLayout from '@/layouts/HomeLayout'
 import SocialLinks from '@/components/SocialLinks'
-import StartupParallax from '@/views/StartupParallax'
+import Startup from '@/views/Startup'
 
 export default {
   components: {
     HomeLayout,
     SocialLinks,
-    StartupParallax
+    Startup
   }
 }
 </script>
