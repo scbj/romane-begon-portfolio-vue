@@ -12,9 +12,6 @@
     <ParallaxLayer class="startup-layout__button" depth="fore">
       <slot name="button" />
     </ParallaxLayer>
-    <ParallaxLayer class="startup-layout__footer" depth="base">
-      <slot name="footer" />
-    </ParallaxLayer>
   </ParallaxGroup>
 </template>
 
@@ -43,8 +40,7 @@ export default {
 .startup-layout__background,
 .startup-layout__content,
 .startup-layout__fixed,
-.startup-layout__button,
-.startup-layout__footer {
+.startup-layout__button {
   grid-column: 1/2;
   grid-row: 1/2;
 }
@@ -70,13 +66,6 @@ export default {
     right: 68px;
     top: 68px;
   }
-}
-
-.startup-layout__footer {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 6rem;
 }
 
 .startup-layout__content {

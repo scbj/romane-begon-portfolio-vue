@@ -3,8 +3,11 @@
     <ParallaxContainer class="home-layout__content" tag="main">
       <slot name="content" />
     </ParallaxContainer>
-    <div class="home-layout__fixed">
-      <slot name="fixed" />
+    <div class="home-layout__right">
+      <slot name="right" />
+    </div>
+    <div class="home-layout__bottom">
+      <slot name="bottom" />
     </div>
   </div>
 </template>
@@ -31,7 +34,7 @@ export default {
   @include hide-scrollbar;
 }
 
-.home-layout__fixed {
+.home-layout__right {
   position: fixed;
   right: 5rem;
   top: 14rem;
@@ -42,5 +45,12 @@ export default {
     top: 50%;
     transform: translateY(-50%);
   }
+}
+
+.home-layout__bottom {
+  position: fixed;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
