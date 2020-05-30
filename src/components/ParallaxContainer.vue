@@ -12,8 +12,8 @@
 export default {
   props: {
     perspective: {
-      type: String,
-      default: '300px'
+      type: Number,
+      default: 300
     },
     tag: {
       type: String,
@@ -36,7 +36,7 @@ export default {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  perspective: var(--parallax-perspective);
+  perspective: calc(var(--parallax-perspective) * 1px);
 
   scroll-snap-type: y mandatory;
 }

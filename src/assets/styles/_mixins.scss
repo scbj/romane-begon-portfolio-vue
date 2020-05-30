@@ -5,3 +5,9 @@
     display: none;
   }
 }
+
+@mixin move-forward ($value) {
+  --scale: calc(1 + (#{$value} * -1) / var(--parallax-perspective));
+  --transform: calc(#{$value} * 1px);
+  transform: translateZ(var(--transform)) scale(var(--scale));
+}

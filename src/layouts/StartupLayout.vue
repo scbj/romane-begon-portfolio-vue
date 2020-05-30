@@ -3,14 +3,8 @@
     <ParallaxLayer class="startup-layout__background" depth="back">
       <slot name="background" />
     </ParallaxLayer>
-    <ParallaxLayer class="startup-layout__content" depth="fore">
+    <ParallaxLayer class="startup-layout__content" depth="base">
       <slot name="content" />
-    </ParallaxLayer>
-    <ParallaxLayer class="startup-layout__fixed" depth="fore">
-      <slot name="fixed" />
-    </ParallaxLayer>
-    <ParallaxLayer class="startup-layout__button" depth="fore">
-      <slot name="button" />
     </ParallaxLayer>
   </ParallaxGroup>
 </template>
@@ -38,34 +32,9 @@ export default {
 }
 
 .startup-layout__background,
-.startup-layout__content,
-.startup-layout__fixed,
-.startup-layout__button {
+.startup-layout__content {
   grid-column: 1/2;
   grid-row: 1/2;
-}
-
-.startup-layout__fixed {
-  position: fixed;
-  top: 14rem;
-  right: 5rem;
-
-  @media screen and (min-width: $extraLarge) {
-    right: 68px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-.startup-layout__button {
-  position: fixed;
-  right: 5rem;
-  top: 5rem;
-
-  @media screen and (min-width: $extraLarge) {
-    right: 68px;
-    top: 68px;
-  }
 }
 
 .startup-layout__content {

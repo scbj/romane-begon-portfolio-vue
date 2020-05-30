@@ -34,22 +34,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_mixins.scss';
+
 .parallax-layer {
   position: relative;
 }
 
 .parallax__layer--back {
-  transform: translateZ(0);
+  @include move-forward(0);
   z-index: 3;
 }
 
 .parallax__layer--base {
-  transform: translateZ(90px) scale(.7);
+  @include move-forward(45);
   z-index: 2;
 }
 
 .parallax__layer--fore {
-  transform: translateZ(120px) scale(.6);
+  @include move-forward(90);
   z-index: 1;
 }
 </style>
