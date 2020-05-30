@@ -1,11 +1,8 @@
 <template>
   <HomeLayout class="home">
     <template v-slot:content>
-      <Startup
-        v-for="(n, index) of 4"
-        :key="index"
-        :style="`z-index: ${n}`"
-      />
+      <Startup style="z-index: 0" />
+      <PrestationPreview style="z-index: 1" />
     </template>
     <template v-slot:top>
       <WebsiteMark class="mark" />
@@ -24,6 +21,7 @@
 
 <script>
 import HomeLayout from '@/layouts/HomeLayout'
+import PrestationPreview from '@/views/PrestationPreview'
 import ScrollProgress from '@/components/ScrollProgress'
 import SocialLinks from '@/components/SocialLinks'
 import Startup from '@/views/Startup'
@@ -32,6 +30,7 @@ import WebsiteMark from '@/components/WebsiteMark'
 export default {
   components: {
     HomeLayout,
+    PrestationPreview,
     ScrollProgress,
     SocialLinks,
     Startup,

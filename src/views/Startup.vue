@@ -7,18 +7,6 @@
       </div>
     </template>
 
-    <template v-slot:fixed>
-      <SocialLinks orientation="vertical" />
-    </template>
-
-    <template v-slot:button>
-      <BaseIcon
-        name="menu"
-        :fill="false"
-        size="21"
-      />
-    </template>
-
     <template v-slot:content>
       <div class="startup__content">
         <WebsiteMark size="large" />
@@ -32,13 +20,11 @@
 </template>
 
 <script>
-import SocialLinks from '@/components/SocialLinks'
 import WebsiteMark from '@/components/WebsiteMark'
 import StartupLayout from '@/layouts/StartupLayout'
 
 export default {
   components: {
-    SocialLinks,
     StartupLayout,
     WebsiteMark
   }
