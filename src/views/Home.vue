@@ -3,12 +3,15 @@
     <template v-slot:content>
       <Startup style="z-index: 0" />
       <Intersect
-        :threshold="[0.5]"
+        :treshold="[0.1, 0.5, 0.9]"
         @enter="onEnter"
         @leave="onLeave"
       >
         <PrestationPreview style="z-index: 1" />
       </Intersect>
+      <Startup style="z-index: 2" />
+      <Startup style="z-index: 3" />
+      <Startup style="z-index: 4" />
     </template>
     <template v-slot:top>
       <WebsiteMark class="mark" />
@@ -53,14 +56,18 @@ export default {
   },
 
   methods: {
-    onEnter () {
-      console.log('enter')
-      this.hideScrollProgress = false
+    onEnter (entry) {
+      if (entry[0].intersectionRatio > 0.2) {
+        this.hideScrollProgress = false
+      } else {
+        this.hideScrollProgress = true
+      }
     },
 
-    onLeave () {
-      console.log('leave')
-      this.hideScrollProgress = true
+    onLeave (entry) {
+      if (entry[0].intersectionRatio === 0) {
+        this.hideScrollProgress = true
+      }
     }
   }
 }

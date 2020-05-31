@@ -1,23 +1,28 @@
 <template>
-  <div class="scroll-progress" :style="cssVariables">
-    <div class="scroll-progress__indicator-background" />
-    <div class="scroll-progress__indicator" />
+  <transition
+    name="foo"
+    appear
+  >
+    <div class="scroll-progress" :style="cssVariables">
+      <div class="scroll-progress__indicator-background" />
+      <div class="scroll-progress__indicator" />
 
-    <template v-for="(page, index) in pages">
-      <!-- Page numbers -->
-      <span :key="'index' + index" class="scroll-progress__index">
-        0{{ index + 1 }}
-      </span>
+      <template v-for="(page, index) in pages">
+        <!-- Page numbers -->
+        <span :key="'index' + index" class="scroll-progress__index">
+          0{{ index + 1 }}
+        </span>
 
-      <!-- Labels -->
-      <span
-        :key="'label-' + index"
-        class="scroll-progress__label"
-      >
-        {{ page.toUpperCase() }}
-      </span>
-    </template>
-  </div>
+        <!-- Labels -->
+        <span
+          :key="'label-' + index"
+          class="scroll-progress__label"
+        >
+          {{ page.toUpperCase() }}
+        </span>
+      </template>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -93,5 +98,16 @@ export default {
 
 .scroll-progress__index {
   text-align: right;
+}
+
+.foo-enter-active,
+.foo-leave-active {
+  transition: transform .1s ease-out;
+}
+
+.foo-enter,
+.foo-leave-to {
+  transform: translateX(-1rem) scale(0.995);
+  opacity: 0;
 }
 </style>
