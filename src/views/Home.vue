@@ -2,7 +2,13 @@
   <HomeLayout class="home">
     <template v-slot:content>
       <Startup style="z-index: 0" />
-      <PrestationPreview style="z-index: 1" />
+      <Intersect
+        :threshold="[0.5]"
+        @enter="onEnter"
+        @leave="onLeave"
+      >
+        <PrestationPreview style="z-index: 1" />
+      </Intersect>
     </template>
     <template v-slot:top>
       <WebsiteMark class="mark" />
@@ -14,12 +20,14 @@
       <span class="home__scroll-down">DÉFILER VERS LE BAS</span>
     </template>
     <template v-slot:left>
-      <ScrollProgress />
+      <ScrollProgress v-show="!hideScrollProgress" />
     </template>
   </HomeLayout>
 </template>
 
 <script>
+import Intersect from 'vue-intersect'
+
 import HomeLayout from '@/layouts/HomeLayout'
 import PrestationPreview from '@/views/PrestationPreview'
 import ScrollProgress from '@/components/ScrollProgress'
@@ -30,11 +38,30 @@ import WebsiteMark from '@/components/WebsiteMark'
 export default {
   components: {
     HomeLayout,
+    Intersect,
     PrestationPreview,
     ScrollProgress,
     SocialLinks,
     Startup,
     WebsiteMark
+  },
+
+  data () {
+    return {
+      hideScrollProgress: true
+    }
+  },
+
+  methods: {
+    onEnter () {
+      console.log('enter')
+      this.hideScrollProgress = false
+    },
+
+    onLeave () {
+      console.log('leave')
+      this.hideScrollProgress = true
+    }
   }
 }
 </script>

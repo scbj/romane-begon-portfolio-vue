@@ -16,7 +16,7 @@
     <div class="home-layout__bottom">
       <slot name="bottom" />
     </div>
-    <div v-if="gte('extraLarge')" class="home-layout__left">
+    <div v-if="gte('large')" class="home-layout__left">
       <slot name="left" />
     </div>
   </div>

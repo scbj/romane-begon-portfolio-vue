@@ -17,6 +17,9 @@
           Voilà quatre mots qui qualifient parfaitement mon approche de la photographie et je serai
           heureuse d’apporter ce regard singulier au plus beau jour de votre vie.
         </TextParagraph>
+        <TextButton class="prestation-preview__browse-button">
+          DÉCOUVRIR PLUS EN DETAILS
+        </TextButton>
       </div>
     </template>
   </PrestationPreviewLayout>
@@ -24,12 +27,14 @@
 
 <script>
 import PrestationPreviewLayout from '@/layouts/PrestationPreviewLayout'
+import TextButton from '@/components/TextButton'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
 export default {
   components: {
     PrestationPreviewLayout,
+    TextButton,
     TextParagraph,
     TextTitle
   }
@@ -63,6 +68,7 @@ export default {
 }
 
 .prestation-preview__content {
+  color: var(--color-light-1);
   padding: 5rem;
   display: flex;
   flex-direction: column;
@@ -79,5 +85,9 @@ export default {
     padding: 0;
     padding-left: 43rem;
   }
+}
+
+.prestation-preview__browse-button {
+  margin-top: 4.9rem;
 }
 </style>

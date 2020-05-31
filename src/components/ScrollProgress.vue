@@ -52,9 +52,9 @@ export default {
 .scroll-progress {
   font-family: "Garamond Premier Pro Display", serif;
   font-weight: 300;
-  font-size: 16px;
-  letter-spacing: 1.38px;
-  line-height: 23px;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  line-height: 1.438em;
   white-space: pre;
   color: #cccccc;
 
