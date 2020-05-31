@@ -63,7 +63,7 @@ export default {
 }
 
 .prestation-preview__content {
-  padding-left: 20rem;
+  padding: 5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -71,10 +71,12 @@ export default {
   height: 100%;
 
   @media screen and (min-width: $large) {
+    padding: 0;
     padding-left: 28rem;
   }
 
   @media screen and (min-width: $extraLarge) {
+    padding: 0;
     padding-left: 43rem;
   }
 }

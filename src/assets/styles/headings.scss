@@ -1,9 +1,19 @@
+@import 'vars';
+
 h1 {
   font-family: "Orpheus Pro", serif;
   font-weight: 700;
-  font-size: 12.7rem;
+  font-size: 10rem;
   letter-spacing: 0.029em;
   line-height: 2em;
+
+  @media screen and (min-width: $large) {
+    font-size: 11rem;
+  }
+
+  @media screen and (min-width: $extraLarge) {
+    font-size: 12.7rem;
+  }
 }
 
 h2 {
