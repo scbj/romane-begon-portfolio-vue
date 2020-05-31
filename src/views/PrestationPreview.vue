@@ -9,7 +9,7 @@
 
     <template v-slot:content>
       <div class="prestation-preview__content">
-        <TextTitle :level="1">
+        <TextTitle extra-large>
           Mariages
         </TextTitle>
         <TextParagraph>
