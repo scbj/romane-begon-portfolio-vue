@@ -1,32 +1,44 @@
 <template>
-  <StartupLayout class="startup">
-    <template v-slot:background>
-      <div class="startup__background">
-        <div class="startup__background-picture" />
-        <div class="startup__background-overlay" />
-      </div>
-    </template>
-
-    <template v-slot:content>
-      <div class="startup__content">
-        <WebsiteMark size="large" />
-        <div class="startup__content-citation">
-          <span class="sentence-1">« Une photographie, c'est un fragment de temps qui ne reviendra pas. »</span>
-          <span class="sentence-2">Martine Franck</span>
+  <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
+    <StartupLayout class="startup">
+      <template v-slot:background>
+        <div class="startup__background">
+          <div class="startup__background-picture" />
+          <div class="startup__background-overlay" />
         </div>
-      </div>
-    </template>
-  </StartupLayout>
+      </template>
+
+      <template v-slot:content>
+        <div class="startup__content">
+          <WebsiteMark size="large" />
+          <div class="startup__content-citation">
+            <span class="sentence-1">« Une photographie, c'est un fragment de temps qui ne reviendra pas. »</span>
+            <span class="sentence-2">Martine Franck</span>
+          </div>
+        </div>
+      </template>
+    </StartupLayout>
+  </Intersect>
 </template>
 
 <script>
-import WebsiteMark from '@/components/WebsiteMark'
+import Intersect from 'vue-intersect'
 import StartupLayout from '@/layouts/StartupLayout'
+import WebsiteMark from '@/components/WebsiteMark'
 
 export default {
   components: {
+    Intersect,
     StartupLayout,
     WebsiteMark
+  },
+
+  methods: {
+    onEnter (entry) {
+      if (entry[0].intersectionRatio > 0.2) {
+        this.$emit('visible')
+      }
+    }
   }
 }
 </script>

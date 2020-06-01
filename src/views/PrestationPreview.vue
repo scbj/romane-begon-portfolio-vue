@@ -1,32 +1,34 @@
 <template>
-  <PrestationPreviewLayout class="prestation-preview">
-    <template v-slot:background>
-      <div class="prestation-preview__background">
-        <div class="prestation-preview__background-picture" />
-        <div class="prestation-preview__background-overlay" />
-      </div>
-    </template>
+  <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
+    <PrestationPreviewLayout class="prestation-preview" :style="cssVariables">
+      <template v-slot:background>
+        <div class="prestation-preview__background">
+          <div class="prestation-preview__background-picture" />
+          <div class="prestation-preview__background-overlay" :class="overlayClass" />
+        </div>
+      </template>
 
-    <template v-slot:content>
-      <div class="prestation-preview__content">
-        <PrestationCounter />
-        <TextTitle extra-large>
-          Mariages
-        </TextTitle>
-        <TextParagraph>
-          Emotion, amour, douceur et sensualité.<br>
-          Voilà quatre mots qui qualifient parfaitement mon approche de la photographie et je serai
-          heureuse d’apporter ce regard singulier au plus beau jour de votre vie.
-        </TextParagraph>
-        <IconTextButton class="prestation-preview__browse-button" icon="play">
-          DÉCOUVRIR PLUS EN DETAILS
-        </IconTextButton>
-      </div>
-    </template>
-  </PrestationPreviewLayout>
+      <template v-slot:content>
+        <div class="prestation-preview__content">
+          <PrestationCounter />
+          <TextTitle extra-large>
+            <slot name="title" />
+          </TextTitle>
+          <TextParagraph>
+            <slot name="description" />
+          </TextParagraph>
+          <IconTextButton class="prestation-preview__browse-button" icon="play">
+            DÉCOUVRIR PLUS EN DETAILS
+          </IconTextButton>
+        </div>
+      </template>
+    </PrestationPreviewLayout>
+  </Intersect>
 </template>
 
 <script>
+import Intersect from 'vue-intersect'
+
 import IconTextButton from '@/components/IconTextButton'
 import PrestationCounter from '@/components/PrestationCounter'
 import PrestationPreviewLayout from '@/layouts/PrestationPreviewLayout'
@@ -36,10 +38,42 @@ import TextTitle from '@/components/TextTitle'
 export default {
   components: {
     IconTextButton,
+    Intersect,
     PrestationCounter,
     PrestationPreviewLayout,
     TextParagraph,
     TextTitle
+  },
+
+  props: {
+    bgImage: {
+      type: String,
+      required: true
+    },
+    overlay: {
+      type: String,
+      default: 'left'
+    }
+  },
+
+  computed: {
+    cssVariables () {
+      return {
+        '--background-image': `url(${this.bgImage})`
+      }
+    },
+
+    overlayClass () {
+      return `prestation-preview__background--${this.overlay}`
+    }
+  },
+
+  methods: {
+    onEnter (entry) {
+      if (entry[0].intersectionRatio > 0.2) {
+        this.$emit('visible')
+      }
+    }
   }
 }
 </script>
@@ -61,13 +95,16 @@ export default {
 
 .prestation-preview__background-picture {
   background-image: url(/photos/site37.jpg);
+  background-image: var(--background-image);
   background-size: cover;
   background-position: 63%;
   background-repeat: no-repeat;
 }
 
 .prestation-preview__background-overlay {
-  background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 59%);
+  &[class*="--left"] {
+    background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 59%);
+  }
 }
 
 .prestation-preview__content {
