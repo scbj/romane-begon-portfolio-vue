@@ -15,9 +15,9 @@
         </ListView>
         <SocialLinks class="social" />
         <CopyrightStatement class="copyright" />
-        <TextButton class="credits">
+        <BaseButton class="credits">
           CREDITS
-        </TextButton>
+        </BaseButton>
       </div>
     </template>
     <template v-slot:button>
@@ -37,7 +37,6 @@ import MenuCover from '@/components/MenuCover'
 import MenuLayout from '@/layouts/MenuLayout'
 import MenuLink from '@/components/MenuLink'
 import SocialLinks from '@/components/SocialLinks'
-import TextButton from '@/components/TextButton'
 import WebsiteMark from '@/components/WebsiteMark'
 
 import { navigationLinks } from '@/assets/data/menu'
@@ -50,7 +49,6 @@ export default {
     MenuLayout,
     MenuLink,
     SocialLinks,
-    TextButton,
     WebsiteMark
   },
 

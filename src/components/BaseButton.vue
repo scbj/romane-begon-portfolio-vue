@@ -1,11 +1,11 @@
 <template>
-  <button class="text-button">
+  <button class="base-button">
     <slot />
   </button>
 </template>
 
 <style lang="scss" scoped>
-.text-button {
+.base-button {
   font-size: 1.4rem;
   font-weight: 500;
   font-family: "TT Commons", sans-serif;

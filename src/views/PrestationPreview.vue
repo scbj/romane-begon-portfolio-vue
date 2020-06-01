@@ -17,9 +17,9 @@
           Voilà quatre mots qui qualifient parfaitement mon approche de la photographie et je serai
           heureuse d’apporter ce regard singulier au plus beau jour de votre vie.
         </TextParagraph>
-        <TextButton class="prestation-preview__browse-button">
+        <IconTextButton class="prestation-preview__browse-button" icon="play">
           DÉCOUVRIR PLUS EN DETAILS
-        </TextButton>
+        </IconTextButton>
       </div>
     </template>
   </PrestationPreviewLayout>
@@ -27,14 +27,14 @@
 
 <script>
 import PrestationPreviewLayout from '@/layouts/PrestationPreviewLayout'
-import TextButton from '@/components/TextButton'
+import IconTextButton from '@/components/IconTextButton'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
 export default {
   components: {
+    IconTextButton,
     PrestationPreviewLayout,
-    TextButton,
     TextParagraph,
     TextTitle
   }
