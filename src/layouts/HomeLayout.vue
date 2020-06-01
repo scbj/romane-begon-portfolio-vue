@@ -41,7 +41,7 @@ export default {
 @import '@/assets/styles/_vars.scss';
 
 .home-layout {
-  height: 100%;
+  height: 100vh;
 }
 
 .home-layout__content {

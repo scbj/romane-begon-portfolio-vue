@@ -39,11 +39,8 @@ export default {
 @import '@/assets/styles/_vars.scss';
 
 .icon-text-button {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
   align-items: center;
-  gap: 2.3rem;
 
   &:hover .icon-text-button__icon {
     border-color: rgba(255,255,255,.6);
@@ -57,7 +54,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  grid-column: 1/2;
   height: 39px;
   width: 39px;
 
@@ -75,6 +71,6 @@ export default {
 }
 
 .icon-text-button__text {
-  grid-column: 2/3;
+  margin-left: 2.3rem;
 }
 </style>
