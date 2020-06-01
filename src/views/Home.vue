@@ -21,8 +21,10 @@
         </template>
       </PrestationPreview>
       <PrestationPreview
-        bg-image="/photos/5.jpg"
+        bg-image="/photos/FABM7993.jpg"
+        bg-position="72%"
         style="z-index: 2"
+        overlay="left"
         @visible="hideScrollProgress = false"
       >
         <template v-slot:title>
@@ -36,7 +38,9 @@
       </PrestationPreview>
       <PrestationPreview
         bg-image="/photos/12copie.jpg"
+        bg-position="44%"
         style="z-index: 3"
+        overlay="foo"
         @visible="hideScrollProgress = false"
       >
         <template v-slot:title>

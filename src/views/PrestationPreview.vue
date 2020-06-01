@@ -50,6 +50,10 @@ export default {
       type: String,
       required: true
     },
+    bgPosition: {
+      type: String,
+      default: '63%'
+    },
     overlay: {
       type: String,
       default: 'left'
@@ -59,7 +63,8 @@ export default {
   computed: {
     cssVariables () {
       return {
-        '--background-image': `url(${this.bgImage})`
+        '--background-image': `url(${this.bgImage})`,
+        '--background-position': this.bgPosition
       }
     },
 
@@ -97,13 +102,19 @@ export default {
   background-image: url(/photos/site37.jpg);
   background-image: var(--background-image);
   background-size: cover;
-  background-position: 63%;
+  background-position: var(--background-position);
   background-repeat: no-repeat;
 }
 
 .prestation-preview__background-overlay {
   &[class*="--left"] {
     background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 59%);
+  }
+  &[class*="--wide"] {
+    background: linear-gradient(90deg, rgba(15,14,11,1) 0%, rgba(15,14,11,0.06) 62%);
+  }
+  &[class*="--foo"] {
+    background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 70%);
   }
 }
 
