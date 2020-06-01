@@ -31,6 +31,7 @@ export default {
  --color-light-1: #f3f3f3;
  --color-light-2: #e4e4e4;
  --color-light-3: #cccccc;
+ --color-light-4: rgba(255, 255, 255, 0.27);
 
  --color-dark-1: #0f0e0b;
 

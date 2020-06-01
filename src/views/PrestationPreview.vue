@@ -9,6 +9,7 @@
 
     <template v-slot:content>
       <div class="prestation-preview__content">
+        <PrestationCounter />
         <TextTitle extra-large>
           Mariages
         </TextTitle>
@@ -26,14 +27,16 @@
 </template>
 
 <script>
-import PrestationPreviewLayout from '@/layouts/PrestationPreviewLayout'
 import IconTextButton from '@/components/IconTextButton'
+import PrestationCounter from '@/components/PrestationCounter'
+import PrestationPreviewLayout from '@/layouts/PrestationPreviewLayout'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
 export default {
   components: {
     IconTextButton,
+    PrestationCounter,
     PrestationPreviewLayout,
     TextParagraph,
     TextTitle
@@ -70,15 +73,22 @@ export default {
 .prestation-preview__content {
   color: var(--color-light-1);
   padding: 5rem;
+  padding-bottom: 18rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-end;
   height: 100%;
+
+  @media screen and (min-width: $medium) {
+    justify-content: center;
+    padding: 0;
+    padding-left: 32rem;
+  }
 
   @media screen and (min-width: $large) {
     padding: 0;
-    padding-left: 28rem;
+    padding-left: 37rem;
   }
 
   @media screen and (min-width: $extraLarge) {

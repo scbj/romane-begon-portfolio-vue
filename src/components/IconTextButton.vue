@@ -43,7 +43,7 @@ export default {
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  gap: 23px;
+  gap: 2.3rem;
 
   &:hover .icon-text-button__icon {
     border-color: rgba(255,255,255,.6);
