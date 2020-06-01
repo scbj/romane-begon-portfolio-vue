@@ -1,7 +1,7 @@
 <template>
   <div class="prestation-counter">
     <span class="prestation-counter__actual">
-      0{{ 2 }}
+      0{{ pageCount }}
     </span>
     <i class="prestation-counter__separator" />
     <span class="prestation-counter__total">
@@ -9,6 +9,18 @@
     </span>
   </div>
 </template>
+
+<script>
+let count = 2
+
+export default {
+  data () {
+    return {
+      pageCount: count++
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .prestation-counter {
