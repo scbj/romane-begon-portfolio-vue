@@ -6,9 +6,6 @@
     <div class="menu-layout__right">
       <slot name="right" />
     </div>
-    <div class="menu-layout__button">
-      <slot name="button" />
-    </div>
   </div>
 </template>
 
@@ -54,17 +51,6 @@ export default {
     padding-left: 110px;
     padding-right: 68px;
     padding-top: 14vh;
-  }
-}
-
-.menu-layout__button {
-  grid-area: right;
-  justify-self: end;
-  align-self: start;
-  padding: 5rem;
-
-  @media screen and (min-width: $extraLarge) {
-    padding-right: 68px;
   }
 }
 </style>

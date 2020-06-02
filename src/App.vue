@@ -3,22 +3,25 @@
     <template v-slot:page>
       <router-view />
     </template>
+    <template v-slot:menu>
+      <Menu />
+    </template>
     <template v-slot:button>
-      <BaseIcon
-        name="menu"
-        :fill="false"
-        size="21"
-      />
+      <MenuButton />
     </template>
   </AppLayout>
 </template>
 
 <script>
 import AppLayout from '@/layouts/AppLayout.vue'
+import Menu from '@/views/Menu.vue'
+import MenuButton from '@/components/MenuButton.vue'
 
 export default {
   components: {
-    AppLayout
+    AppLayout,
+    Menu,
+    MenuButton
   }
 }
 </script>

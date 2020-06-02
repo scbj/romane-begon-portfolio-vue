@@ -1,8 +1,14 @@
-<template>
-  <button class="base-button">
-    <slot />
-  </button>
-</template>
+<script>
+export default {
+  render () {
+    return (
+      <button class="base-button" attrs={this.$attrs} on={this.$listeners}>
+        { this.$slots.default }
+      </button>
+    )
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .base-button {

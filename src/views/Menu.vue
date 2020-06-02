@@ -20,13 +20,6 @@
         </BaseButton>
       </div>
     </template>
-    <template v-slot:button>
-      <BaseIcon
-        name="cross"
-        :fill="false"
-        size="18"
-      />
-    </template>
   </MenuLayout>
 </template>
 
