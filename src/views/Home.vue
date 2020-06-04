@@ -53,6 +53,7 @@
           séance photo pleine de vie !
         </template>
       </PrestationPreview>
+      <ClientAreaPreview />
       <Startup
         style="z-index: 2"
         @visible="hideScrollProgress = true"
@@ -67,7 +68,7 @@
       />
     </template>
     <template v-slot:top>
-      <WebsiteMark class="mark" />
+      <WebsiteMark v-show="!hideScrollProgress" class="mark" />
     </template>
     <template v-slot:right>
       <SocialLinks orientation="vertical" />
@@ -83,6 +84,7 @@
 
 <script>
 
+import ClientAreaPreview from '@/views/ClientAreaPreview'
 import HomeLayout from '@/layouts/HomeLayout'
 import PrestationPreview from '@/views/PrestationPreview'
 import ScrollProgress from '@/components/ScrollProgress'
@@ -92,6 +94,7 @@ import WebsiteMark from '@/components/WebsiteMark'
 
 export default {
   components: {
+    ClientAreaPreview,
     HomeLayout,
     PrestationPreview,
     ScrollProgress,
@@ -107,7 +110,6 @@ export default {
   },
 
   methods: {
-
     onVisiblityChanged (isVisible) {
       this.hideScrollProgress = !isVisible
     }
