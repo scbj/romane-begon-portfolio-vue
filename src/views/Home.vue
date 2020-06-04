@@ -3,13 +3,13 @@
     <template v-slot:content>
       <Startup
         style="z-index: 0"
-        @visible="hideScrollProgress = true"
+        @visible="keepOnlySocialLinks()"
       />
       <PrestationPreview
         bg-image="/photos/site37.jpg"
         style="z-index: 1"
         overlay="left"
-        @visible="hideScrollProgress = false"
+        @visible="showAllComponents()"
       >
         <template v-slot:title>
           Mariages
@@ -25,7 +25,7 @@
         bg-position="72%"
         style="z-index: 2"
         overlay="left"
-        @visible="hideScrollProgress = false"
+        @visible="showAllComponents()"
       >
         <template v-slot:title>
           Portraits
@@ -41,7 +41,7 @@
         bg-position="44%"
         style="z-index: 3"
         overlay="foo"
-        @visible="hideScrollProgress = false"
+        @visible="showAllComponents()"
       >
         <template v-slot:title>
           Familles<br>
@@ -53,25 +53,21 @@
           séance photo pleine de vie !
         </template>
       </PrestationPreview>
-      <ClientAreaPreview />
-      <Startup
-        style="z-index: 2"
-        @visible="hideScrollProgress = true"
-      />
-      <Startup
-        style="z-index: 3"
-        @visible="hideScrollProgress = true"
-      />
-      <Startup
+      <ClientAreaPreview
         style="z-index: 4"
-        @visible="hideScrollProgress = true"
+        @visible="freeSideSpaces()"
+        @yo="onYo"
+      />
+      <Startup
+        style="z-index: 5"
+        @visible="keepOnlySocialLinks()"
       />
     </template>
     <template v-slot:top>
-      <WebsiteMark v-show="!hideScrollProgress" class="mark" />
+      <WebsiteMark v-show="!hideWebsiteMark" class="mark" />
     </template>
     <template v-slot:right>
-      <SocialLinks orientation="vertical" />
+      <SocialLinks v-show="!hideSocialLinks" orientation="vertical" />
     </template>
     <template v-slot:bottom>
       <span class="home__scroll-down">DÉFILER VERS LE BAS</span>
@@ -105,13 +101,33 @@ export default {
 
   data () {
     return {
-      hideScrollProgress: true
+      hideScrollProgress: true,
+      hideSocialLinks: false,
+      hideWebsiteMark: false
     }
   },
 
   methods: {
     onVisiblityChanged (isVisible) {
       this.hideScrollProgress = !isVisible
+    },
+
+    freeSideSpaces () {
+      this.hideScrollProgress = true
+      this.hideSocialLinks = true
+      this.hideWebsiteMark = false
+    },
+
+    keepOnlySocialLinks () {
+      this.hideScrollProgress = true
+      this.hideSocialLinks = false
+      this.hideWebsiteMark = true
+    },
+
+    showAllComponents () {
+      this.hideScrollProgress = false
+      this.hideSocialLinks = false
+      this.hideWebsiteMark = false
     }
   }
 }
