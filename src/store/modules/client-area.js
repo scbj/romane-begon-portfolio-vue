@@ -4,6 +4,12 @@ export const state = {
   galleries: []
 }
 
+export const getters = {
+  sortedGalleries (state) {
+    return [...state.galleries].sort((a, b) => b.date - a.date)
+  }
+}
+
 export const mutations = make.mutations(state)
 
 export const actions = {
@@ -16,7 +22,7 @@ export const actions = {
         const createGallery = item => ({
           coverPhoto: `https://romanebegon.lumys.photo/api/photos/coverPhoto/${item._id}?thumb=1`,
           url: `https://romanebegon.lumys.photo/${item.url}`,
-          name: item.eventName,
+          label: item.eventName,
           date: new Date(item.eventDateString)
         })
         commit('SET_GALLERIES', galleries.map(createGallery))
@@ -30,6 +36,7 @@ export const actions = {
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions
 }

@@ -37,6 +37,7 @@ export default {
  --color-light-4: rgba(255, 255, 255, 0.27);
 
  --color-dark-1: #0f0e0b;
+ --color-dark-2: #1C1C1C;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -56,7 +56,6 @@
       <ClientAreaPreview
         style="z-index: 4"
         @visible="freeSideSpaces()"
-        @yo="onYo"
       />
       <Startup
         style="z-index: 5"
