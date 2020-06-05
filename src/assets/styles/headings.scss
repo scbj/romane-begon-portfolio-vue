@@ -30,8 +30,29 @@ h3 {
   letter-spacing: 0.29em;
 }
 
-h1,
-h2,
-h3 {
-  color: #f3f3f3
+h4 {
+  font-family: "Orpheus Pro", serif;
+  font-weight: 500;
+  font-size: 2.8rem;
+  letter-spacing: 0.19em;
 }
+
+h4 {
+  font-family: "Orpheus Pro", serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p {
+  margin-top: 2em;
+}
+
+// h1,
+// h2,
+// h3 {
+//   color: #f3f3f3
+// }

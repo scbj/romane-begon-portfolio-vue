@@ -2,13 +2,37 @@
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
     <ClientAreaPreviewLayout class="client-area-preview">
       <template v-slot:left>
-        <div>
-          Some left text
+        <div class="client-area-preview__text">
+          <TextTitle large>
+            Espace Client
+          </TextTitle>
+          <TextParagraph>
+            Je vous ai accompagné dans les belles rues de Toulouse pour une séance photo inoubliable
+            ? Je vous ai suivi dans un lieu magique pour immortaliser votre histoire ? J’ai passé l’une des
+            plus belles journées de votre vie en votre compagnie ?
+          </TextParagraph>
+          <TextParagraph v-if="gte('medium')" class="client-area-preview__second-paragraph">
+            Bienvenue dans votre espace personnel, il ne vous reste plus qu’à entrer votre mot de passe
+            personnel pour frissonner d’émotions, revoir les sourires de vos proches, admirer les
+            empreintes du bonheur ou revivre le plus beau jour de votre vie
+          </TextParagraph>
         </div>
       </template>
       <template v-slot:right>
-        <div>
-          And right content
+        <div class="client-area-preview__recents">
+          <TextParagraph class="client-area-preview__recents-label">
+            <!-- Galleries récentes -->
+            Dernière gallerie ↓
+          </TextParagraph>
+          <ListView class="client-area-preview__galleries" :items="firstGalleries">
+            <template v-slot:item="{ item }">
+              <LumysGallery :gallery="item" />
+            </template>
+          </ListView>
+          <IconTextButton class="client-area-preview__more" icon="galleries">
+            <!-- Voir plus -->
+            VOIR LES GALLERIES
+          </IconTextButton>
         </div>
       </template>
     </ClientAreaPreviewLayout>
@@ -16,15 +40,38 @@
 </template>
 
 <script>
-import { call } from 'vuex-pathify'
+import { call, get } from 'vuex-pathify'
 import Intersect from 'vue-intersect'
 
+import responsive from '@/mixins/responsive'
+
 import ClientAreaPreviewLayout from '@/layouts/ClientAreaPreviewLayout'
+import IconTextButton from '@/components/IconTextButton'
+import ListView from '@/components/ListView'
+import LumysGallery from '@/components/LumysGallery'
+import TextParagraph from '@/components/TextParagraph'
+import TextTitle from '@/components/TextTitle'
 
 export default {
   components: {
     ClientAreaPreviewLayout,
-    Intersect
+    IconTextButton,
+    Intersect,
+    ListView,
+    LumysGallery,
+    TextParagraph,
+    TextTitle
+  },
+
+  mixins: [responsive],
+
+  computed: {
+    galleries: get('clientArea/sortedGalleries'),
+
+    firstGalleries () {
+      const count = this.gte('medium') ? 4 : 1
+      return [...this.galleries].slice(0, count)
+    }
   },
 
   mounted () {
@@ -44,5 +91,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.client-area-preview {
+  background: white;
+}
 
+.client-area-preview__text {
+  color: var(--color-dark-1);
+  grid-auto-rows: auto;
+  grid-template-columns: 1fr;
+  text-align: justify;
+}
+
+.client-area-preview__recents {
+  display: flex;
+  flex-direction: column;
+  justify-self: stretch;
+}
+
+.client-area-preview__galleries {
+  /* display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 2rem; */
+}
+
+.client-area-preview__more {
+  margin-top: 2rem;
+  align-self: center;
+}
+
+.client-area-preview__recents-label {
+  font-weight: 500;
+  color: var(--color-dark-2);
+  margin-bottom: 1.5rem;
+}
 </style>
