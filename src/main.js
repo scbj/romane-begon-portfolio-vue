@@ -20,7 +20,9 @@ Vue.use(VueMq, {
   }
 })
 
-Vue.use(VueSVGIcon)
+Vue.use(VueSVGIcon, {
+  tagName: 'SvgIcon'
+})
 
 // Import all base components
 const requireComponent = require.context('./components', true, /Base[A-Z]/)
