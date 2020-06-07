@@ -142,7 +142,7 @@ export default {
 }
 
 .good-button__text {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
   font-family: "TT Commons", sans-serif;
   line-height: 2.286em;

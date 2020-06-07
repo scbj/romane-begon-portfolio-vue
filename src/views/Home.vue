@@ -78,7 +78,6 @@
 </template>
 
 <script>
-
 import ClientAreaPreview from '@/views/ClientAreaPreview'
 import HomeLayout from '@/layouts/HomeLayout'
 import PrestationPreview from '@/views/PrestationPreview'
