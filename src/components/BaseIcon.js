@@ -25,7 +25,8 @@ export default {
         color={props.color}
         height={props.size}
         width={props.width}
-        {...data} {...listeners}
+        {...data}
+        {...listeners}
       />
     )
   }
