@@ -17,9 +17,15 @@
           <TextParagraph>
             <slot name="description" />
           </TextParagraph>
-          <IconTextButton class="prestation-preview__browse-button" icon="play">
-            DÉCOUVRIR PLUS EN DETAILS
-          </IconTextButton>
+          <BaseButton
+            class="prestation-preview__browse-button"
+            :route="{ name: 'test' }"
+            color="white"
+            circle
+            icon="play"
+            :icon-scale="1.12"
+            text="DÉCOUVRIR PLUS EN DETAILS"
+          />
         </div>
       </template>
     </PrestationPreviewLayout>
@@ -29,7 +35,6 @@
 <script>
 import Intersect from 'vue-intersect'
 
-import IconTextButton from '@/components/IconTextButton'
 import PrestationCounter from '@/components/PrestationCounter'
 import PrestationPreviewLayout from '@/layouts/PrestationPreviewLayout'
 import TextParagraph from '@/components/TextParagraph'
@@ -37,7 +42,6 @@ import TextTitle from '@/components/TextTitle'
 
 export default {
   components: {
-    IconTextButton,
     Intersect,
     PrestationCounter,
     PrestationPreviewLayout,

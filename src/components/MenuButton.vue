@@ -1,11 +1,12 @@
 <template>
-  <BaseButton class="menu-button" @click="toggleMenuVisibility">
-    <BaseIcon
-      :name="activeIconName"
-      :fill="false"
-      :size="activeIconSize"
-    />
-  </BaseButton>
+  <BaseButton
+    class="menu-button"
+    color="white"
+    :icon="activeIconName"
+    :icon-scale="activeIconScale"
+    :icon-fill="false"
+    @click="toggleMenuVisibility"
+  />
 </template>
 
 <script>
@@ -19,8 +20,8 @@ export default {
       return this.isMenuActive ? 'cross' : 'menu'
     },
 
-    activeIconSize () {
-      return this.isMenuActive ? '18' : '21'
+    activeIconScale () {
+      return this.isMenuActive ? 2.5 : 3
     }
   },
 

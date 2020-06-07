@@ -29,10 +29,14 @@
               <LumysGallery :gallery="item" />
             </template>
           </ListView>
-          <IconTextButton class="client-area-preview__more" icon="galleries">
-            <!-- Voir plus -->
-            VOIR LES GALLERIES
-          </IconTextButton>
+          <BaseButton
+            class="client-area-preview__more"
+            :route="{ name: 'test' }"
+            color="black"
+            icon="galleries-2"
+            :icon-scale="1.8"
+            text="VOIR LES GALLERIES"
+          />
         </div>
       </template>
     </ClientAreaPreviewLayout>
@@ -46,7 +50,6 @@ import Intersect from 'vue-intersect'
 import responsive from '@/mixins/responsive'
 
 import ClientAreaPreviewLayout from '@/layouts/ClientAreaPreviewLayout'
-import IconTextButton from '@/components/IconTextButton'
 import ListView from '@/components/ListView'
 import LumysGallery from '@/components/LumysGallery'
 import TextParagraph from '@/components/TextParagraph'
@@ -55,7 +58,6 @@ import TextTitle from '@/components/TextTitle'
 export default {
   components: {
     ClientAreaPreviewLayout,
-    IconTextButton,
     Intersect,
     ListView,
     LumysGallery,
@@ -108,13 +110,13 @@ export default {
   justify-self: stretch;
 }
 
-.client-area-preview__galleries {
-  /* display: grid;
+/* .client-area-preview__galleries {
+  display: grid;
   grid-template-columns: repeat(2, 300px);
   grid-template-rows: repeat(2, 1fr);
   gap: 3rem;
-  margin-top: 2rem; */
-}
+  margin-top: 2rem;
+} */
 
 .client-area-preview__more {
   margin-top: 2rem;

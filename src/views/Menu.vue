@@ -15,9 +15,11 @@
         </ListView>
         <SocialLinks class="social" />
         <CopyrightStatement class="copyright" />
-        <BaseButton class="credits">
-          CREDITS
-        </BaseButton>
+        <BaseButton
+          class="credits"
+          color="white"
+          text="CREDITS"
+        />
       </div>
     </template>
   </MenuLayout>

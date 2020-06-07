@@ -24,7 +24,7 @@ export default {
         icon={`icon-${props.name}`}
         color={props.color}
         height={props.size}
-        width={props.width}
+        width={props.size}
         {...data}
         {...listeners}
       />
