@@ -1,18 +1,27 @@
 <template>
-  <BaseButton
-    class="menu-button"
-    color="white"
-    :icon="activeIconName"
-    :icon-scale="activeIconScale"
-    :icon-fill="false"
-    @click="toggleMenuVisibility"
-  />
+  <ReactiveTheme>
+    <BaseButton
+      slot-scope="props"
+      class="menu-button"
+      :color="props.theme['--text-color']"
+      :icon="activeIconName"
+      :icon-scale="activeIconScale"
+      :icon-fill="false"
+      @click="toggleMenuVisibility"
+    />
+  </ReactiveTheme>
 </template>
 
 <script>
 import { get, call } from 'vuex-pathify'
 
+import ReactiveTheme from '@/components/ReactiveTheme'
+
 export default {
+  components: {
+    ReactiveTheme
+  },
+
   computed: {
     isMenuActive: get('ui/isMenuActive'),
 

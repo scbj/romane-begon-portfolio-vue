@@ -1,46 +1,48 @@
 <template>
-  <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ClientAreaPreviewLayout class="client-area-preview">
-      <template v-slot:left>
-        <div class="client-area-preview__text">
-          <TextTitle large>
-            Espace Client
-          </TextTitle>
-          <TextParagraph>
-            Je vous ai accompagné dans les belles rues de Toulouse pour une séance photo inoubliable
-            ? Je vous ai suivi dans un lieu magique pour immortaliser votre histoire ? J’ai passé l’une des
-            plus belles journées de votre vie en votre compagnie ?
-          </TextParagraph>
-          <TextParagraph v-if="gte('medium')" class="client-area-preview__second-paragraph">
-            Bienvenue dans votre espace personnel, il ne vous reste plus qu’à entrer votre mot de passe
-            personnel pour frissonner d’émotions, revoir les sourires de vos proches, admirer les
-            empreintes du bonheur ou revivre le plus beau jour de votre vie
-          </TextParagraph>
-        </div>
-      </template>
-      <template v-slot:right>
-        <div class="client-area-preview__recents">
-          <TextParagraph class="client-area-preview__recents-label">
-            <!-- Galleries récentes -->
-            Dernière gallerie ↓
-          </TextParagraph>
-          <ListView class="client-area-preview__galleries" :items="firstGalleries">
-            <template v-slot:item="{ item }">
-              <LumysGallery :gallery="item" />
-            </template>
-          </ListView>
-          <BaseButton
-            class="client-area-preview__more"
-            :route="{ name: 'test' }"
-            color="black"
-            icon="galleries-2"
-            :icon-scale="1.8"
-            text="VOIR LES GALLERIES"
-          />
-        </div>
-      </template>
-    </ClientAreaPreviewLayout>
-  </Intersect>
+  <StaticTheme mode="light">
+    <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
+      <ClientAreaPreviewLayout class="client-area-preview">
+        <template v-slot:left>
+          <div class="client-area-preview__text">
+            <TextTitle large>
+              Espace Client
+            </TextTitle>
+            <TextParagraph>
+              Je vous ai accompagné dans les belles rues de Toulouse pour une séance photo inoubliable
+              ? Je vous ai suivi dans un lieu magique pour immortaliser votre histoire ? J’ai passé l’une des
+              plus belles journées de votre vie en votre compagnie ?
+            </TextParagraph>
+            <TextParagraph v-if="gte('medium')" class="client-area-preview__second-paragraph">
+              Bienvenue dans votre espace personnel, il ne vous reste plus qu’à entrer votre mot de passe
+              personnel pour frissonner d’émotions, revoir les sourires de vos proches, admirer les
+              empreintes du bonheur ou revivre le plus beau jour de votre vie
+            </TextParagraph>
+          </div>
+        </template>
+        <template v-slot:right>
+          <div class="client-area-preview__recents">
+            <TextParagraph class="client-area-preview__recents-label">
+              <!-- Galleries récentes -->
+              Dernière gallerie ↓
+            </TextParagraph>
+            <ListView class="client-area-preview__galleries" :items="firstGalleries">
+              <template v-slot:item="{ item }">
+                <LumysGallery :gallery="item" />
+              </template>
+            </ListView>
+            <BaseButton
+              class="client-area-preview__more"
+              :route="{ name: 'test' }"
+              color="black"
+              icon="galleries-2"
+              :icon-scale="1.8"
+              text="VOIR LES GALLERIES"
+            />
+          </div>
+        </template>
+      </ClientAreaPreviewLayout>
+    </Intersect>
+  </StaticTheme>
 </template>
 
 <script>
@@ -52,6 +54,7 @@ import responsive from '@/mixins/responsive'
 import ClientAreaPreviewLayout from '@/layouts/ClientAreaPreviewLayout'
 import ListView from '@/components/ListView'
 import LumysGallery from '@/components/LumysGallery'
+import StaticTheme from '@/components/StaticTheme'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
@@ -61,6 +64,7 @@ export default {
     Intersect,
     ListView,
     LumysGallery,
+    StaticTheme,
     TextParagraph,
     TextTitle
   },

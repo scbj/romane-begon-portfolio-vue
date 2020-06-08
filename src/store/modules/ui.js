@@ -3,7 +3,10 @@ import { make } from 'vuex-pathify'
 const SET_IS_MENU_ACTIVE = 'SET_IS_MENU_ACTIVE'
 
 export const state = {
-  isMenuActive: false
+  isMenuActive: false,
+  theme: {
+    mode: 'dark'
+  }
 }
 
 export const mutations = make.mutations(state)
