@@ -1,16 +1,24 @@
+import { get } from 'vuex-pathify'
+
 export default {
   name: 'StaticTheme',
 
   props: {
     mode: {
       type: String,
-      required: true
+      default: 'dark'
+    },
+    reactive: {
+      type: Boolean,
+      default: false
     }
   },
 
   computed: {
+    reactiveMode: get('ui/theme@mode'),
+
     cssVariables () {
-      switch (this.mode) {
+      switch (this.reactive ? this.reactiveMode : this.mode) {
         case 'dark': return this.dark
         case 'light': return this.light
         default: return {}
@@ -27,31 +35,9 @@ export default {
 
     light () {
       return {
-        '--text-color': '#000'
-      }
-    }
-  },
-
-  watch: {
-    mode: {
-      handler: 'injectVariables'
-    }
-  },
-
-  mounted () {
-    this.injectStyle()
-  },
-
-  methods: {
-    injectStyle () {
-      if (this.$slots.default?.length > 0) {
-        // To add a CSS Variable to an element
-        const variableInjector = el => entry => el.style.setProperty(...entry)
-
-        // Do v-bind:style stuff (somewhat)
-        return Object
-          .entries(this.cssVariables)
-          .forEach(variableInjector(this.$slots.default[0].elm))
+        '--text-color': '#000',
+        '--text-color-2': '#0f0e0b',
+        '--text-color-3': '#1C1C1C'
       }
     }
   },
@@ -60,7 +46,6 @@ export default {
     // Use render function to be able to return the slot directly.
     // a.k.a. Renderless
     return this.$scopedSlots.default({
-      mode: this.mode,
       theme: this.cssVariables
     })
   }

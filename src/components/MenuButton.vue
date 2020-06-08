@@ -1,25 +1,26 @@
 <template>
-  <ReactiveTheme>
+  <StaticTheme reactive>
     <BaseButton
-      slot-scope="props"
+      slot-scope="{ theme }"
       class="menu-button"
-      :color="props.theme['--text-color']"
+      :color="theme['--text-color']"
       :icon="activeIconName"
       :icon-scale="activeIconScale"
       :icon-fill="false"
+      :style="theme"
       @click="toggleMenuVisibility"
     />
-  </ReactiveTheme>
+  </StaticTheme>
 </template>
 
 <script>
 import { get, call } from 'vuex-pathify'
 
-import ReactiveTheme from '@/components/ReactiveTheme'
+import StaticTheme from '@/components/StaticTheme'
 
 export default {
   components: {
-    ReactiveTheme
+    StaticTheme
   },
 
   computed: {

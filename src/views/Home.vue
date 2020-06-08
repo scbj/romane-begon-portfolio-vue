@@ -63,13 +63,26 @@
       />
     </template>
     <template v-slot:top>
-      <WebsiteMark v-show="!hideWebsiteMark" class="mark" />
+      <StaticTheme reactive>
+        <WebsiteMark
+          v-show="!hideWebsiteMark"
+          slot-scope="{ theme }"
+          :style="theme"
+          class="mark"
+        />
+      </StaticTheme>
     </template>
     <template v-slot:right>
       <SocialLinks v-show="!hideSocialLinks" orientation="vertical" />
     </template>
     <template v-slot:bottom>
-      <span class="home__scroll-down">DÉFILER VERS LE BAS</span>
+      <StaticTheme reactive>
+        <span
+          slot-scope="{ theme }"
+          :style="theme"
+          class="home__scroll-down"
+        >DÉFILER VERS LE BAS</span>
+      </StaticTheme>
     </template>
     <template v-slot:left>
       <ScrollProgress v-show="!hideScrollProgress" />
@@ -78,9 +91,12 @@
 </template>
 
 <script>
+import { sync } from 'vuex-pathify'
+
 import ClientAreaPreview from '@/views/ClientAreaPreview'
 import HomeLayout from '@/layouts/HomeLayout'
 import PrestationPreview from '@/views/PrestationPreview'
+import StaticTheme from '@/components/StaticTheme'
 import ScrollProgress from '@/components/ScrollProgress'
 import SocialLinks from '@/components/SocialLinks'
 import Startup from '@/views/Startup'
@@ -91,6 +107,7 @@ export default {
     ClientAreaPreview,
     HomeLayout,
     PrestationPreview,
+    StaticTheme,
     ScrollProgress,
     SocialLinks,
     Startup,
@@ -105,6 +122,10 @@ export default {
     }
   },
 
+  computed: {
+    themeMode: sync('ui/theme@mode')
+  },
+
   methods: {
     onVisiblityChanged (isVisible) {
       this.hideScrollProgress = !isVisible
@@ -114,18 +135,21 @@ export default {
       this.hideScrollProgress = true
       this.hideSocialLinks = true
       this.hideWebsiteMark = false
+      this.themeMode = 'light'
     },
 
     keepOnlySocialLinks () {
       this.hideScrollProgress = true
       this.hideSocialLinks = false
       this.hideWebsiteMark = true
+      this.themeMode = 'dark'
     },
 
     showAllComponents () {
       this.hideScrollProgress = false
       this.hideSocialLinks = false
       this.hideWebsiteMark = false
+      this.themeMode = 'dark'
     }
   }
 }
@@ -138,7 +162,7 @@ export default {
   font-weight: 500;
   letter-spacing: 0.28em;
   line-height: 2.667em;
-  color: var(--color-light-1);
+  color: var(--text-color);
   opacity: .87;
 }
 </style>

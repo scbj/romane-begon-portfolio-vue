@@ -31,14 +31,14 @@ export default {
   font-size: 2.5rem;
   line-height: 1.6em;
   letter-spacing: 0.14em;
-  color: var(--color-light-2);
+  color: var(--text-color-2);
 }
 
 .website-mark__subtitle {
   font-size: 1.2rem;
   line-height: 1.6667em;
   letter-spacing: 0.0517em;
-  color: var(--color-light-3);
+  color: var(--text-color-3);
 }
 
 .website-mark.large {

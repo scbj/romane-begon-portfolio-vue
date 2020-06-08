@@ -44,7 +44,7 @@ export default {
   align-items: end;
   gap: 4rem;
   padding: 5rem;
-  padding-bottom: 14rem;
+  padding-bottom: 18rem;
 
   @media screen and (min-width: $medium) {
     gap: 8rem;
