@@ -1,7 +1,7 @@
 import { get } from 'vuex-pathify'
 
 export default {
-  name: 'StaticTheme',
+  name: 'ThemeStyle',
 
   props: {
     mode: {

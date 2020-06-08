@@ -63,26 +63,26 @@
       />
     </template>
     <template v-slot:top>
-      <StaticTheme reactive>
+      <ThemeStyle reactive>
         <WebsiteMark
           v-show="!hideWebsiteMark"
           slot-scope="{ theme }"
           :style="theme"
           class="mark"
         />
-      </StaticTheme>
+      </ThemeStyle>
     </template>
     <template v-slot:right>
       <SocialLinks v-show="!hideSocialLinks" orientation="vertical" />
     </template>
     <template v-slot:bottom>
-      <StaticTheme reactive>
+      <ThemeStyle reactive>
         <span
           slot-scope="{ theme }"
           :style="theme"
           class="home__scroll-down"
         >DÉFILER VERS LE BAS</span>
-      </StaticTheme>
+      </ThemeStyle>
     </template>
     <template v-slot:left>
       <ScrollProgress v-show="!hideScrollProgress" />
@@ -96,7 +96,7 @@ import { sync } from 'vuex-pathify'
 import ClientAreaPreview from '@/views/ClientAreaPreview'
 import HomeLayout from '@/layouts/HomeLayout'
 import PrestationPreview from '@/views/PrestationPreview'
-import StaticTheme from '@/components/StaticTheme'
+import ThemeStyle from '@/components/ThemeStyle'
 import ScrollProgress from '@/components/ScrollProgress'
 import SocialLinks from '@/components/SocialLinks'
 import Startup from '@/views/Startup'
@@ -107,7 +107,7 @@ export default {
     ClientAreaPreview,
     HomeLayout,
     PrestationPreview,
-    StaticTheme,
+    ThemeStyle,
     ScrollProgress,
     SocialLinks,
     Startup,

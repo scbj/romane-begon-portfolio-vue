@@ -1,5 +1,5 @@
 <template>
-  <StaticTheme mode="light">
+  <ThemeStyle mode="light">
     <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
       <ClientAreaPreviewLayout class="client-area-preview">
         <template v-slot:left>
@@ -32,7 +32,7 @@
             </ListView>
             <BaseButton
               class="client-area-preview__more"
-              :route="{ name: 'test' }"
+              :route="{ name: 'home' }"
               color="black"
               icon="galleries-2"
               :icon-scale="1.8"
@@ -42,7 +42,7 @@
         </template>
       </ClientAreaPreviewLayout>
     </Intersect>
-  </StaticTheme>
+  </ThemeStyle>
 </template>
 
 <script>
@@ -54,7 +54,7 @@ import responsive from '@/mixins/responsive'
 import ClientAreaPreviewLayout from '@/layouts/ClientAreaPreviewLayout'
 import ListView from '@/components/ListView'
 import LumysGallery from '@/components/LumysGallery'
-import StaticTheme from '@/components/StaticTheme'
+import ThemeStyle from '@/components/ThemeStyle'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
@@ -64,7 +64,7 @@ export default {
     Intersect,
     ListView,
     LumysGallery,
-    StaticTheme,
+    ThemeStyle,
     TextParagraph,
     TextTitle
   },

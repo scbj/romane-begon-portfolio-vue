@@ -1,5 +1,5 @@
 <template>
-  <StaticTheme reactive>
+  <ThemeStyle reactive>
     <BaseButton
       slot-scope="{ theme }"
       class="menu-button"
@@ -10,17 +10,17 @@
       :style="theme"
       @click="toggleMenuVisibility"
     />
-  </StaticTheme>
+  </ThemeStyle>
 </template>
 
 <script>
 import { get, call } from 'vuex-pathify'
 
-import StaticTheme from '@/components/StaticTheme'
+import ThemeStyle from '@/components/ThemeStyle'
 
 export default {
   components: {
-    StaticTheme
+    ThemeStyle
   },
 
   computed: {
