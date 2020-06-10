@@ -19,7 +19,7 @@
           </TextParagraph>
           <BaseButton
             class="prestation-preview__browse-button"
-            :route="{ name: 'test' }"
+            :route="{ name: 'home' }"
             color="white"
             circle
             icon="play"
@@ -100,6 +100,8 @@ export default {
 .prestation-preview__background-overlay {
   grid-column: 1/2;
   grid-row: 1/2;
+  height: 100%;
+  width: 100%;
 }
 
 .prestation-preview__background-picture {

@@ -1,7 +1,11 @@
 <template>
   <div class="lumys-gallery" :style="cssVariables">
     <div class="lumys-gallery__cover">
-      <div class="lumys-gallery__cover-image" />
+      <BaseImage
+        background
+        class="lumys-gallery__cover-image"
+        :src="gallery.coverPhoto"
+      />
     </div>
     <div>
       <TextTitle small class="lumys-gallery__label">
@@ -58,16 +62,20 @@ export default {
 
 .lumys-gallery__cover {
   border-radius: 0.6rem;
-  /* height: 20rem; */
+  padding-top: 60%;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .lumys-gallery__cover-image {
-  background-image: var(--bg-image);
-  background-size: cover;
-  padding-top: 60%;
+  object-fit: cover;
+  object-position: top;
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   transition: all .3s ease-out;
 }
 
