@@ -1,12 +1,12 @@
 <template>
-  <div class="lumys-gallery" :style="cssVariables">
-    <div class="lumys-gallery__cover">
-      <BaseImage
-        background
-        class="lumys-gallery__cover-image"
-        :src="gallery.coverPhoto"
-      />
-    </div>
+  <div class="lumys-gallery">
+    <BaseImage
+      content
+      aspect-ratio="15:9"
+      class="lumys-gallery__cover"
+      :src="gallery.coverPhoto"
+      :alt="gallery.label"
+    />
     <div>
       <TextTitle small class="lumys-gallery__label">
         {{ gallery.label }}
@@ -62,21 +62,7 @@ export default {
 
 .lumys-gallery__cover {
   border-radius: 0.6rem;
-  padding-top: 60%;
-  width: 100%;
   overflow: hidden;
-  position: relative;
-}
-
-.lumys-gallery__cover-image {
-  object-fit: cover;
-  object-position: top;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  transition: all .3s ease-out;
 }
 
 .lumys-gallery__label {

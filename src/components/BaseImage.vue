@@ -1,28 +1,19 @@
-<template>
-  <img
-    v-if="source"
-    :src="source"
-    :alt="alt"
-    class="base-image"
-    :class="{'base-image--loaded': source}"
-  >
-  <div
-    v-else
-    class="base-image"
-    :class="{'base-image--pending': !source}"
-  />
-</template>
-
 <script>
+import { url } from '@/utils/css'
+
 export default {
   props: {
     alt: {
       type: String,
       default: ''
     },
-    background: {
+    content: {
       type: Boolean,
       default: false
+    },
+    aspectRatio: {
+      type: String,
+      default: ''
     },
     src: {
       type: String,
@@ -33,6 +24,13 @@ export default {
   data () {
     return {
       source: ''
+    }
+  },
+
+  computed: {
+    aspectRatioPercent () {
+      const sizes = this.aspectRatio.split(':')
+      return Number(sizes[1]) / Number(sizes[0]) * 100
     }
   },
 
@@ -48,6 +46,10 @@ export default {
   },
 
   methods: {
+    /**
+     * Preload the specified image and return true if successful.
+     * @param {String} src The image source
+     */
     preloadImage (src) {
       return new Promise((resolve, reject) => {
         if (!src) return resolve(false)
@@ -57,11 +59,82 @@ export default {
         image.src = src
       })
     }
+  },
+
+  render () {
+    if (!this.source) {
+      // Create CSS variables to store the aspect ratio percentage
+      const style = { '--aspect-ratio': `${this.aspectRatioPercent}%` }
+      return <div class="base-image base-image--container base-image--pending" style={style}></div>
+    }
+
+    const ContentImage = ({ data }) =>
+      <img
+        {...data}
+        src={this.source}
+        alt={this.alt}>
+      </img>
+    const BackgroundImage = ({ data }) =>
+      <div
+        {...data}
+        style={{
+          '--bg-src': url(this.source)
+        }}>
+      </div>
+
+    const createImageComponent = (className) =>
+      this.content
+        ? <ContentImage class={`${className} ${className}--content-image`} />
+        : <BackgroundImage class={`${className} ${className}--background-image`} />
+
+    if (this.aspectRatio) {
+      // Create CSS variables to store the aspect ratio percentage
+      const style = { '--aspect-ratio': `${this.aspectRatioPercent}%` }
+      return (
+        <div class="base-image base-image--container" style={style}>
+          { createImageComponent('base-image__image') }
+        </div>
+      )
+    } else {
+      // Use children as root component
+      return createImageComponent('base-image')
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.base-image {
+  width: 100%;
+}
+
+.base-image--background-image {
+  background: var(--bg-src);
+  background-size: cover;
+}
+
+.base-image--container {
+  padding-top: var(--aspect-ratio);
+  position: relative;
+}
+
+.base-image--container .base-image__image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  &.base-image__image--content-image {
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &.base-image__image--background-image {
+    background-size: cover;
+  }
+}
+
 .base-image--pending {
   $color: #f7f7f7;
   background: linear-gradient(
