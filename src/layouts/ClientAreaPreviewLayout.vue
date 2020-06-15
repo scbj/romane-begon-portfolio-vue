@@ -46,22 +46,20 @@ export default {
   padding: 5rem;
   padding-bottom: 18rem;
 
+  // @media screen and (min-width: $medium) {
+  //   gap: 8rem;
+  // }
+
+  // @media screen and (min-width: $large) {
+  //   gap: 10rem;
+  // }
+
   @media screen and (min-width: $medium) {
-    gap: 8rem;
-  }
-
-  @media screen and (min-width: $large) {
-    gap: 10rem;
-  }
-
-  @media screen and (min-width: $extraLarge) {
     display: grid;
-    min-height: 100vh;
     grid-template-columns: 45% 55%;
-    gap: 12rem;
+    // gap: 12rem;
     align-items: center;
     justify-items: stretch;
-
   }
 }
 </style>

@@ -75,7 +75,12 @@ export default {
     galleries: get('clientArea/sortedGalleries'),
 
     firstGalleries () {
-      const count = this.gte('medium') ? 4 : 1
+      const howMuchGalleriesToDisplay = () => {
+        if (this.gte('large')) return 4
+        if (this.gte('small')) return 2
+        return 1
+      }
+      const count = howMuchGalleriesToDisplay()
       return [...this.galleries].slice(0, count)
     }
   },
@@ -97,6 +102,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_vars.scss';
+
 .client-area-preview {
   background: white;
 }
@@ -114,13 +121,17 @@ export default {
   justify-self: stretch;
 }
 
-/* .client-area-preview__galleries {
+.client-area-preview__galleries {
   display: grid;
-  grid-template-columns: repeat(2, 300px);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(241px, 1fr));
   gap: 3rem;
   margin-top: 2rem;
-} */
+
+  @media screen and (min-width: $medium) {
+    grid-template-columns: repeat(auto-fill, minmax(241px, 300px));
+    max-width: 700px;
+  }
+}
 
 .client-area-preview__more {
   margin-top: 2rem;
