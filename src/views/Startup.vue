@@ -57,7 +57,7 @@ export default {
 }
 
 .startup__background-picture {
-  background-image: url(/photos/site67.jpg);
+  background-image: url(https://ucarecdn.com/3aab7c22-2672-4fe6-ba7f-dbd5bc5038bc/-/preview/site67.jpg);
   background-size: cover;
   background-position: 63%;
   background-repeat: no-repeat;

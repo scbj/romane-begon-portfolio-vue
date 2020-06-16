@@ -6,7 +6,7 @@
         @visible="keepOnlySocialLinks()"
       />
       <PrestationPreview
-        bg-image="/photos/site37.jpg"
+        bg-image="https://ucarecdn.com/1ed9f271-6bc8-4265-8981-48abac7eb381/-/preview/site37.jpg"
         style="z-index: 1"
         overlay="left"
         @visible="showAllComponents()"
@@ -21,7 +21,7 @@
         </template>
       </PrestationPreview>
       <PrestationPreview
-        bg-image="/photos/FABM7993.jpg"
+        bg-image="https://ucarecdn.com/8016437e-4f6e-42af-8d30-968d4fba8c29/-/preview/FABM7993.jpg"
         bg-position="72%"
         style="z-index: 2"
         overlay="left"
@@ -37,7 +37,7 @@
         </template>
       </PrestationPreview>
       <PrestationPreview
-        bg-image="/photos/12copie.jpg"
+        bg-image="https://ucarecdn.com/4efd8365-97c6-4668-ae45-b56fa9a922dc/-/preview/12copie.jpg"
         bg-position="44%"
         style="z-index: 3"
         overlay="foo"
@@ -56,10 +56,6 @@
       <ClientAreaPreview
         style="z-index: 4"
         @visible="freeSideSpaces()"
-      />
-      <Startup
-        style="z-index: 5"
-        @visible="keepOnlySocialLinks()"
       />
     </template>
     <template v-slot:top>
