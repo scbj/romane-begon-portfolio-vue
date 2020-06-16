@@ -113,12 +113,20 @@ export default {
   grid-auto-rows: auto;
   grid-template-columns: 1fr;
   text-align: justify;
+
+  @media screen and (min-width: $medium) {
+    justify-self: end;
+  }
 }
 
 .client-area-preview__recents {
   display: flex;
   flex-direction: column;
   justify-self: stretch;
+
+  @media screen and (min-width: $medium) {
+    justify-self: start;
+  }
 }
 
 .client-area-preview__galleries {

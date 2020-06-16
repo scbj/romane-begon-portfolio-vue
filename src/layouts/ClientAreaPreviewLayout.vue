@@ -42,22 +42,26 @@ export default {
   display: grid;
   grid-template-rows: 1fr auto;
   align-items: end;
-  gap: 4rem;
+  row-gap: 4rem;
   padding: 5rem;
   padding-bottom: 18rem;
 
-  // @media screen and (min-width: $medium) {
-  //   gap: 8rem;
-  // }
+  @media screen and (min-width: $medium) {
+    column-gap: 8rem;
+    row-gap: 0;
+    padding: 5rem;
+  }
 
-  // @media screen and (min-width: $large) {
-  //   gap: 10rem;
-  // }
+  @media screen and (min-width: $large) {
+    column-gap: 10rem;
+    row-gap: 0;
+  }
 
   @media screen and (min-width: $medium) {
     display: grid;
     grid-template-columns: 45% 55%;
-    // gap: 12rem;
+    column-gap: 12rem;
+    row-gap: 0;
     align-items: center;
     justify-items: stretch;
   }
