@@ -2,7 +2,7 @@
   <ThemeStyle mode="light">
     <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
       <ClientAreaPreviewLayout class="client-area-preview">
-        <template v-slot:left>
+        <template #left>
           <div class="client-area-preview__text">
             <TextTitle large>
               Espace Client
@@ -19,14 +19,14 @@
             </TextParagraph>
           </div>
         </template>
-        <template v-slot:right>
+        <template #right>
           <div class="client-area-preview__recents">
             <TextParagraph class="client-area-preview__recents-label">
               <!-- Galleries récentes -->
               Dernière gallerie ↓
             </TextParagraph>
             <ListView class="client-area-preview__galleries" :items="firstGalleries">
-              <template v-slot:item="{ item }">
+              <template #item="{ item }">
                 <LumysGallery :gallery="item" />
               </template>
             </ListView>

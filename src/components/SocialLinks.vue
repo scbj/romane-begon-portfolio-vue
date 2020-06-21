@@ -1,8 +1,14 @@
 <template>
   <div class="social-links" :class="orientations">
-    <BaseIcon name="facebook" />
-    <BaseIcon name="instagram" />
-    <BaseIcon name="pinterest" />
+    <template v-for="(link, index) in links">
+      <BaseButton
+        :key="index"
+        color="white"
+        :href="link.href"
+        :icon="link.icon"
+        :icon-scale="2.5"
+      />
+    </template>
   </div>
 </template>
 
@@ -16,6 +22,23 @@ export default {
   },
 
   computed: {
+    links () {
+      return [
+        {
+          href: 'https://fr-fr.facebook.com/romane.begon.3',
+          icon: 'facebook'
+        },
+        {
+          href: 'https://instagram.com/romanebegon',
+          icon: 'instagram'
+        },
+        {
+          href: 'https://www.pinterest.fr/romanebegon',
+          icon: 'pinterest'
+        }
+      ]
+    },
+
     orientations () {
       return {
         'social-links--horizontal': this.orientation === 'horizontal',

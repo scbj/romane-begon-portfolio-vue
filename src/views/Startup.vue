@@ -1,14 +1,14 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
     <StartupLayout class="startup">
-      <template v-slot:background>
+      <template #background>
         <div class="startup__background">
           <div class="startup__background-picture" />
           <div class="startup__background-overlay" />
         </div>
       </template>
 
-      <template v-slot:content>
+      <template #content>
         <div class="startup__content">
           <WebsiteMark size="large" />
           <div class="startup__content-citation">

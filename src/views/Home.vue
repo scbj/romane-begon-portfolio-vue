@@ -1,6 +1,6 @@
 <template>
   <HomeLayout class="home">
-    <template v-slot:content>
+    <template #content>
       <Startup
         style="z-index: 0"
         @visible="keepOnlySocialLinks()"
@@ -11,10 +11,10 @@
         overlay="left"
         @visible="showAllComponents()"
       >
-        <template v-slot:title>
+        <template #title>
           Mariages
         </template>
-        <template v-slot:description>
+        <template #description>
           Emotion, amour, douceur et sensualité.<br>
           Voilà quatre mots qui qualifient parfaitement mon approche de la photographie et je serai
           heureuse d’apporter ce regard singulier au plus beau jour de votre vie.
@@ -27,10 +27,10 @@
         overlay="left"
         @visible="showAllComponents()"
       >
-        <template v-slot:title>
+        <template #title>
           Portraits
         </template>
-        <template v-slot:description>
+        <template #description>
           Jouer avec la lumière et les ombres pour vous sublimer. Faire ressortir votre douceur, votre
           sensualité naturelle et même votre grain de folie. Et surtout vous faire tomber amoureux de
           vous-même.
@@ -43,11 +43,11 @@
         overlay="foo"
         @visible="showAllComponents()"
       >
-        <template v-slot:title>
+        <template #title>
           Familles<br>
           & Couples
         </template>
-        <template v-slot:description>
+        <template #description>
           Et si nous faisions parler votre histoire lors d’une escapade dans un lieu qui vous
           ressemble ? Célébrons votre amour, votre complicité et vos liens de famille lors d’une
           séance photo pleine de vie !
@@ -58,7 +58,7 @@
         @visible="freeSideSpaces()"
       />
     </template>
-    <template v-slot:top>
+    <template #top>
       <ThemeStyle reactive>
         <WebsiteMark
           v-show="!hideWebsiteMark"
@@ -68,10 +68,10 @@
         />
       </ThemeStyle>
     </template>
-    <template v-slot:right>
+    <template #right>
       <SocialLinks v-show="!hideSocialLinks" orientation="vertical" />
     </template>
-    <template v-slot:bottom>
+    <template #bottom>
       <ThemeStyle reactive>
         <span
           slot-scope="{ theme }"
@@ -80,7 +80,7 @@
         >DÉFILER VERS LE BAS</span>
       </ThemeStyle>
     </template>
-    <template v-slot:left>
+    <template #left>
       <ScrollProgress v-show="!hideScrollProgress" />
     </template>
   </HomeLayout>

@@ -3,7 +3,7 @@
     :is="componentTag"
     class="good-button"
     :class="classes"
-    :to="route"
+    v-bind="params"
     :style="cssVariables"
     v-on="$listeners"
   >
@@ -37,6 +37,10 @@ export default {
       type: String,
       default: '#fff'
     },
+    href: {
+      type: String,
+      default: ''
+    },
     icon: {
       type: String,
       default: ''
@@ -61,9 +65,9 @@ export default {
 
   computed: {
     componentTag () {
-      return this.route
-        ? 'router-link'
-        : 'button'
+      if (this.href) return 'a'
+      else if (this.route) return 'router-link'
+      return 'button'
     },
 
     cssVariables () {
@@ -89,6 +93,18 @@ export default {
 
     hasText () {
       return Boolean(this.text || this.$slots.default)
+    },
+
+    params () {
+      if (this.href) {
+        return {
+          href: this.href,
+          target: '_blank'
+        }
+      }
+      return {
+        to: this.route
+      }
     },
 
     useSlot () {
