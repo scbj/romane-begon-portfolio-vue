@@ -1,14 +1,14 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
     <PrestationPreviewLayout class="prestation-preview" :style="cssVariables">
-      <template v-slot:background>
+      <template #background>
         <div class="prestation-preview__background">
           <div class="prestation-preview__background-picture" />
           <div class="prestation-preview__background-overlay" :class="overlayClass" />
         </div>
       </template>
 
-      <template v-slot:content>
+      <template #content>
         <div class="prestation-preview__content">
           <PrestationCounter />
           <TextTitle extra-large>

@@ -1,12 +1,12 @@
 <template>
   <AppLayout id="app">
-    <template v-slot:page>
+    <template #page>
       <router-view />
     </template>
-    <template v-slot:menu>
+    <template #menu>
       <Menu />
     </template>
-    <template v-slot:button>
+    <template #button>
       <MenuButton />
     </template>
   </AppLayout>

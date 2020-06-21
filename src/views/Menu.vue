@@ -1,13 +1,13 @@
 <template>
   <MenuLayout class="menu">
-    <template v-slot:left>
+    <template #left>
       <MenuCover />
     </template>
-    <template v-slot:right>
+    <template #right>
       <div class="content-wrapper">
         <WebsiteMark class="mark" />
         <ListView :items="navigationLinks" class="navigation-list">
-          <template v-slot:item="{ item }">
+          <template #item="{ item }">
             <MenuLink :route="item.path">
               {{ item.label }}
             </MenuLink>
