@@ -89,13 +89,13 @@
 <script>
 import { sync } from 'vuex-pathify'
 
-import ClientAreaPreview from '@/views/ClientAreaPreview'
+import ClientAreaPreview from '@/components/ClientAreaPreview'
 import HomeLayout from '@/layouts/HomeLayout'
-import PrestationPreview from '@/views/PrestationPreview'
+import PrestationPreview from '@/components/PrestationPreview'
 import ThemeStyle from '@/components/ThemeStyle'
 import ScrollProgress from '@/components/ScrollProgress'
 import SocialLinks from '@/components/SocialLinks'
-import Startup from '@/views/Startup'
+import Startup from '@/components/Startup'
 import WebsiteMark from '@/components/WebsiteMark'
 
 export default {

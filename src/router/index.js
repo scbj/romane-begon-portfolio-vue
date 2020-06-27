@@ -1,24 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-Vue.use(VueRouter)
+import routes from '@/router/routes'
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: () => import('@/views/Home.vue')
-  },
-  {
-    path: '/espace-client',
-    name: 'clientArea',
-    component: () => import('@/views/ClientArea.vue')
-  }
-]
+Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+
+  // Automatically adds the specified class when a route matches that of a router-link
+  linkActiveClass: 'active',
+  linkExactActiveClass: 'exact-active',
   routes
 })
 

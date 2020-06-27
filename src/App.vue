@@ -14,7 +14,7 @@
 
 <script>
 import AppLayout from '@/layouts/AppLayout.vue'
-import Menu from '@/views/Menu.vue'
+import Menu from '@/components/Menu.vue'
 import MenuButton from '@/components/MenuButton.vue'
 
 export default {
