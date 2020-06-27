@@ -12,7 +12,7 @@
               ? Je vous ai suivi dans un lieu magique pour immortaliser votre histoire ? J’ai passé l’une des
               plus belles journées de votre vie en votre compagnie ?
             </TextParagraph>
-            <TextParagraph v-if="gte('medium')" class="client-area-preview__second-paragraph">
+            <TextParagraph v-if="gte('medium')">
               Bienvenue dans votre espace personnel, il ne vous reste plus qu’à entrer votre mot de passe
               personnel pour frissonner d’émotions, revoir les sourires de vos proches, admirer les
               empreintes du bonheur ou revivre le plus beau jour de votre vie
@@ -36,7 +36,7 @@
             </ListView>
             <BaseButton
               class="client-area-preview__more"
-              :route="{ name: 'home' }"
+              :route="{ name: 'clientArea' }"
               color="black"
               icon="galleries-2"
               :icon-scale="1.8"

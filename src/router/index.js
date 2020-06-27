@@ -8,6 +8,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: () => import('@/views/Home.vue')
+  },
+  {
+    path: '/espace-client',
+    name: 'clientArea',
+    component: () => import('@/views/ClientArea.vue')
   }
 ]
 
