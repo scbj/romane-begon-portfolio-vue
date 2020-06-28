@@ -16,11 +16,10 @@ const routes = [
   },
   {
     path: '/:prestation-slug',
-    name: 'prestation',
     component: () => import('@/views/Prestation.vue'),
     children: [
       {
-        path: 'infos',
+        path: '',
         name: 'prestationInfos',
         component: () => import('@/views/PrestationInfos.vue')
       },
