@@ -1,17 +1,22 @@
 [
   {
     "title": "Mariages",
-    "description": "Le choix de votre photographe est important. Il existe différents styles, différents états d’esprit, bref, après avoir trouvé l’amour de votre vie, il va falloir trouver le photographe de votre vie ! Chaque photographe à une façon unique de procéder dans la manière de mener ses reportages de mariage.",
-    "backgroundImage": "/photos/site37.jpg"
-  },
-  {
-    "title": "Familles &\nCouples",
-    "description": "Une séance photo de famille ou de grossesse, c'est aussi un prétexte pour prendre du temps pour soi ou de s'amuser en famille. J'ai à coeur de représenter les personnes de manière la plus naturelle possible.",
-    "backgroundImage": "/photos/site37.jpg"
+    "description": "Emotion, amour, douceur et sensualité.\nVoilà quatre mots qui qualifient parfaitement mon approche de la photographie et je serai heureuse d’apporter ce regard singulier au plus beau jour de votre vie.",
+    "backgroundImage": "https://ucarecdn.com/1ed9f271-6bc8-4265-8981-48abac7eb381/-/preview/site37.jpg",
+    "overlay": "left"
   },
   {
     "title": "Portraits",
-    "description": "Toutes les photographies sont memento mori. Prendre une photo, c’est participer à la mortalité, à la vulnérabilité, à la mutabilité d’une autre personne.",
-    "backgroundImage": "/photos/site37.jpg"
+    "description": "Jouer avec la lumière et les ombres pour vous sublimer. Faire ressortir votre douceur, votre sensualité naturelle et même votre grain de folie. Et surtout vous faire tomber amoureux de vous-même.",
+    "backgroundImage": "https://ucarecdn.com/8016437e-4f6e-42af-8d30-968d4fba8c29/-/preview/FABM7993.jpg",
+    "backgroundPosition": "72%",
+    "overlay": "left"
+  },
+  {
+    "title": "Familles\n & Couples",
+    "description": "Et si nous faisions parler votre histoire lors d’une escapade dans un lieu qui vous ressemble ? Célébrons votre amour, votre complicité et vos liens de famille lors d’une séance photo pleine de vie !",
+    "backgroundImage": "https://ucarecdn.com/4efd8365-97c6-4668-ae45-b56fa9a922dc/-/preview/12copie.jpg",
+    "backgroundPosition": "44%",
+    "overlay": "foo"
   }
 ]
