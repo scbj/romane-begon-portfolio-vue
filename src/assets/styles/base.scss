@@ -29,20 +29,3 @@ body {
   overflow-x: hidden;
   @include hide-scrollbar;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-button {
-  background: inherit;
-  border: inherit;
-  color: inherit;
-  outline: none;
-  cursor: pointer;
-}

@@ -39,10 +39,8 @@ export default {
  --color-dark-1: #0f0e0b;
  --color-dark-2: #1C1C1C;
 
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   background: black;
 }
 </style>
