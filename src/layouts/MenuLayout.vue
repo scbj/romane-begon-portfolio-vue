@@ -27,7 +27,7 @@ export default {
   grid-template-areas:
     "right";
 
-  height: 100vh;
+  height: 100%;
 
   @media screen and (min-width: $extraLarge) {
     grid-template-columns: 60% 40%;

@@ -68,8 +68,7 @@ export default {
 @import '@/assets/styles/_vars.scss';
 
 .default-layout {
-  min-height: 100vh;
-  height: 100%;
+  height: 100vh;
 }
 
 .default-layout__content {

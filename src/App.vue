@@ -1,27 +1,25 @@
 <template>
-  <AppLayout id="app">
-    <template #page>
-      <router-view />
-    </template>
-    <template #menu>
-      <Menu />
-    </template>
-    <template #button>
-      <MenuButton />
-    </template>
-  </AppLayout>
+  <div id="app">
+    <router-view class="app__page" />
+    <Menu v-show="isMenuActive" class="app__menu" />
+    <MenuButton class="app__menu-button" />
+  </div>
 </template>
 
 <script>
-import AppLayout from '@/layouts/AppLayout.vue'
+import { get } from 'vuex-pathify'
+
 import Menu from '@/components/Menu.vue'
 import MenuButton from '@/components/MenuButton.vue'
 
 export default {
   components: {
-    AppLayout,
     Menu,
     MenuButton
+  },
+
+  computed: {
+    isMenuActive: get('ui/isMenuActive')
   }
 }
 </script>
@@ -29,6 +27,7 @@ export default {
 <style lang="scss">
 @import '@/assets/styles/base.scss';
 @import '@/assets/styles/fonts.scss';
+@import '@/assets/styles/_vars.scss';
 
 #app {
  --color-light-1: #f3f3f3;
@@ -42,5 +41,39 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: black;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  align-items: stretch;
+  justify-items: stretch;
+  height: 100%;
+}
+
+.app__page {
+  grid-column: 1/3;
+  grid-row: 1/3;
+  z-index: $z-index-app-page;
+}
+
+.app__menu {
+  grid-column: 1/3;
+  grid-row: 1/3;
+  z-index: $z-index-app-menu;
+}
+
+.app__menu-button {
+  position: relative;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  justify-self: end;
+
+  margin-right: 5rem;
+  margin-top: 5rem;
+  z-index: $z-index-app-button;
+
+  @media screen and (min-width: $extraLarge) {
+    margin-right: 68px;
+    margin-top: 68px;
+  }
 }
 </style>
