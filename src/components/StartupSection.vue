@@ -1,35 +1,34 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <StartupLayout class="startup-section">
-      <template #background>
-        <div class="startup-section__background">
-          <div class="startup-section__background-picture" />
-          <div class="startup-section__background-overlay" />
-        </div>
-      </template>
+    <ParallaxGroup class="startup-section">
+      <ParallaxLayer class="startup-section__background" depth="back">
+        <div class="startup-section__background-picture" />
+        <div class="startup-section__background-overlay" />
+      </ParallaxLayer>
 
-      <template #content>
-        <div class="startup-section__content">
-          <WebsiteMark size="large" />
-          <div class="startup-section__content-citation">
-            <span class="sentence-1">« Une photographie, c'est un fragment de temps qui ne reviendra pas. »</span>
-            <span class="sentence-2">Martine Franck</span>
-          </div>
+      <ParallaxLayer class="startup-section__content" depth="base">
+        <WebsiteMark size="large" />
+        <div class="startup-section__content-citation">
+          <span class="sentence-1">« Une photographie, c'est un fragment de temps qui ne reviendra pas. »</span>
+          <span class="sentence-2">Martine Franck</span>
         </div>
-      </template>
-    </StartupLayout>
+      </ParallaxLayer>
+    </ParallaxGroup>
   </Intersect>
 </template>
 
 <script>
 import Intersect from 'vue-intersect'
-import StartupLayout from '@/layouts/StartupLayout'
+
+import ParallaxGroup from '@/components/ParallaxGroup'
+import ParallaxLayer from '@/components/ParallaxLayer'
 import WebsiteMark from '@/components/WebsiteMark'
 
 export default {
   components: {
     Intersect,
-    StartupLayout,
+    ParallaxGroup,
+    ParallaxLayer,
     WebsiteMark
   },
 
@@ -44,6 +43,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_vars.scss';
+
+.startup-section {
+  display: grid;
+  min-height: 100vh;
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+.startup-section__background,
+.startup-section__content {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
 .startup-section__background {
   display: grid;
   width: 100%;
@@ -73,6 +87,16 @@ export default {
   flex-direction: column;
   align-items: center;
   height: 100%;
+
+  padding-top: 44vh;
+
+  @media screen and (min-width: $extraLarge) {
+    padding-top: 43vh;
+  }
+
+  @media screen and (max-height: $medium) {
+    padding-top: 38vh;
+  }
 }
 
 .startup-section__content-citation {
