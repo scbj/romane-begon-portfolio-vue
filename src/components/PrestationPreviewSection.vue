@@ -1,50 +1,48 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <PrestationPreviewLayout class="prestation-preview-section" :style="cssVariables">
-      <template #background>
-        <div class="prestation-preview-section__background">
-          <div class="prestation-preview-section__background-picture" />
-          <div class="prestation-preview-section__background-overlay" :class="overlayClass" />
-        </div>
-      </template>
+    <ParallaxGroup class="prestation-preview-section" :style="cssVariables">
+      <ParallaxLayer class="prestation-preview-section__background" depth="back">
+        <div class="prestation-preview-section__background-picture" />
+        <div class="prestation-preview-section__background-overlay" :class="overlayClass" />
+      </ParallaxLayer>
 
-      <template #content>
-        <div class="prestation-preview-section__content">
-          <PrestationCounter />
-          <TextTitle extra-large>
-            {{ title }}
-          </TextTitle>
-          <TextParagraph>
-            {{ description }}
-          </TextParagraph>
-          <BaseButton
-            class="prestation-preview-section__browse-button"
-            :route="{ name: 'home' }"
-            color="white"
-            circle
-            icon="play"
-            :icon-scale="1.12"
-            text="DÉCOUVRIR PLUS EN DETAILS"
-          />
-        </div>
-      </template>
-    </PrestationPreviewLayout>
+      <ParallaxLayer class="prestation-preview-section__content" depth="base">
+        <PrestationCounter />
+        <TextTitle extra-large>
+          {{ title }}
+        </TextTitle>
+        <TextParagraph>
+          {{ description }}
+        </TextParagraph>
+        <BaseButton
+          class="prestation-preview-section__browse-button"
+          :route="{ name: 'home' }"
+          color="white"
+          circle
+          icon="play"
+          :icon-scale="1.12"
+          text="DÉCOUVRIR PLUS EN DETAILS"
+        />
+      </ParallaxLayer>
+    </ParallaxGroup>
   </Intersect>
 </template>
 
 <script>
 import Intersect from 'vue-intersect'
 
+import ParallaxGroup from '@/components/ParallaxGroup'
+import ParallaxLayer from '@/components/ParallaxLayer'
 import PrestationCounter from '@/components/PrestationCounter'
-import PrestationPreviewLayout from '@/layouts/PrestationPreviewLayout'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
 export default {
   components: {
     Intersect,
+    ParallaxGroup,
+    ParallaxLayer,
     PrestationCounter,
-    PrestationPreviewLayout,
     TextParagraph,
     TextTitle
   },
@@ -97,6 +95,19 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
+
+.prestation-preview-section {
+  display: grid;
+  min-height: 100vh;
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+.prestation-preview-section__background,
+.prestation-preview-section__content {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
 
 .prestation-preview-section__background {
   display: grid;
