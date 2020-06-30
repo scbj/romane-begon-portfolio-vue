@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <router-view class="app__page" />
-    <Menu v-show="isMenuActive" class="app__menu" />
-    <MenuButton class="app__menu-button" />
+    <NavigationMenu v-show="isMenuActive" class="app__menu" />
+    <TheButton class="app__menu-button" />
   </div>
 </template>
 
 <script>
 import { get } from 'vuex-pathify'
 
-import Menu from '@/components/Menu.vue'
-import MenuButton from '@/components/MenuButton.vue'
+import NavigationMenu from '@/components/NavigationMenu.vue'
+import TheButton from '@/components/TheButton.vue'
 
 export default {
   components: {
-    Menu,
-    MenuButton
+    NavigationMenu,
+    TheButton
   },
 
   computed: {

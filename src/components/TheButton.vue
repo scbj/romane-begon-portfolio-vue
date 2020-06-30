@@ -2,7 +2,6 @@
   <ThemeStyle reactive>
     <BaseButton
       slot-scope="{ theme }"
-      class="menu-button"
       :color="theme['--text-color']"
       :icon="activeIconName"
       :icon-scale="activeIconScale"
