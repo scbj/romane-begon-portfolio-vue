@@ -4,6 +4,7 @@ const SET_IS_MENU_ACTIVE = 'SET_IS_MENU_ACTIVE'
 
 export const state = {
   isMenuActive: false,
+  isViewerActive: false,
   theme: {
     mode: 'dark'
   }
@@ -18,6 +19,7 @@ export const actions = {
     window.onhashchange = () => {
       if (!window.location.hash) {
         dispatch('closeMenu')
+        // TODO: unsubscribe onhashchange
       }
     }
   },

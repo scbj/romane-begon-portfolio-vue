@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view class="app__page" />
+    <GalleryViewer v-show="isViewerActive" class="app__viewer" />
     <NavigationMenu v-show="isMenuActive" class="app__menu" />
     <TheButton class="app__menu-button" />
   </div>
@@ -9,17 +10,20 @@
 <script>
 import { get } from 'vuex-pathify'
 
+import GalleryViewer from '@/components/GalleryViewer.vue'
 import NavigationMenu from '@/components/NavigationMenu.vue'
 import TheButton from '@/components/TheButton.vue'
 
 export default {
   components: {
+    GalleryViewer,
     NavigationMenu,
     TheButton
   },
 
   computed: {
-    isMenuActive: get('ui/isMenuActive')
+    isMenuActive: get('ui/isMenuActive'),
+    isViewerActive: get('ui/isViewerActive')
   }
 }
 </script>
@@ -53,6 +57,12 @@ export default {
   grid-column: 1/3;
   grid-row: 1/3;
   z-index: $z-index-app-page;
+}
+
+.app__viewer {
+  grid-column: 1/3;
+  grid-row: 1/3;
+  z-index: $z-index-app-viewer;
 }
 
 .app__menu {
