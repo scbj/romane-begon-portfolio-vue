@@ -15,6 +15,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_vars.scss';
+
 .gallery-viewer {
   color: var(--color-light-1);
   background: var(--color-dark-1);
@@ -22,17 +24,27 @@
   $side-size: 16rem;
   display: grid;
   grid-template-columns:
-    [first] minmax($side-size, auto)
-    [carousel-start] 1fr
-    [carousel-end thumbnails-start] minmax($side-size, auto) [last];
+    [first carousel-start] minmax(0, 1fr)
+    [next-button] minmax(0, 1fr) [carousel-end last];
   grid-template-rows:
-    [first carousel-start] auto
-    1fr
-    [controls-start] auto
-    [carousel-end] auto;
+    [first controls] 12.1rem
+    [carousel-start] 1fr
+    [carousel-end] auto [last];
   gap: 1.2rem;
   height: 100%;
-  padding: 4rem 0;
+
+  @media screen and (min-width: $medium) {
+    grid-template-columns:
+      [first] minmax($side-size, auto)
+      [carousel-start] 1fr
+      [carousel-end next-button] minmax($side-size, auto) [last];
+    grid-template-rows:
+      [first carousel-start] auto
+      1fr
+      [controls] auto
+      [carousel-end] auto;
+    padding: 4rem 0;
+  }
 }
 
 .gallery-viewer__carousel {
@@ -44,7 +56,7 @@
 .gallery-viewer__thumbnails {
   background: blue;
   grid-column: first / last;
-  grid-row: thumbnails-start / last;
+  grid-row: carousel-end / last;
   height: 130px;
 }
 
@@ -58,7 +70,7 @@
 
 .gallery-viewer__next {
   grid-row: carousel-start / carousel-end;
-  grid-column: carousel-end;
+  grid-column: next-button;
   justify-self: end;
 }
 
@@ -74,8 +86,8 @@
 }
 
 .gallery-viewer__controls {
-  grid-row: controls-start;
-  grid-column: carousel-end;
+  grid-row: controls;
+  grid-column: next-button;
   display: grid;
   grid-auto-flow: column;
   justify-content: end;
