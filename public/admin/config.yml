@@ -1,0 +1,31 @@
+locale: 'fr'
+
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+publish_mode: editorial_workflow
+
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "52902d5ce7ef26c71044"
+  settings:
+    autoFilename: false
+
+collections:
+  - label: "Prestations"
+    name: "prestations"
+    files:
+      - label: "Prestations"
+        name: "prestations"
+        file: "src/assets/data/cms-prestations.json"
+        fields:
+          - label: Liste
+            name: list
+            widget: list
+            fields:
+              - {label: Titre, name: title, widget: string}
+              - {label: Description, name: description, widget: string}
+              - {label: "Arrière-plan", name: background, widget: image}
+  
