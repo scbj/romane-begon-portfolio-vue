@@ -9,8 +9,8 @@
       <ParallaxLayer class="startup-section__content" depth="base">
         <WebsiteMark size="large" />
         <div class="startup-section__content-citation">
-          <span class="sentence-1">« Une photographie, c'est un fragment de temps qui ne reviendra pas. »</span>
-          <span class="sentence-2">Martine Franck</span>
+          <span class="sentence-1">« {{ sentence.text }}. »</span>
+          <span class="sentence-2">{{ sentence.author }}</span>
         </div>
       </ParallaxLayer>
     </ParallaxGroup>
@@ -24,12 +24,23 @@ import ParallaxGroup from '@/components/ParallaxGroup'
 import ParallaxLayer from '@/components/ParallaxLayer'
 import WebsiteMark from '@/components/WebsiteMark'
 
+import data from '@/assets/data/home.json'
+
 export default {
   components: {
     Intersect,
     ParallaxGroup,
     ParallaxLayer,
     WebsiteMark
+  },
+
+  computed: {
+    sentence () {
+      return {
+        text: data.sentence,
+        author: data.author
+      }
+    }
   },
 
   methods: {

@@ -25,7 +25,7 @@ import ClientAreaPreviewSection from '@/components/ClientAreaPreviewSection'
 import PrestationPreviewSection from '@/components/PrestationPreviewSection'
 import StartupSection from '@/components/StartupSection'
 
-import prestations from '@/assets/data/prestations.json'
+import data from '@/assets/data/home.json'
 
 export default {
   components: {
@@ -49,7 +49,7 @@ export default {
     themeMode: sync('ui/theme@mode'),
 
     prestations () {
-      return prestations
+      return data.prestations
     }
   },
 
