@@ -10,8 +10,6 @@ media_library:
   name: uploadcare
   config:
     publicKey: "52902d5ce7ef26c71044"
-  settings:
-    autoFilename: false
 
 collections:
   - label: "Pages"
@@ -31,9 +29,9 @@ collections:
             name: prestations
             widget: list
             fields:
-              - { label: "Titre", name: title, widget: string }
-              - { label: "Description", name: description, widget: string }
-              - { label: "Arrière-plan", name: background, widget: image }
+              - { label: "Titre", name: title, widget: text }
+              - { label: "Description", name: description, widget: text }
+              - { label: "Arrière-plan", name: backgroundImage, widget: image }
               - label: "Dégradé"
                 name: "overlay"
                 widget: "select"
