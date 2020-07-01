@@ -14,18 +14,32 @@ media_library:
     autoFilename: false
 
 collections:
-  - label: "Prestations"
-    name: "prestations"
+  - label: "Pages"
+    name: pages
     files:
-      - label: "Prestations"
-        name: "prestations"
-        file: "src/assets/data/cms-prestations.json"
+      - label: "Page d'accueil"
+        name: home
+        file: src/assets/data/home.json
         fields:
-          - label: Liste
-            name: list
+          - label: "Citation"
+            name: sentence
+            widget: string
+          - label: "Auteur"
+            name: author
+            widget: string
+          - label: "Prestations"
+            name: prestations
             widget: list
             fields:
-              - {label: Titre, name: title, widget: string}
-              - {label: Description, name: description, widget: string}
-              - {label: "Arrière-plan", name: background, widget: image}
+              - { label: "Titre", name: title, widget: string }
+              - { label: "Description", name: description, widget: string }
+              - { label: "Arrière-plan", name: background, widget: image }
+              - label: "Dégradé"
+                name: "overlay"
+                widget: "select"
+                options: [ "left", "foo" ]
+              - label: "Position de l'arrière-plan"
+                name: backgroundPosition
+                widget: string
+                required: false
   
