@@ -6,19 +6,19 @@
       "title": "Mariages",
       "description": "Émotion, amour, douceur et sensualité.\\nVoilà quatre mots qui qualifient parfaitement mon approche de la photographie et je serai heureuse d’apporter ce regard singulier au plus beau jour de votre vie.",
       "overlay": "left",
-      "background": "https://ucarecdn.com/3a46a780-703b-4792-bbfc-9f024acd28ff/"
+      "backgroundImage": "https://ucarecdn.com/3a46a780-703b-4792-bbfc-9f024acd28ff/"
     },
     {
       "title": "Portraits",
       "description": "Jouer avec la lumière et les ombres pour vous sublimer. Faire ressortir votre douceur, votre sensualité naturelle et même votre grain de folie. Et surtout vous faire tomber amoureux de vous-même.",
-      "background": "https://ucarecdn.com/05ef5b81-c28c-45ae-9b5e-464d5da7341d/",
+      "backgroundImage": "https://ucarecdn.com/05ef5b81-c28c-45ae-9b5e-464d5da7341d/",
       "overlay": "left",
       "backgroundPosition": "72%"
     },
     {
       "title": "Familles\\n & Couples",
       "description": "Et si nous faisions parler votre histoire lors d’une escapade dans un lieu qui vous ressemble ? Célébrons votre amour, votre complicité et vos liens de famille lors d’une séance photo pleine de vie !",
-      "background": "https://ucarecdn.com/a31b0d16-8aee-4ca7-868e-1c65be87b3ea/",
+      "backgroundImage": "https://ucarecdn.com/a31b0d16-8aee-4ca7-868e-1c65be87b3ea/",
       "overlay": "foo",
       "backgroundPosition": "44%"
     }
