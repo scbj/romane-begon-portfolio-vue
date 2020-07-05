@@ -9,20 +9,13 @@ body {
   width: 100%;
 }
 
+$min_width: 320px;
+$max_width: $extraLarge;
+$min_font: 7px;
+$max_font: 10px;
+
 html {
-  font-size: 7.2px;
-
-  @media screen and (min-width: $medium) {
-    font-size: 8px;
-  }
-
-  @media screen and (min-width: $large) {
-    font-size: 9px;
-  }
-
-  @media screen and (min-width: $extraLarge) {
-    font-size: 10px;
-  }
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
 
 body {
