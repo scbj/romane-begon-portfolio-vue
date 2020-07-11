@@ -1,13 +1,13 @@
 <template>
   <component
     :is="componentTag"
-    class="good-button"
+    class="base-button"
     :class="classes"
     v-bind="params"
     :style="cssVariables"
     v-on="$listeners"
   >
-    <div v-if="hasIcon" class="good-button__icon">
+    <div v-if="hasIcon" class="base-button__icon">
       <BaseIcon
         :color="color"
         :fill="iconFill"
@@ -15,7 +15,7 @@
         :size="iconSize"
       />
     </div>
-    <span v-if="hasText" class="good-button__text">
+    <span v-if="hasText" class="base-button__text">
       <template v-if="useSlot">
         <slot />
       </template>
@@ -78,8 +78,8 @@ export default {
 
     classes () {
       return {
-        'good-button--simple': this.hasIcon ^ this.hasText,
-        'good-button--circle': this.circle
+        'base-button--simple': this.hasIcon ^ this.hasText,
+        'base-button--circle': this.circle
       }
     },
 
@@ -117,18 +117,18 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
 
-.good-button {
+.base-button {
   color: var(--color);
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 2.3rem;
 
-  &.good-button--simple {
+  &.base-button--simple {
     display: block;
   }
 
-  &.good-button--circle .good-button__icon {
+  &.base-button--circle .base-button__icon {
     height: 5.3rem;
     width: 5.3rem;
 
@@ -138,26 +138,26 @@ export default {
     }
   }
 
-  &:hover.good-button--circle .good-button__icon {
+  &:hover.base-button--circle .base-button__icon {
     border-color: rgba(255,255,255,.6);
     transition-duration: 0;
   }
 }
 
-.good-button__icon {
+.base-button__icon {
   border-radius: 4.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.good-button--circle .good-button__icon {
+.base-button--circle .base-button__icon {
   border: 1px solid rgba(255,255,255, .4);
 
   transition: border-color .1s ease-out;
 }
 
-.good-button__text {
+.base-button__text {
   font-size: 1.6rem;
   font-weight: 700;
   font-family: "TT Commons", sans-serif;
