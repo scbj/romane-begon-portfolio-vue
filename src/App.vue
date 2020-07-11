@@ -2,7 +2,7 @@
   <div id="app">
     <router-view class="app__page" />
     <GalleryViewer v-show="isViewerActive" class="app__viewer" />
-    <NavigationMenu v-show="isMenuActive" class="app__menu" />
+    <NavigationMenu v-show="isMenuActive || shouldMenuActive" class="app__menu" />
     <TheButton class="app__menu-button" />
   </div>
 </template>
@@ -23,6 +23,7 @@ export default {
 
   computed: {
     isMenuActive: get('ui/isMenuActive'),
+    shouldMenuActive: get('ui/shouldMenuActive'),
     isViewerActive: get('ui/isViewerActive')
   }
 }
@@ -31,6 +32,7 @@ export default {
 <style lang="scss">
 @import '@/assets/styles/base.scss';
 @import '@/assets/styles/fonts.scss';
+@import '@/assets/styles/transitions.scss';
 @import '@/assets/styles/_vars.scss';
 
 #app {

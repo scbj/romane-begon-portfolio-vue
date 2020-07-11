@@ -4,6 +4,7 @@
       <BaseButton
         :key="index"
         color="white"
+        class="social-links__link"
         :href="link.href"
         :icon="link.icon"
         :icon-scale="2.5"

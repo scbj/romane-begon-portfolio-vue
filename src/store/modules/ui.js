@@ -4,6 +4,7 @@ const SET_IS_MENU_ACTIVE = 'SET_IS_MENU_ACTIVE'
 
 export const state = {
   isMenuActive: false,
+  shouldMenuActive: false,
   isViewerActive: false,
   theme: {
     mode: 'dark'
