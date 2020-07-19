@@ -1,12 +1,20 @@
 <template>
   <GoBackLayout class="prestation">
     <template #header>
-      <RouterLink :to="{ name: 'prestationInfos' }">
+      <BaseButton
+        class="prestation_navigation-link"
+        :route="{ name: 'prestationInfos' }"
+        color="#222"
+      >
         Infos
-      </RouterLink>
-      <RouterLink :to="{ name: 'prestationGallery' }">
+      </BaseButton>
+      <BaseButton
+        class="prestation_navigation-link"
+        :route="{ name: 'prestationGallery' }"
+        color="#222"
+      >
         Galerie
-      </RouterLink>
+      </BaseButton>
     </template>
     <RouterView />
   </GoBackLayout>
@@ -41,5 +49,13 @@ export default {
 
 .prestation__header {
   align-self: flex-end;
+}
+
+.prestation_navigation-link {
+  opacity: .7;
+
+  &.active {
+    opacity: 1;
+  }
 }
 </style>

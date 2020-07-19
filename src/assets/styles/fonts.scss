@@ -6,6 +6,12 @@
 
 @font-face {
   font-family: 'TT Commons';
+  font-weight: 600;
+  src: url('~@/assets/fonts/tt-commons/TTCommons-DemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'TT Commons';
   font-weight: 500;
   src: url('~@/assets/fonts/tt-commons/TTCommons-Medium.woff') format('woff');
 }
