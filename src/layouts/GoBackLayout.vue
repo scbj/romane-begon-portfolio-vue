@@ -39,7 +39,7 @@ export default {
 
   methods: {
     goBack () {
-      this.$router.go(-1)
+      this.$router.push({ name: 'home' })
     }
   }
 }
@@ -63,8 +63,7 @@ export default {
   margin-right: 5rem;
 }
 
-.go-back-layout__content {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
+.go-back-layout__header-content {
+  display: flex;
 }
 </style>

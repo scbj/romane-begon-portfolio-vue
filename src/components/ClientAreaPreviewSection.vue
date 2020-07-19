@@ -23,10 +23,10 @@
           <div class="client-area-preview-section__recents">
             <TextParagraph class="client-area-preview-section__recents-label">
               <template v-if="gte('small')">
-                Galleries récentes ↓
+                Galeries récentes ↓
               </template>
               <template v-else>
-                Dernière gallerie ↓
+                Dernière galerie ↓
               </template>
             </TextParagraph>
             <ListView class="client-area-preview-section__galleries" :items="firstGalleries">
