@@ -15,7 +15,7 @@ const routes = [
     component: () => import('@/views/About.vue')
   },
   {
-    path: '/:prestation-slug',
+    path: '/:prestation',
     component: () => import('@/views/Prestation.vue'),
     children: [
       {

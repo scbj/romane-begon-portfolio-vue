@@ -9,6 +9,7 @@
         :overlay="prestation.overlay"
         :title="prestation.title"
         :description="prestation.description"
+        :to="prestation.route"
         @visible="showAllComponents()"
       />
     </template>
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import slugify from 'slugify'
 import { sync } from 'vuex-pathify'
 
 import DefaultLayout from '@/layouts/DefaultLayout'
@@ -49,7 +51,10 @@ export default {
     themeMode: sync('ui/theme@mode'),
 
     prestations () {
-      return data.prestations
+      return data.prestations.map(prestation => ({
+        ...prestation,
+        route: slugify(prestation.title, { lower: true, remove: /and/, strict: true })
+      }))
     }
   },
 

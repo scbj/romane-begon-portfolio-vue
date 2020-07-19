@@ -16,7 +16,7 @@
         </TextParagraph>
         <BaseButton
           class="prestation-preview-section__browse-button"
-          :route="{ name: 'home' }"
+          :route="{ name: 'prestationInfos', params: { prestation: to } }"
           color="white"
           circle
           icon="play"
@@ -65,6 +65,10 @@ export default {
       default: 'left'
     },
     title: {
+      type: String,
+      required: true
+    },
+    to: {
       type: String,
       required: true
     }
