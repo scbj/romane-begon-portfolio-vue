@@ -17,6 +17,7 @@
         <span
           :key="'label-' + index"
           class="scroll-progress__label"
+          @click="scrollIntoView(index)"
         >
           {{ page.toUpperCase() }}
         </span>
@@ -26,10 +27,14 @@
 </template>
 
 <script>
+// TODO: Use IntersectionObserver instead of scroll event
+import { throttle } from '@bit/scbj.utils.throttle'
+
 export default {
   data () {
     return {
-      activeIndex: 0
+      activeIndex: 0,
+      percentComplete: 0
     }
   },
 
@@ -46,8 +51,31 @@ export default {
 
     cssVariables () {
       return {
-        '--row-count': this.pages.length
+        '--row-count': this.pages.length,
+        '--scale-y': this.percentComplete
       }
+    }
+  },
+
+  mounted () {
+    document.querySelector('main').addEventListener('scroll', this.updateIndicator)
+  },
+
+  beforeDestroy () {
+    document.querySelector('main').removeEventListener('scroll', this.updateIndicator)
+  },
+
+  methods: {
+    updateIndicator: throttle(function (event) {
+      const scrollTop = event.target.scrollTop
+      const scrollHeight = event.target.scrollHeight
+      this.percentComplete = scrollTop / scrollHeight - 0.03
+    }, 100),
+
+    scrollIntoView (index) {
+      this.activeIndex = index
+      const sections = document.querySelectorAll('main section')
+      sections[index].scrollIntoView({ behavior: 'smooth' })
     }
   }
 }
@@ -78,12 +106,13 @@ export default {
 
 .scroll-progress__indicator {
   background: #cccccc;
-  transform: scaleY(0.2);
+  transform: scaleY(var(--scale-y));
   transform-origin: 50% 0%;
+  transition: transform .2s ease-out;
 }
 
 .scroll-progress__indicator-background {
-  background: #666666;
+  background: rgba(#cccccc, .2);
 }
 
 .scroll-progress__label {
