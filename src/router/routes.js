@@ -1,3 +1,7 @@
+import slugify from 'slugify'
+
+import { prestations } from '@/assets/data/home.json'
+
 const routes = [
   {
     path: '/',
@@ -33,5 +37,16 @@ const routes = [
 ]
 
 // TODO: Handle unknow routes (404)
+
+export function slugifyPrestationParam (value) {
+  return slugify(value, {
+    lower: true,
+    remove: /and/,
+    strict: true
+  })
+}
+
+export const prestationsRoutes = prestations
+  .map(prestation => slugifyPrestationParam(prestation.title))
 
 export default routes
