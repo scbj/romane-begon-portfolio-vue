@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view class="app__page" />
+    <KeepAlive>
+      <RouterView class="app__page" />
+    </KeepAlive>
     <GalleryViewer v-show="isViewerActive" class="app__viewer" />
     <NavigationMenu v-show="isMenuActive" class="app__menu" />
     <TheButton class="app__menu-button" />
