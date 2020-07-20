@@ -84,7 +84,7 @@ export default {
 <style lang="scss" scoped>
 .scroll-progress {
   font-family: "Garamond Premier Pro Display", serif;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 1.5rem;
   letter-spacing: 0.1em;
   line-height: 1.438em;

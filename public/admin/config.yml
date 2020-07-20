@@ -2,7 +2,7 @@ locale: 'fr'
 
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: feat-add-prestations-config-to-netlify-cms # Branch to update (optional; defaults to master)
   squash_merges: true
 
 publish_mode: editorial_workflow
@@ -44,19 +44,35 @@ collections:
                 name: backgroundPosition
                 widget: string
                 required: false
-  - label: "Prestations"
-    name: prestations
-    folder: src/assets/data/prestations
-    create: true
-    fields:
-      - label: "Contenu"
-        name: content
-        widget: markdown
-      - label: "Galerie"
-        name: gallery
-        widget: list
-        summary: '{{fields.image}}'
-        fields:
-          - label: "Image"
-            name: image
-            widget: image
+              - label: "Contenu"
+                name: content
+                widget: relation
+                collection: prestations
+                valueField: title
+                searchFields: [ title ]
+                
+      # - label: "Mariages"
+      #   name: weddings
+      #   file: src/assets/data/prestations/mariages.json
+      #   fields:
+      #     - { label: "Titre", name: title, widget: string }
+      #     - { label: "Infos", name: content, widget: markdown }
+      #     - label: "Image"
+      #       name: gallery
+      #       widget: list
+      #       fields:
+      #         - { label: "Image", name: image, widget: image }
+
+  # - label: "Prestations"
+  #   name: prestations
+  #   folder: src/assets/data/prestations
+  #   create: true
+  #   fields:
+  #     - { label: "Titre", name: title, widget: text }
+  #     - { label: "Infos", name: content, widget: markdown }
+  #     - label: "Galerie"
+  #       name: gallery
+  #       widget: image
+  #       media_library:
+  #         config:
+  #           multiple: true
