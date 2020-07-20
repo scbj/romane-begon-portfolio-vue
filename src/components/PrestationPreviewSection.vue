@@ -8,7 +8,7 @@
 
       <ParallaxLayer class="prestation-preview-section__content" depth="base">
         <PrestationCounter />
-        <TextTitle extra-large>
+        <TextTitle extra-large class="prestation-preview-section__title">
           {{ title }}
         </TextTitle>
         <TextParagraph>
@@ -176,5 +176,9 @@ export default {
 
 .prestation-preview-section__browse-button {
   margin-top: 4.9rem;
+}
+
+.prestation-preview-section__title {
+  white-space: pre;
 }
 </style>
