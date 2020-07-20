@@ -44,12 +44,12 @@ collections:
                 name: backgroundPosition
                 widget: string
                 required: false
-              - label: "Contenu"
-                name: content
-                widget: relation
-                collection: prestations
-                valueField: title
-                searchFields: [ title ]
+              # - label: "Contenu"
+              #   name: content
+              #   widget: relation
+              #   collection: prestations
+              #   valueField: title
+              #   searchFields: [ title ]
                 
       # - label: "Mariages"
       #   name: weddings
