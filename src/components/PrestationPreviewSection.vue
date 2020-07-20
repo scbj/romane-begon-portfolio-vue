@@ -179,6 +179,6 @@ export default {
 }
 
 .prestation-preview-section__title {
-  white-space: pre;
+  white-space: pre-line;
 }
 </style>

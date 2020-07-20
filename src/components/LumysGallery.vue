@@ -2,7 +2,7 @@
   <div class="lumys-gallery">
     <BaseImage
       content
-      aspect-ratio="15:9"
+      aspect-ratio="13:9"
       class="lumys-gallery__cover"
       :src="gallery.coverPhoto"
       :alt="gallery.label"
@@ -52,16 +52,10 @@ export default {
   align-items: center;
   position: relative;
   cursor: pointer;
-
-  &:hover .lumys-gallery__cover-image {
-    opacity: .8;
-    transform: scale(1.04);
-    transition-duration: .8s;
-  }
 }
 
 .lumys-gallery__cover {
-  border-radius: 0.6rem;
+  border-radius: 0.4rem;
   overflow: hidden;
 }
 
@@ -69,6 +63,7 @@ export default {
   color: var(--dark-color-2);
   padding: 1em;
   padding-bottom: 0;
+  font-weight: 500;
 }
 
 .lumys-gallery__link {
