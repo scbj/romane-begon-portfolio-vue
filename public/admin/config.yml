@@ -44,19 +44,19 @@ collections:
                 name: backgroundPosition
                 widget: string
                 required: false
-      - label: "Prestations"
-        name: prestations
-        folder: src/assets/data/prestations
-        create: true
+  - label: "Prestations"
+    name: prestations
+    folder: src/assets/data/prestations
+    create: true
+    fields:
+      - label: "Contenu"
+        name: content
+        widget: markdown
+      - label: "Galerie"
+        name: gallery
+        widget: list
+        summary: '{{fields.image}}'
         fields:
-          - label: "Contenu"
-            name: content
-            widget: markdown
-          - label: "Galerie"
-            name: gallery
-            widget: list
-            summary: '{{fields.image}}'
-            fields:
-              - label: "Image"
-                name: image
-                widget: image
+          - label: "Image"
+            name: image
+            widget: image
