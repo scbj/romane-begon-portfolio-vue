@@ -76,8 +76,12 @@ export default {
 
   computed: {
     cssVariables () {
+      const size = Math.max(window.innerHeight, window.innerWidth)
+      const resizing = window.innerHeight > window.innerWidth
+        ? `x${size}`
+        : `${size}x`
       return {
-        '--background-image': `url(${this.bgImage})`,
+        '--background-image': `url(${this.bgImage}-/resize/${resizing}/)`,
         '--background-position': this.bgPosition
       }
     },

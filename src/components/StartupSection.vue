@@ -1,6 +1,6 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="startup-section">
+    <ParallaxGroup class="startup-section" :style="cssVariables">
       <ParallaxLayer class="startup-section__background" depth="back">
         <div class="startup-section__background-picture" />
         <div class="startup-section__background-overlay" />
@@ -39,6 +39,16 @@ export default {
       return {
         text: data.sentence,
         author: data.author
+      }
+    },
+
+    cssVariables () {
+      const size = Math.max(window.innerHeight, window.innerWidth)
+      const resizing = window.innerHeight > window.innerWidth
+        ? `x${size}`
+        : `${size}x`
+      return {
+        '--background-image': `url(https://ucarecdn.com/3aab7c22-2672-4fe6-ba7f-dbd5bc5038bc/-/resize/${resizing}/)`
       }
     }
   },
@@ -82,7 +92,7 @@ export default {
 }
 
 .startup-section__background-picture {
-  background-image: url(https://ucarecdn.com/3aab7c22-2672-4fe6-ba7f-dbd5bc5038bc/-/preview/site67.jpg);
+  background-image: var(--background-image);
   background-size: cover;
   background-position: 63%;
   background-repeat: no-repeat;
