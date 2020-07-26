@@ -13,6 +13,8 @@
         @visible="showAllComponents()"
       />
     </template>
+    <AboutSection @visible="freeSideSpaces()" />
+    <ContactSection @visible="foo()" />
     <ClientAreaPreviewSection @visible="freeSideSpaces()" />
   </DefaultLayout>
 </template>
@@ -22,7 +24,9 @@ import { sync } from 'vuex-pathify'
 
 import DefaultLayout from '@/layouts/DefaultLayout'
 
+import AboutSection from '@/components/AboutSection'
 import ClientAreaPreviewSection from '@/components/ClientAreaPreviewSection'
+import ContactSection from '@/components/ContactSection'
 import PrestationPreviewSection from '@/components/PrestationPreviewSection'
 import StartupSection from '@/components/StartupSection'
 
@@ -31,8 +35,10 @@ import { slugifyPrestationParam } from '@/router/routes'
 
 export default {
   components: {
+    AboutSection,
     DefaultLayout,
     ClientAreaPreviewSection,
+    ContactSection,
     PrestationPreviewSection,
     StartupSection
   },
@@ -80,6 +86,13 @@ export default {
       this.layoutOptions.hideScrollProgress = false
       this.layoutOptions.hideSocialLinks = false
       this.layoutOptions.hideWebsiteMark = false
+      this.themeMode = 'dark'
+    },
+
+    foo () {
+      this.layoutOptions.hideScrollProgress = false
+      this.layoutOptions.hideSocialLinks = false
+      this.layoutOptions.hideWebsiteMark = true
       this.themeMode = 'dark'
     }
   }

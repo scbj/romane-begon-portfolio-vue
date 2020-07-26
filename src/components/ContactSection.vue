@@ -1,27 +1,29 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="prestation-preview-section" :style="cssVariables">
-      <ParallaxLayer class="prestation-preview-section__background" depth="back">
-        <div class="prestation-preview-section__background-picture" />
-        <div class="prestation-preview-section__background-overlay" :class="overlayClass" />
+    <ParallaxGroup class="contact-section" :style="cssVariables">
+      <ParallaxLayer class="contact-section__background" depth="back">
+        <div class="contact-section__background-picture" />
+        <div class="contact-section__background-overlay contact-section__background--foo" />
       </ParallaxLayer>
 
-      <ParallaxLayer class="prestation-preview-section__content" depth="base">
+      <ParallaxLayer class="contact-section__content" depth="base">
         <PrestationCounter />
-        <TextTitle extra-large class="prestation-preview-section__title">
-          {{ title }}
+        <TextTitle extra-large>
+          Contact
+        </TextTitle>
+        <TextTitle large style="text-align: center">
+          <span class="no-wrap">Les réservations</span> <span class="no-wrap">sont ouvertes !</span>
         </TextTitle>
         <TextParagraph>
-          {{ description }}
+          Racontez-moi votre histoire, vos projets et vos envies en détails !
         </TextParagraph>
         <BaseButton
-          class="prestation-preview-section__browse-button"
+          class="contact-section__contact-button"
           :route="{ name: 'prestationInfos', params: { prestation: to } }"
           color="white"
-          circle
           icon="play"
           :icon-scale="1.12"
-          text="DÉCOUVRIR PLUS EN DETAILS"
+          text="ÉCRIVONS-NOUS"
         />
       </ParallaxLayer>
     </ParallaxGroup>
@@ -37,6 +39,8 @@ import PrestationCounter from '@/components/PrestationCounter'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
+import data from '@/assets/data/home.json'
+
 export default {
   components: {
     Intersect,
@@ -47,47 +51,25 @@ export default {
     TextTitle
   },
 
-  props: {
-    bgImage: {
-      type: String,
-      required: true
-    },
-    bgPosition: {
-      type: String,
-      default: '63%'
-    },
-    description: {
-      type: String,
-      required: true
-    },
-    overlay: {
-      type: String,
-      default: 'left'
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    to: {
-      type: String,
-      required: true
-    }
-  },
-
   computed: {
+    sentence () {
+      return {
+        text: data.sentence,
+        author: data.author
+      }
+    },
+
     cssVariables () {
+      const bgImage = 'https://ucarecdn.com/928d894b-c200-47d9-a97a-52cd17a234c9/'
+      const bgPosition = '35%'
       const size = Math.max(window.innerHeight, window.innerWidth)
       const resizing = window.innerHeight > window.innerWidth
         ? `x${size}`
         : `${size}x`
       return {
-        '--background-image': `url(${this.bgImage}-/resize/${resizing}/)`,
-        '--background-position': this.bgPosition
+        '--background-image': `url(${bgImage}-/resize/${resizing}/)`,
+        '--background-position': bgPosition
       }
-    },
-
-    overlayClass () {
-      return `prestation-preview-section__background--${this.overlay}`
     }
   },
 
@@ -104,41 +86,45 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
 
-.prestation-preview-section {
+.no-wrap {
+  white-space: nowrap;
+}
+
+.contact-section {
   display: grid;
   min-height: 100vh;
   align-items: stretch;
   justify-items: stretch;
 }
 
-.prestation-preview-section__background,
-.prestation-preview-section__content {
+.contact-section__background,
+.contact-section__content {
   grid-column: 1/2;
   grid-row: 1/2;
 }
 
-.prestation-preview-section__background {
+.contact-section__background {
   display: grid;
   width: 100%;
   height: 100%;
 }
 
-.prestation-preview-section__background-picture,
-.prestation-preview-section__background-overlay {
+.contact-section__background-picture,
+.contact-section__background-overlay {
   grid-column: 1/2;
   grid-row: 1/2;
   height: 100%;
   width: 100%;
 }
 
-.prestation-preview-section__background-picture {
+.contact-section__background-picture {
   background-image: var(--background-image);
   background-size: cover;
   background-position: var(--background-position);
   background-repeat: no-repeat;
 }
 
-.prestation-preview-section__background-overlay {
+.contact-section__background-overlay {
   &[class*="--left"] {
     background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 59%);
   }
@@ -150,38 +136,35 @@ export default {
   }
 }
 
-.prestation-preview-section__content {
+.contact-section__content {
   color: var(--color-light-1);
   padding: 5rem;
-  padding-bottom: 18rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: center;
   height: 100%;
+  padding-top: 30vh;
 
   @media screen and (min-width: $medium) {
     justify-content: center;
-    padding: 0;
+    padding: 2rem;
     padding-left: 32rem;
+    padding-top: 10vh;
   }
 
   @media screen and (min-width: $large) {
-    padding: 0;
+    padding: 2rem;
     padding-left: 37rem;
+    padding-top: 10vh;
   }
 
   @media screen and (min-width: $extraLarge) {
     padding: 0;
-    padding-left: 43rem;
+    padding-top: 10vh;
   }
 }
 
-.prestation-preview-section__browse-button {
+.contact-section__contact-button {
   margin-top: 4.9rem;
-}
-
-.prestation-preview-section__title {
-  white-space: pre-line;
 }
 </style>

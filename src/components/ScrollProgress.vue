@@ -69,7 +69,7 @@ export default {
     updateIndicator: throttle(function (event) {
       const scrollTop = event.target.scrollTop
       const scrollHeight = event.target.scrollHeight
-      this.percentComplete = scrollTop / scrollHeight - 0.03
+      this.percentComplete = scrollTop / scrollHeight + 0.065
     }, 100),
 
     scrollIntoView (index) {
