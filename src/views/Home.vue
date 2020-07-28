@@ -13,7 +13,7 @@
         @visible="showAllComponents()"
       />
     </template>
-    <AboutSection @visible="freeSideSpaces()" />
+    <SectionAbout @visible="freeSideSpaces()" />
     <ContactSection @visible="foo()" />
     <SectionClientArea @visible="freeSideSpaces()" />
   </DefaultLayout>
@@ -24,7 +24,7 @@ import { sync } from 'vuex-pathify'
 
 import DefaultLayout from '@/layouts/DefaultLayout'
 
-import AboutSection from '@/components/AboutSection'
+import SectionAbout from '@/components/SectionAbout'
 import SectionClientArea from '@/components/SectionClientArea'
 import ContactSection from '@/components/ContactSection'
 import PrestationPreviewSection from '@/components/PrestationPreviewSection'
@@ -35,7 +35,7 @@ import { slugifyPrestationParam } from '@/router/routes'
 
 export default {
   components: {
-    AboutSection,
+    SectionAbout,
     DefaultLayout,
     SectionClientArea,
     ContactSection,

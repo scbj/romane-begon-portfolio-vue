@@ -1,6 +1,6 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="about-section" />
+    <ParallaxGroup class="section-about" />
   </Intersect>
 </template>
 
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about-section {
+.section-about {
   background: white;
   min-height: 100vh;
 }
