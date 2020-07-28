@@ -1,20 +1,20 @@
 <template>
-  <div class="navigation-menu">
-    <NavigationMenuCover v-if="gte('extraLarge')" />
-    <NavigationMenuPanel />
+  <div class="app-menu">
+    <MenuCover v-if="gte('extraLarge')" />
+    <MenuPanel />
   </div>
 </template>
 
 <script>
-import NavigationMenuCover from '@/components/NavigationMenuCover'
-import NavigationMenuPanel from '@/components/NavigationMenuPanel'
+import MenuCover from '@/components/MenuCover'
+import MenuPanel from '@/components/MenuPanel'
 
 import responsive from '@/mixins/responsive'
 
 export default {
   components: {
-    NavigationMenuCover,
-    NavigationMenuPanel
+    MenuCover,
+    MenuPanel
   },
 
   mixins: [responsive]
@@ -24,7 +24,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
 
-.navigation-menu {
+.app-menu {
   color: var(--color-light-1);
   background: var(--color-dark-1);
 

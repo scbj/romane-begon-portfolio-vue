@@ -1,17 +1,17 @@
 <template>
-  <div class="navigation-menu-panel">
-    <WebsiteTitle class="navigation-menu-panel__website-title" />
-    <ListView :items="navigationLinks" class="navigation-menu-panel__list">
+  <div class="menu-panel">
+    <WebsiteTitle class="menu-panel__website-title" />
+    <ListView :items="navigationLinks" class="menu-panel__list">
       <template #item="{ item }">
-        <a :href="item.path" class="navigation-menu-panel__link">
+        <a :href="item.path" class="menu-panel__link">
           {{ item.label }}
         </a>
       </template>
     </ListView>
-    <SocialLinks class="navigation-menu-panel__social" />
-    <CopyrightStatement class="navigation-menu-panel__copyright" />
+    <SocialLinks class="menu-panel__social" />
+    <CopyrightStatement class="menu-panel__copyright" />
     <BaseButton
-      class="navigation-menu-panel__credits"
+      class="menu-panel__credits"
       color="white"
       text="CREDITS"
     />
@@ -43,7 +43,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
 
-.navigation-menu-panel {
+.menu-panel {
   display: grid;
   grid-template-rows: auto 1fr repeat(2, auto);
   grid-template-columns: 1fr;
@@ -62,11 +62,11 @@ export default {
   }
 }
 
-.navigation-menu-panel__website-title {
+.menu-panel__website-title {
   grid-area: title;
 }
 
-.navigation-menu-panel__list {
+.menu-panel__list {
   grid-area: nav;
   align-self: center;
 
@@ -75,8 +75,8 @@ export default {
   gap: 0.3rem;
 }
 
-.navigation-menu-panel__website-title,
-.navigation-menu-panel__list {
+.menu-panel__website-title,
+.menu-panel__list {
   justify-self: center;
 
   @media screen and (min-width: $extraLarge) {
@@ -84,22 +84,22 @@ export default {
   }
 }
 
-.navigation-menu-panel__social {
+.menu-panel__social {
   grid-area: social;
   margin-bottom: 4rem;
 }
 
-.navigation-menu-panel__copyright,
-.navigation-menu-panel__credits {
+.menu-panel__copyright,
+.menu-panel__credits {
   grid-area: footer;
 }
 
-.navigation-menu-panel__credits {
+.menu-panel__credits {
   align-self: end;
   justify-self: end;
 }
 
-.navigation-menu-panel__link {
+.menu-panel__link {
   font-size: 5.8rem;
   font-weight: 500;
   font-family: "Orpheus Pro", serif;

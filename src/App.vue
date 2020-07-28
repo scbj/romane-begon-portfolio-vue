@@ -2,7 +2,7 @@
   <div id="app">
     <RouterView class="app__page" />
     <GalleryViewer v-show="isViewerActive" class="app__viewer" />
-    <NavigationMenu v-show="isMenuActive" class="app__menu" />
+    <AppMenu v-show="isMenuActive" class="app__menu" />
     <AppButton class="app__menu-button" />
   </div>
 </template>
@@ -11,13 +11,13 @@
 import { get } from 'vuex-pathify'
 
 import GalleryViewer from '@/components/GalleryViewer.vue'
-import NavigationMenu from '@/components/NavigationMenu.vue'
+import AppMenu from '@/components/AppMenu.vue'
 import AppButton from '@/components/AppButton.vue'
 
 export default {
   components: {
     GalleryViewer,
-    NavigationMenu,
+    AppMenu,
     AppButton
   },
 
