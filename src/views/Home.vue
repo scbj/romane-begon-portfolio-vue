@@ -2,7 +2,7 @@
   <DefaultLayout :options="layoutOptions">
     <SectionStartup @visible="keepOnlySocialLinks()" />
     <template v-for="(prestation, index) in prestations">
-      <PrestationPreviewSection
+      <SectionPrestation
         :key="index"
         :bg-image="prestation.backgroundImage"
         :bg-position="prestation.backgroundPosition"
@@ -27,7 +27,7 @@ import DefaultLayout from '@/layouts/DefaultLayout'
 import SectionAbout from '@/components/SectionAbout'
 import SectionClientArea from '@/components/SectionClientArea'
 import ContactSection from '@/components/ContactSection'
-import PrestationPreviewSection from '@/components/PrestationPreviewSection'
+import SectionPrestation from '@/components/SectionPrestation'
 import SectionStartup from '@/components/SectionStartup'
 
 import data from '@/assets/data/home.json'
@@ -39,7 +39,7 @@ export default {
     DefaultLayout,
     SectionClientArea,
     ContactSection,
-    PrestationPreviewSection,
+    SectionPrestation,
     SectionStartup
   },
 

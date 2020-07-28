@@ -1,21 +1,21 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="prestation-preview-section" :style="cssVariables">
-      <ParallaxLayer class="prestation-preview-section__background" depth="back">
-        <div class="prestation-preview-section__background-picture" />
-        <div class="prestation-preview-section__background-overlay" :class="overlayClass" />
+    <ParallaxGroup class="section-prestation" :style="cssVariables">
+      <ParallaxLayer class="section-prestation__background" depth="back">
+        <div class="section-prestation__background-picture" />
+        <div class="section-prestation__background-overlay" :class="overlayClass" />
       </ParallaxLayer>
 
-      <ParallaxLayer class="prestation-preview-section__content" depth="base">
+      <ParallaxLayer class="section-prestation__content" depth="base">
         <PrestationCounter />
-        <TextTitle extra-large class="prestation-preview-section__title">
+        <TextTitle extra-large class="section-prestation__title">
           {{ title }}
         </TextTitle>
         <TextParagraph>
           {{ description }}
         </TextParagraph>
         <BaseButton
-          class="prestation-preview-section__browse-button"
+          class="section-prestation__browse-button"
           :route="{ name: 'prestationInfos', params: { prestation: to } }"
           color="white"
           circle
@@ -87,7 +87,7 @@ export default {
     },
 
     overlayClass () {
-      return `prestation-preview-section__background--${this.overlay}`
+      return `section-prestation__background--${this.overlay}`
     }
   },
 
@@ -104,41 +104,41 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
 
-.prestation-preview-section {
+.section-prestation {
   display: grid;
   min-height: 100vh;
   align-items: stretch;
   justify-items: stretch;
 }
 
-.prestation-preview-section__background,
-.prestation-preview-section__content {
+.section-prestation__background,
+.section-prestation__content {
   grid-column: 1/2;
   grid-row: 1/2;
 }
 
-.prestation-preview-section__background {
+.section-prestation__background {
   display: grid;
   width: 100%;
   height: 100%;
 }
 
-.prestation-preview-section__background-picture,
-.prestation-preview-section__background-overlay {
+.section-prestation__background-picture,
+.section-prestation__background-overlay {
   grid-column: 1/2;
   grid-row: 1/2;
   height: 100%;
   width: 100%;
 }
 
-.prestation-preview-section__background-picture {
+.section-prestation__background-picture {
   background-image: var(--background-image);
   background-size: cover;
   background-position: var(--background-position);
   background-repeat: no-repeat;
 }
 
-.prestation-preview-section__background-overlay {
+.section-prestation__background-overlay {
   &[class*="--left"] {
     background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 59%);
   }
@@ -150,7 +150,7 @@ export default {
   }
 }
 
-.prestation-preview-section__content {
+.section-prestation__content {
   color: var(--color-light-1);
   padding: 5rem;
   padding-bottom: 18rem;
@@ -177,11 +177,11 @@ export default {
   }
 }
 
-.prestation-preview-section__browse-button {
+.section-prestation__browse-button {
   margin-top: 4.9rem;
 }
 
-.prestation-preview-section__title {
+.section-prestation__title {
   white-space: pre-line;
 }
 </style>
