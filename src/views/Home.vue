@@ -15,7 +15,7 @@
     </template>
     <AboutSection @visible="freeSideSpaces()" />
     <ContactSection @visible="foo()" />
-    <ClientAreaPreviewSection @visible="freeSideSpaces()" />
+    <SectionClientArea @visible="freeSideSpaces()" />
   </DefaultLayout>
 </template>
 
@@ -25,7 +25,7 @@ import { sync } from 'vuex-pathify'
 import DefaultLayout from '@/layouts/DefaultLayout'
 
 import AboutSection from '@/components/AboutSection'
-import ClientAreaPreviewSection from '@/components/ClientAreaPreviewSection'
+import SectionClientArea from '@/components/SectionClientArea'
 import ContactSection from '@/components/ContactSection'
 import PrestationPreviewSection from '@/components/PrestationPreviewSection'
 import StartupSection from '@/components/StartupSection'
@@ -37,7 +37,7 @@ export default {
   components: {
     AboutSection,
     DefaultLayout,
-    ClientAreaPreviewSection,
+    SectionClientArea,
     ContactSection,
     PrestationPreviewSection,
     StartupSection
