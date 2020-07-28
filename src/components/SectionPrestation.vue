@@ -31,8 +31,8 @@
 <script>
 import Intersect from 'vue-intersect'
 
-import ParallaxGroup from '@/components/ParallaxGroup'
-import ParallaxLayer from '@/components/ParallaxLayer'
+import ParallaxGroup from '@/components/parallax/ParallaxGroup'
+import ParallaxLayer from '@/components/parallax/ParallaxLayer'
 import PrestationCounter from '@/components/PrestationCounter'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'

@@ -52,8 +52,8 @@ import Intersect from 'vue-intersect'
 
 import responsive from '@/mixins/responsive'
 
-import ParallaxGroup from '@/components/ParallaxGroup'
-import ParallaxLayer from '@/components/ParallaxLayer'
+import ParallaxGroup from '@/components/parallax/ParallaxGroup'
+import ParallaxLayer from '@/components/parallax/ParallaxLayer'
 import BaseList from '@/components/base/BaseList'
 import LumysGallery from '@/components/LumysGallery'
 import TextParagraph from '@/components/TextParagraph'

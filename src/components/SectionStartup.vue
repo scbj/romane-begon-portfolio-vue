@@ -20,8 +20,8 @@
 <script>
 import Intersect from 'vue-intersect'
 
-import ParallaxGroup from '@/components/ParallaxGroup'
-import ParallaxLayer from '@/components/ParallaxLayer'
+import ParallaxGroup from '@/components/parallax/ParallaxGroup'
+import ParallaxLayer from '@/components/parallax/ParallaxLayer'
 import WebsiteTitle from '@/components/WebsiteTitle'
 
 import data from '@/assets/data/home.json'

@@ -31,7 +31,7 @@
 <script>
 import { get } from 'vuex-pathify'
 
-import ParallaxContainer from '@/components/ParallaxContainer'
+import ParallaxContainer from '@/components/parallax/ParallaxContainer'
 import ScrollProgress from '@/components/ScrollProgress'
 import SocialLinks from '@/components/SocialLinks'
 import ThemeStyle from '@/components/ThemeStyle'

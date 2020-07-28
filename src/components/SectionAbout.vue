@@ -7,7 +7,7 @@
 <script>
 import Intersect from 'vue-intersect'
 
-import ParallaxGroup from '@/components/ParallaxGroup'
+import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 
 export default {
   components: {
