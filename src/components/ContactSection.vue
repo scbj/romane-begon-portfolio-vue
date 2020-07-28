@@ -19,7 +19,7 @@
         </TextParagraph>
         <BaseButton
           class="contact-section__contact-button"
-          :route="{ name: 'prestationInfos', params: { prestation: to } }"
+          href="#"
           color="white"
           icon="play"
           :icon-scale="1.12"
