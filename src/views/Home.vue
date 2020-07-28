@@ -46,7 +46,7 @@ export default {
   data () {
     return {
       layoutOptions: {
-        hideScrollProgress: true,
+        hideProgressBar: true,
         hideSocialLinks: false,
         hideWebsiteTitle: false
       }
@@ -65,32 +65,32 @@ export default {
     slugifyPrestationParam,
 
     onVisiblityChanged (isVisible) {
-      this.layoutOptions.hideScrollProgress = !isVisible
+      this.layoutOptions.hideProgressBar = !isVisible
     },
 
     freeSideSpaces () {
-      this.layoutOptions.hideScrollProgress = true
+      this.layoutOptions.hideProgressBar = true
       this.layoutOptions.hideSocialLinks = true
       this.layoutOptions.hideWebsiteTitle = false
       this.themeMode = 'light'
     },
 
     keepOnlySocialLinks () {
-      this.layoutOptions.hideScrollProgress = true
+      this.layoutOptions.hideProgressBar = true
       this.layoutOptions.hideSocialLinks = false
       this.layoutOptions.hideWebsiteTitle = true
       this.themeMode = 'dark'
     },
 
     showAllComponents () {
-      this.layoutOptions.hideScrollProgress = false
+      this.layoutOptions.hideProgressBar = false
       this.layoutOptions.hideSocialLinks = false
       this.layoutOptions.hideWebsiteTitle = false
       this.themeMode = 'dark'
     },
 
     foo () {
-      this.layoutOptions.hideScrollProgress = false
+      this.layoutOptions.hideProgressBar = false
       this.layoutOptions.hideSocialLinks = false
       this.layoutOptions.hideWebsiteTitle = true
       this.themeMode = 'dark'

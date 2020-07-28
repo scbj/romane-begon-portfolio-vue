@@ -22,7 +22,7 @@
         <span class="default-layout__scroll-down">DÉFILER VERS LE BAS</span>
       </aside>
       <aside v-if="gte('medium')" class="default-layout__left">
-        <ScrollProgress v-show="!options.hideScrollProgress" />
+        <HomeProgressBar v-show="!options.hideProgressBar" />
       </aside>
     </div>
   </ThemeStyle>
@@ -32,7 +32,7 @@
 import { get } from 'vuex-pathify'
 
 import ParallaxContainer from '@/components/parallax/ParallaxContainer'
-import ScrollProgress from '@/components/ScrollProgress'
+import HomeProgressBar from '@/components/HomeProgressBar'
 import SocialLinks from '@/components/SocialLinks'
 import ThemeStyle from '@/components/ThemeStyle'
 import WebsiteTitle from '@/components/WebsiteTitle'
@@ -42,7 +42,7 @@ import responsive from '@/mixins/responsive'
 export default {
   components: {
     ParallaxContainer,
-    ScrollProgress,
+    HomeProgressBar,
     SocialLinks,
     ThemeStyle,
     WebsiteTitle

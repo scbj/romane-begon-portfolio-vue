@@ -3,20 +3,20 @@
     name="foo"
     appear
   >
-    <div class="scroll-progress" :style="cssVariables">
-      <div class="scroll-progress__indicator-background" />
-      <div class="scroll-progress__indicator" />
+    <div class="home-progress-bar" :style="cssVariables">
+      <div class="home-progress-bar__indicator-background" />
+      <div class="home-progress-bar__indicator" />
 
       <template v-for="(page, index) in pages">
         <!-- Page numbers -->
-        <span :key="'index' + index" class="scroll-progress__index">
+        <span :key="'index' + index" class="home-progress-bar__index">
           0{{ index + 1 }}
         </span>
 
         <!-- Labels -->
         <span
           :key="'label-' + index"
-          class="scroll-progress__label"
+          class="home-progress-bar__label"
           @click="scrollIntoView(index)"
         >
           {{ page.toUpperCase() }}
@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.scroll-progress {
+.home-progress-bar {
   font-family: "Garamond Premier Pro Display", serif;
   font-weight: 500;
   font-size: 1.5rem;
@@ -97,25 +97,25 @@ export default {
   column-gap: 28px;
 }
 
-.scroll-progress__indicator,
-.scroll-progress__indicator-background {
+.home-progress-bar__indicator,
+.home-progress-bar__indicator-background {
   grid-column: 2 / 3;
   grid-row: 1 / calc(var(--row-count) + 1);
   width: 1px;
 }
 
-.scroll-progress__indicator {
+.home-progress-bar__indicator {
   background: #cccccc;
   transform: scaleY(var(--scale-y));
   transform-origin: 50% 0%;
   transition: transform .2s ease-out;
 }
 
-.scroll-progress__indicator-background {
+.home-progress-bar__indicator-background {
   background: rgba(#cccccc, .2);
 }
 
-.scroll-progress__label {
+.home-progress-bar__label {
   text-align: left;
   margin-bottom: 82px;
   cursor: pointer;
@@ -125,7 +125,7 @@ export default {
   }
 }
 
-.scroll-progress__index {
+.home-progress-bar__index {
   text-align: right;
 }
 
