@@ -1,14 +1,14 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="startup-section" :style="cssVariables">
-      <ParallaxLayer class="startup-section__background" depth="back">
-        <div class="startup-section__background-picture" />
-        <div class="startup-section__background-overlay" />
+    <ParallaxGroup class="section-startup" :style="cssVariables">
+      <ParallaxLayer class="section-startup__background" depth="back">
+        <div class="section-startup__background-picture" />
+        <div class="section-startup__background-overlay" />
       </ParallaxLayer>
 
-      <ParallaxLayer class="startup-section__content" depth="base">
+      <ParallaxLayer class="section-startup__content" depth="base">
         <WebsiteTitle size="large" />
-        <div class="startup-section__content-citation">
+        <div class="section-startup__content-citation">
           <span class="sentence-1">« {{ sentence.text }}. »</span>
           <span class="sentence-2">{{ sentence.author }}</span>
         </div>
@@ -66,43 +66,43 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
 
-.startup-section {
+.section-startup {
   display: grid;
   min-height: 100vh;
   align-items: stretch;
   justify-items: stretch;
 }
 
-.startup-section__background,
-.startup-section__content {
+.section-startup__background,
+.section-startup__content {
   grid-column: 1/2;
   grid-row: 1/2;
 }
 
-.startup-section__background {
+.section-startup__background {
   display: grid;
   width: 100%;
   height: 100%;
 }
 
-.startup-section__background-picture,
-.startup-section__background-overlay {
+.section-startup__background-picture,
+.section-startup__background-overlay {
   grid-column: 1/2;
   grid-row: 1/2;
 }
 
-.startup-section__background-picture {
+.section-startup__background-picture {
   background-image: var(--background-image);
   background-size: cover;
   background-position: 63%;
   background-repeat: no-repeat;
 }
 
-.startup-section__background-overlay {
+.section-startup__background-overlay {
   background: linear-gradient(0deg, rgba(15,14,11,0.4009978991596639) 0%, rgba(15,14,11,0.05926120448179273) 100%)
 }
 
-.startup-section__content {
+.section-startup__content {
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
@@ -120,7 +120,7 @@ export default {
   }
 }
 
-.startup-section__content-citation {
+.section-startup__content-citation {
   font-family: "Garamond Premier Pro Display", serif;
   font-size: 2.2rem;
   font-weight: 300;

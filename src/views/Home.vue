@@ -1,6 +1,6 @@
 <template>
   <DefaultLayout :options="layoutOptions">
-    <StartupSection @visible="keepOnlySocialLinks()" />
+    <SectionStartup @visible="keepOnlySocialLinks()" />
     <template v-for="(prestation, index) in prestations">
       <PrestationPreviewSection
         :key="index"
@@ -28,7 +28,7 @@ import SectionAbout from '@/components/SectionAbout'
 import SectionClientArea from '@/components/SectionClientArea'
 import ContactSection from '@/components/ContactSection'
 import PrestationPreviewSection from '@/components/PrestationPreviewSection'
-import StartupSection from '@/components/StartupSection'
+import SectionStartup from '@/components/SectionStartup'
 
 import data from '@/assets/data/home.json'
 import { slugifyPrestationParam } from '@/router/routes'
@@ -40,7 +40,7 @@ export default {
     SectionClientArea,
     ContactSection,
     PrestationPreviewSection,
-    StartupSection
+    SectionStartup
   },
 
   data () {
