@@ -1,23 +1,23 @@
 <template>
-  <div class="gallery-viewer">
-    <div class="gallery-viewer__counter">
+  <div class="app-viewer">
+    <div class="app-viewer__counter">
       07 / 96
     </div>
-    <div class="gallery-viewer__carousel" />
-    <div class="gallery-viewer__thumbnails" />
-    <div class="gallery-viewer__controls">
+    <div class="app-viewer__carousel" />
+    <div class="app-viewer__thumbnails" />
+    <div class="app-viewer__controls">
       <div class="icon-sun" />
       <div class="icon-fullscreen" />
     </div>
-    <div class="gallery-viewer__previous" />
-    <div class="gallery-viewer__next" />
+    <div class="app-viewer__previous" />
+    <div class="app-viewer__next" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import '@/assets/styles/_vars.scss';
 
-.gallery-viewer {
+.app-viewer {
   color: var(--color-light-1);
   background: var(--color-dark-1);
 
@@ -47,45 +47,45 @@
   }
 }
 
-.gallery-viewer__carousel {
+.app-viewer__carousel {
   background: red;
   grid-column: carousel-start / carousel-end;
   grid-row: carousel-start / carousel-end;
 }
 
-.gallery-viewer__thumbnails {
+.app-viewer__thumbnails {
   background: blue;
   grid-column: first / last;
   grid-row: carousel-end / last;
   height: 130px;
 }
 
-.gallery-viewer__next,
-.gallery-viewer__previous  {
+.app-viewer__next,
+.app-viewer__previous  {
   background: green;
   height: 12px;
   width: 12px;
   align-self: center;
 }
 
-.gallery-viewer__next {
+.app-viewer__next {
   grid-row: carousel-start / carousel-end;
   grid-column: next-button;
   justify-self: end;
 }
 
-.gallery-viewer__previous {
+.app-viewer__previous {
   grid-row: carousel-start / carousel-end;
   grid-column: first;
   justify-self: start;
 }
 
-.gallery-viewer__counter {
+.app-viewer__counter {
   grid-column: first;
   grid-row: first;
 }
 
-.gallery-viewer__controls {
+.app-viewer__controls {
   grid-row: controls;
   grid-column: next-button;
   display: grid;

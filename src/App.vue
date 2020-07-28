@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <RouterView class="app__page" />
-    <GalleryViewer v-show="isViewerActive" class="app__viewer" />
+    <AppViewer v-show="isViewerActive" class="app__viewer" />
     <AppMenu v-show="isMenuActive" class="app__menu" />
     <AppButton class="app__menu-button" />
   </div>
@@ -10,13 +10,13 @@
 <script>
 import { get } from 'vuex-pathify'
 
-import GalleryViewer from '@/components/GalleryViewer.vue'
+import AppViewer from '@/components/AppViewer.vue'
 import AppMenu from '@/components/AppMenu.vue'
 import AppButton from '@/components/AppButton.vue'
 
 export default {
   components: {
-    GalleryViewer,
+    AppViewer,
     AppMenu,
     AppButton
   },
