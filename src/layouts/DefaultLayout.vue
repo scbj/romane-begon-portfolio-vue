@@ -13,7 +13,7 @@
         <slot />
       </ParallaxContainer>
       <aside class="default-layout__top">
-        <WebsiteMark v-show="!options.hideWebsiteMark" :style="theme" />
+        <WebsiteTitle v-show="!options.hideWebsiteTitle" :style="theme" />
       </aside>
       <aside class="default-layout__right">
         <SocialLinks v-show="!options.hideSocialLinks" orientation="vertical" />
@@ -35,7 +35,7 @@ import ParallaxContainer from '@/components/ParallaxContainer'
 import ScrollProgress from '@/components/ScrollProgress'
 import SocialLinks from '@/components/SocialLinks'
 import ThemeStyle from '@/components/ThemeStyle'
-import WebsiteMark from '@/components/WebsiteMark'
+import WebsiteTitle from '@/components/WebsiteTitle'
 
 import responsive from '@/mixins/responsive'
 
@@ -45,7 +45,7 @@ export default {
     ScrollProgress,
     SocialLinks,
     ThemeStyle,
-    WebsiteMark
+    WebsiteTitle
   },
 
   mixins: [responsive],

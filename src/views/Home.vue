@@ -48,7 +48,7 @@ export default {
       layoutOptions: {
         hideScrollProgress: true,
         hideSocialLinks: false,
-        hideWebsiteMark: false
+        hideWebsiteTitle: false
       }
     }
   },
@@ -71,28 +71,28 @@ export default {
     freeSideSpaces () {
       this.layoutOptions.hideScrollProgress = true
       this.layoutOptions.hideSocialLinks = true
-      this.layoutOptions.hideWebsiteMark = false
+      this.layoutOptions.hideWebsiteTitle = false
       this.themeMode = 'light'
     },
 
     keepOnlySocialLinks () {
       this.layoutOptions.hideScrollProgress = true
       this.layoutOptions.hideSocialLinks = false
-      this.layoutOptions.hideWebsiteMark = true
+      this.layoutOptions.hideWebsiteTitle = true
       this.themeMode = 'dark'
     },
 
     showAllComponents () {
       this.layoutOptions.hideScrollProgress = false
       this.layoutOptions.hideSocialLinks = false
-      this.layoutOptions.hideWebsiteMark = false
+      this.layoutOptions.hideWebsiteTitle = false
       this.themeMode = 'dark'
     },
 
     foo () {
       this.layoutOptions.hideScrollProgress = false
       this.layoutOptions.hideSocialLinks = false
-      this.layoutOptions.hideWebsiteMark = true
+      this.layoutOptions.hideWebsiteTitle = true
       this.themeMode = 'dark'
     }
   }

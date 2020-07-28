@@ -1,6 +1,6 @@
 <template>
   <div class="navigation-menu-panel">
-    <WebsiteMark class="navigation-menu-panel__mark" />
+    <WebsiteTitle class="navigation-menu-panel__website-title" />
     <ListView :items="navigationLinks" class="navigation-menu-panel__list">
       <template #item="{ item }">
         <a :href="item.path" class="navigation-menu-panel__link">
@@ -22,7 +22,7 @@
 import CopyrightStatement from '@/components/CopyrightStatement'
 import ListView from '@/components/ListView'
 import SocialLinks from '@/components/SocialLinks'
-import WebsiteMark from '@/components/WebsiteMark'
+import WebsiteTitle from '@/components/WebsiteTitle'
 
 import { navigationLinks } from '@/assets/data/menu'
 
@@ -31,7 +31,7 @@ export default {
     CopyrightStatement,
     ListView,
     SocialLinks,
-    WebsiteMark
+    WebsiteTitle
   },
 
   computed: {
@@ -48,7 +48,7 @@ export default {
   grid-template-rows: auto 1fr repeat(2, auto);
   grid-template-columns: 1fr;
   grid-template-areas:
-    "mark"
+    "title"
     "nav"
     "social"
     "footer";
@@ -62,8 +62,8 @@ export default {
   }
 }
 
-.navigation-menu-panel__mark {
-  grid-area: mark;
+.navigation-menu-panel__website-title {
+  grid-area: title;
 }
 
 .navigation-menu-panel__list {
@@ -75,7 +75,7 @@ export default {
   gap: 0.3rem;
 }
 
-.navigation-menu-panel__mark,
+.navigation-menu-panel__website-title,
 .navigation-menu-panel__list {
   justify-self: center;
 

@@ -7,7 +7,7 @@
       </ParallaxLayer>
 
       <ParallaxLayer class="startup-section__content" depth="base">
-        <WebsiteMark size="large" />
+        <WebsiteTitle size="large" />
         <div class="startup-section__content-citation">
           <span class="sentence-1">« {{ sentence.text }}. »</span>
           <span class="sentence-2">{{ sentence.author }}</span>
@@ -22,7 +22,7 @@ import Intersect from 'vue-intersect'
 
 import ParallaxGroup from '@/components/ParallaxGroup'
 import ParallaxLayer from '@/components/ParallaxLayer'
-import WebsiteMark from '@/components/WebsiteMark'
+import WebsiteTitle from '@/components/WebsiteTitle'
 
 import data from '@/assets/data/home.json'
 
@@ -31,7 +31,7 @@ export default {
     Intersect,
     ParallaxGroup,
     ParallaxLayer,
-    WebsiteMark
+    WebsiteTitle
   },
 
   computed: {
