@@ -19,11 +19,11 @@
           personnel pour frissonner d’émotions, revoir les sourires de vos proches, admirer les
           empreintes du bonheur ou revivre le plus beau jour de votre vie
         </TextParagraph>
-        <ListView class="client-area__galleries" :items="galleries">
+        <BaseList class="client-area__galleries" :items="galleries">
           <template v-slot:item="{ item }">
             <LumysGallery :gallery="item" />
           </template>
-        </ListView>
+        </BaseList>
       </div>
     </ThemeStyle>
   </PageLayout>
@@ -34,7 +34,7 @@ import { call, get } from 'vuex-pathify'
 
 import PageLayout from '@/layouts/PageLayout'
 
-import ListView from '@/components/ListView'
+import BaseList from '@/components/base/BaseList'
 import LumysGallery from '@/components/LumysGallery'
 import TextTitle from '@/components/TextTitle'
 import TextParagraph from '@/components/TextParagraph'
@@ -43,7 +43,7 @@ import ThemeStyle from '@/components/ThemeStyle'
 export default {
   components: {
     PageLayout,
-    ListView,
+    BaseList,
     LumysGallery,
     TextParagraph,
     TextTitle,

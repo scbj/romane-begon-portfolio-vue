@@ -1,9 +1,9 @@
 <template>
-  <ul class="list-view">
+  <ul class="base-list">
     <li
       v-for="(item, index) in items"
       :key="index"
-      class="list-view__item"
+      class="base-list__item"
     >
       <slot name="item" :item="item" />
     </li>

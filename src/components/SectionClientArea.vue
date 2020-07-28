@@ -27,11 +27,11 @@
               Dernière galerie ↓
             </template>
           </TextParagraph>
-          <ListView class="section-client-area__content-recents-galleries" :items="firstGalleries">
+          <BaseList class="section-client-area__content-recents-galleries" :items="firstGalleries">
             <template #item="{ item }">
               <LumysGallery :gallery="item" />
             </template>
-          </ListView>
+          </BaseList>
           <BaseButton
             class="section-client-area__content-recents-more"
             :route="{ name: 'clientArea' }"
@@ -54,7 +54,7 @@ import responsive from '@/mixins/responsive'
 
 import ParallaxGroup from '@/components/ParallaxGroup'
 import ParallaxLayer from '@/components/ParallaxLayer'
-import ListView from '@/components/ListView'
+import BaseList from '@/components/base/BaseList'
 import LumysGallery from '@/components/LumysGallery'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
@@ -64,7 +64,7 @@ export default {
     ParallaxGroup,
     ParallaxLayer,
     Intersect,
-    ListView,
+    BaseList,
     LumysGallery,
     TextParagraph,
     TextTitle

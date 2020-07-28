@@ -1,13 +1,13 @@
 <template>
   <div class="menu-panel">
     <WebsiteTitle class="menu-panel__website-title" />
-    <ListView :items="navigationLinks" class="menu-panel__list">
+    <BaseList :items="navigationLinks" class="menu-panel__list">
       <template #item="{ item }">
         <a :href="item.path" class="menu-panel__link">
           {{ item.label }}
         </a>
       </template>
-    </ListView>
+    </BaseList>
     <SocialLinks class="menu-panel__social" />
     <CopyrightStatement class="menu-panel__copyright" />
     <BaseButton
@@ -20,7 +20,7 @@
 
 <script>
 import CopyrightStatement from '@/components/CopyrightStatement'
-import ListView from '@/components/ListView'
+import BaseList from '@/components/base/BaseList'
 import SocialLinks from '@/components/SocialLinks'
 import WebsiteTitle from '@/components/WebsiteTitle'
 
@@ -29,7 +29,7 @@ import { navigationLinks } from '@/assets/data/menu'
 export default {
   components: {
     CopyrightStatement,
-    ListView,
+    BaseList,
     SocialLinks,
     WebsiteTitle
   },
