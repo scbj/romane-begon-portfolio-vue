@@ -1,5 +1,5 @@
 <template>
-  <GoBackLayout class="prestation">
+  <PageLayout class="prestation">
     <template #header>
       <BaseButton
         class="prestation_navigation-link"
@@ -17,11 +17,11 @@
       </BaseButton>
     </template>
     <RouterView />
-  </GoBackLayout>
+  </PageLayout>
 </template>
 
 <script>
-import GoBackLayout from '@/layouts/GoBackLayout'
+import PageLayout from '@/layouts/PageLayout'
 
 function routeGuard (to, from, next) {
   const allowed = ['mariages', 'portraits', 'familles-couples']
@@ -33,7 +33,7 @@ function routeGuard (to, from, next) {
 
 export default {
   components: {
-    GoBackLayout
+    PageLayout
   },
 
   beforeRouteUpdate: routeGuard,

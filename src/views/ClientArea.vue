@@ -1,5 +1,5 @@
 <template>
-  <GoBackLayout>
+  <PageLayout>
     <ThemeStyle mode="light">
       <div
         slot-scope="{ theme }"
@@ -26,13 +26,13 @@
         </ListView>
       </div>
     </ThemeStyle>
-  </GoBackLayout>
+  </PageLayout>
 </template>
 
 <script>
 import { call, get } from 'vuex-pathify'
 
-import GoBackLayout from '@/layouts/GoBackLayout'
+import PageLayout from '@/layouts/PageLayout'
 
 import ListView from '@/components/ListView'
 import LumysGallery from '@/components/LumysGallery'
@@ -42,7 +42,7 @@ import ThemeStyle from '@/components/ThemeStyle'
 
 export default {
   components: {
-    GoBackLayout,
+    PageLayout,
     ListView,
     LumysGallery,
     TextParagraph,

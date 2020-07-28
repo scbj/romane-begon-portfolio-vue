@@ -2,23 +2,23 @@
   <ThemeStyle mode="light">
     <div
       slot-scope="{ theme }"
-      class="go-back-layout"
+      class="page-layout"
       :style="theme"
     >
-      <header class="go-back-layout__header">
+      <header class="page-layout__header">
         <BaseButton
-          class="go-back-layout__button"
+          class="page-layout__button"
           :color="theme['--text-color']"
           icon="cross"
           :icon-scale="2"
           :icon-fill="false"
           @click="goBack"
         />
-        <div class="go-back-layout__header-content">
+        <div class="page-layout__header-content">
           <slot name="header" />
         </div>
       </header>
-      <div class="go-back-layout__content">
+      <div class="page-layout__content">
         <slot />
       </div>
     </div>
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-.go-back-layout {
+.page-layout {
   background: white;
   min-height: 100%;
 
@@ -54,7 +54,7 @@ export default {
   flex-direction: column;
 }
 
-.go-back-layout__header {
+.page-layout__header {
   background: rgba(white, 0.5);
   display: flex;
   justify-content: space-between;
@@ -63,7 +63,7 @@ export default {
   margin-right: 5rem;
 }
 
-.go-back-layout__header-content {
+.page-layout__header-content {
   display: flex;
 }
 </style>
