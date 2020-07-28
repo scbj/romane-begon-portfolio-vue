@@ -14,7 +14,7 @@
       />
     </template>
     <SectionAbout @visible="freeSideSpaces()" />
-    <ContactSection @visible="foo()" />
+    <SectionContact @visible="foo()" />
     <SectionClientArea @visible="freeSideSpaces()" />
   </DefaultLayout>
 </template>
@@ -26,7 +26,7 @@ import DefaultLayout from '@/layouts/DefaultLayout'
 
 import SectionAbout from '@/components/SectionAbout'
 import SectionClientArea from '@/components/SectionClientArea'
-import ContactSection from '@/components/ContactSection'
+import SectionContact from '@/components/SectionContact'
 import SectionPrestation from '@/components/SectionPrestation'
 import SectionStartup from '@/components/SectionStartup'
 
@@ -38,7 +38,7 @@ export default {
     SectionAbout,
     DefaultLayout,
     SectionClientArea,
-    ContactSection,
+    SectionContact,
     SectionPrestation,
     SectionStartup
   },

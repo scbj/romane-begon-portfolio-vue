@@ -1,12 +1,12 @@
 <template>
   <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="contact-section" :style="cssVariables">
-      <ParallaxLayer class="contact-section__background" depth="back">
-        <div class="contact-section__background-picture" />
-        <div class="contact-section__background-overlay contact-section__background--foo" />
+    <ParallaxGroup class="section-contact" :style="cssVariables">
+      <ParallaxLayer class="section-contact__background" depth="back">
+        <div class="section-contact__background-picture" />
+        <div class="section-contact__background-overlay section-contact__background--foo" />
       </ParallaxLayer>
 
-      <ParallaxLayer class="contact-section__content" depth="base">
+      <ParallaxLayer class="section-contact__content" depth="base">
         <PrestationCounter />
         <TextTitle extra-large>
           Contact
@@ -18,7 +18,7 @@
           Racontez-moi votre histoire, vos projets et vos envies en détails !
         </TextParagraph>
         <BaseButton
-          class="contact-section__contact-button"
+          class="section-contact__contact-button"
           href="#"
           color="white"
           icon="play"
@@ -90,41 +90,41 @@ export default {
   white-space: nowrap;
 }
 
-.contact-section {
+.section-contact {
   display: grid;
   min-height: 100vh;
   align-items: stretch;
   justify-items: stretch;
 }
 
-.contact-section__background,
-.contact-section__content {
+.section-contact__background,
+.section-contact__content {
   grid-column: 1/2;
   grid-row: 1/2;
 }
 
-.contact-section__background {
+.section-contact__background {
   display: grid;
   width: 100%;
   height: 100%;
 }
 
-.contact-section__background-picture,
-.contact-section__background-overlay {
+.section-contact__background-picture,
+.section-contact__background-overlay {
   grid-column: 1/2;
   grid-row: 1/2;
   height: 100%;
   width: 100%;
 }
 
-.contact-section__background-picture {
+.section-contact__background-picture {
   background-image: var(--background-image);
   background-size: cover;
   background-position: var(--background-position);
   background-repeat: no-repeat;
 }
 
-.contact-section__background-overlay {
+.section-contact__background-overlay {
   &[class*="--left"] {
     background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 59%);
   }
@@ -136,7 +136,7 @@ export default {
   }
 }
 
-.contact-section__content {
+.section-contact__content {
   color: var(--color-light-1);
   padding: 5rem;
   display: flex;
@@ -164,7 +164,7 @@ export default {
   }
 }
 
-.contact-section__contact-button {
+.section-contact__contact-button {
   margin-top: 4.9rem;
 }
 </style>
