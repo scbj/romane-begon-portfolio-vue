@@ -21,7 +21,7 @@
         </TextParagraph>
         <BaseList class="client-area__galleries" :items="galleries">
           <template v-slot:item="{ item }">
-            <LumysGallery :gallery="item" />
+            <ClientAreaGallery :gallery="item" />
           </template>
         </BaseList>
       </div>
@@ -35,7 +35,7 @@ import { call, get } from 'vuex-pathify'
 import PageLayout from '@/layouts/PageLayout'
 
 import BaseList from '@/components/base/BaseList'
-import LumysGallery from '@/components/LumysGallery'
+import ClientAreaGallery from '@/components/ClientAreaGallery'
 import TextTitle from '@/components/TextTitle'
 import TextParagraph from '@/components/TextParagraph'
 import ThemeStyle from '@/components/ThemeStyle'
@@ -44,7 +44,7 @@ export default {
   components: {
     PageLayout,
     BaseList,
-    LumysGallery,
+    ClientAreaGallery,
     TextParagraph,
     TextTitle,
     ThemeStyle

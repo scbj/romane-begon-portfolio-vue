@@ -29,7 +29,7 @@
           </TextParagraph>
           <BaseList class="section-client-area__content-recents-galleries" :items="firstGalleries">
             <template #item="{ item }">
-              <LumysGallery :gallery="item" />
+              <ClientAreaGallery :gallery="item" />
             </template>
           </BaseList>
           <BaseButton
@@ -55,7 +55,7 @@ import responsive from '@/mixins/responsive'
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 import ParallaxLayer from '@/components/parallax/ParallaxLayer'
 import BaseList from '@/components/base/BaseList'
-import LumysGallery from '@/components/LumysGallery'
+import ClientAreaGallery from '@/components/ClientAreaGallery'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
@@ -65,7 +65,7 @@ export default {
     ParallaxLayer,
     Intersect,
     BaseList,
-    LumysGallery,
+    ClientAreaGallery,
     TextParagraph,
     TextTitle
   },

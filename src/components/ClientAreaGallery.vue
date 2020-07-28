@@ -1,19 +1,19 @@
 <template>
-  <div class="lumys-gallery">
+  <div class="client-area-gallery">
     <BaseImage
       content
       aspect-ratio="13:9"
-      class="lumys-gallery__cover"
+      class="client-area-gallery__cover"
       :src="gallery.coverPhoto"
       :alt="gallery.label"
     />
     <div>
-      <TextTitle small class="lumys-gallery__label">
+      <TextTitle small class="client-area-gallery__label">
         {{ gallery.label }}
       </TextTitle>
     </div>
     <a
-      class="lumys-gallery__link"
+      class="client-area-gallery__link"
       :href="gallery.url"
       target="_blank"
     />
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.lumys-gallery {
+.client-area-gallery {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,19 +54,19 @@ export default {
   cursor: pointer;
 }
 
-.lumys-gallery__cover {
+.client-area-gallery__cover {
   border-radius: 0.4rem;
   overflow: hidden;
 }
 
-.lumys-gallery__label {
+.client-area-gallery__label {
   color: var(--dark-color-2);
   padding: 1em;
   padding-bottom: 0;
   font-weight: 500;
 }
 
-.lumys-gallery__link {
+.client-area-gallery__link {
   position: absolute;
   left: 0;
   top: 0;
