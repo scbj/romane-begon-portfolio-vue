@@ -22,3 +22,11 @@ body {
   overflow-x: hidden;
   @include hide-scrollbar;
 }
+
+.formulate-input {
+  .formulate-input-wrapper {
+    .formulate-input-element {
+      max-width: initial;
+    }
+  }
+}

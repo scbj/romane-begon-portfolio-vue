@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueFormulate from '@braid/vue-formulate'
 import VueMq from 'vue-mq'
 import VueSVGIcon from 'vue-svgicon'
 
@@ -6,8 +7,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import '@/assets/icons'
+import '../node_modules/@braid/vue-formulate/themes/snow/snow.scss'
 
 Vue.config.productionTip = false
+
+Vue.use(VueFormulate)
 
 // Install vue-mq and initialize breakpoints.
 Vue.use(VueMq, {

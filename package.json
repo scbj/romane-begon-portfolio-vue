@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@bit/scbj.utils.throttle": "1.0.0",
+    "@braid/vue-formulate": "^2.4.3",
+    "axios": "^0.19.2",
     "core-js": "3.6.5",
     "slugify": "1.4.4",
     "vue": "2.6.11",

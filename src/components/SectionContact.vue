@@ -19,7 +19,7 @@
         </TextParagraph>
         <BaseButton
           class="section-contact__contact-button"
-          href="#"
+          :route="{ name: 'contact' }"
           color="white"
           icon="play"
           :icon-scale="1.12"
