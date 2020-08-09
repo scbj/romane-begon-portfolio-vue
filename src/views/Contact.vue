@@ -23,6 +23,14 @@
         validation="required"
       />
       <FormulateInput
+        name="phone"
+        type="text"
+        label="Votre téléphone"
+        placeholder="Votre téléphone"
+        :validation="[['bail'],['required'],['matches', /^(\+\d\d\s?\.?\d|\d\d)(\s?\.?\d\d){4}$/]]"
+        :validation-messages="{ matches: 'Votre téléphone n\'est pas valide.' }"
+      />
+      <FormulateInput
         name="whereComesFrom"
         type="radio"
         :options="whereComesFromOptions"
@@ -95,7 +103,6 @@ export default {
 
 <style lang="scss" scoped>
 .contact-form {
-  font-size: 16px;
   margin: auto;
   padding: 1.111rem;
   max-width: 33.333rem;
