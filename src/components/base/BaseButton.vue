@@ -51,7 +51,7 @@ export default {
     },
     iconScale: {
       type: Number,
-      default: 1
+      default: 0.556
     },
     route: {
       type: Object,
@@ -122,19 +122,19 @@ export default {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 2.3rem;
+  gap: 1.278rem;
 
   &.base-button--simple {
     display: block;
   }
 
   &.base-button--circle .base-button__icon {
-    height: 5.3rem;
-    width: 5.3rem;
+    height: 2.944rem;
+    width: 2.944rem;
 
     @media screen and (min-width: $medium) {
-      height: 5rem;
-      width: 5rem;
+      height: 2.778rem;
+      width: 2.778rem;
     }
   }
 
@@ -145,7 +145,7 @@ export default {
 }
 
 .base-button__icon {
-  border-radius: 4.9rem;
+  border-radius: 2.722rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -158,7 +158,7 @@ export default {
 }
 
 .base-button__text {
-  font-size: 1.6rem;
+  font-size: 0.889rem;
   font-weight: 600;
   font-family: "TT Commons", sans-serif;
   line-height: 2.286em;

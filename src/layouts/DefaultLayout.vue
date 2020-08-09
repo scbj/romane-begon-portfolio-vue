@@ -77,23 +77,23 @@ export default {
 
 .default-layout__top {
   position: fixed;
-  top: 3rem;
+  top: 1.667rem;
   left: 50%;
   transform: translateX(-50%);
 
   @media screen and (min-width: $extraLarge) {
-    top: 3.8rem;
+    top: 2.111rem;
   }
 }
 
 .default-layout__right {
   position: fixed;
-  right: 5rem;
-  top: 14rem;
+  right: 2.778rem;
+  top: 7.778rem;
   z-index: 10;
 
   @media screen and (min-width: $extraLarge) {
-    right: 6.8rem;
+    right: 3.778rem;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -101,7 +101,7 @@ export default {
 
 .default-layout__bottom {
   position: fixed;
-  bottom: 6rem;
+  bottom: 3.333rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -113,17 +113,17 @@ export default {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: 5rem;
+  left: 2.778rem;
   z-index: 10;
 
   @media screen and (min-width: $extraLarge) {
-    left: 6.8rem;
+    left: 3.778rem;
   }
 }
 
 .default-layout__scroll-down {
   font-family: 'TT Commons';
-  font-size: 1.2rem;
+  font-size: 0.667rem;
   font-weight: 500;
   letter-spacing: 0.28em;
   line-height: 2.667em;

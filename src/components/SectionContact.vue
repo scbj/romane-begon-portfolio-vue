@@ -22,7 +22,7 @@
           :route="{ name: 'contact' }"
           color="white"
           icon="play"
-          :icon-scale="1.12"
+          :icon-scale="0.622"
           text="ÉCRIVONS-NOUS"
         />
       </ParallaxLayer>
@@ -138,7 +138,7 @@ export default {
 
 .section-contact__content {
   color: var(--color-light-1);
-  padding: 5rem;
+  padding: 2.778rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,14 +147,14 @@ export default {
 
   @media screen and (min-width: $medium) {
     justify-content: center;
-    padding: 2rem;
-    padding-left: 32rem;
+    padding: 1.111rem;
+    padding-left: 17.778rem;
     padding-top: 10vh;
   }
 
   @media screen and (min-width: $large) {
-    padding: 2rem;
-    padding-left: 37rem;
+    padding: 1.111rem;
+    padding-left: 20.556rem;
     padding-top: 10vh;
   }
 
@@ -165,6 +165,6 @@ export default {
 }
 
 .section-contact__contact-button {
-  margin-top: 4.9rem;
+  margin-top: 2.722rem;
 }
 </style>

@@ -55,7 +55,7 @@ export default {
 }
 
 .client-area-gallery__cover {
-  border-radius: 0.4rem;
+  border-radius: 0.222rem;
   overflow: hidden;
 }
 

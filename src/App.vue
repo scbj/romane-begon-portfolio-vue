@@ -77,8 +77,8 @@ export default {
   grid-row: 1/2;
   justify-self: end;
 
-  margin-right: 5rem;
-  margin-top: 5rem;
+  margin-right: 2.778rem;
+  margin-top: 2.778rem;
   z-index: $z-index-app-button;
 
   @media screen and (min-width: $extraLarge) {

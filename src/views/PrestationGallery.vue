@@ -99,14 +99,14 @@ export default {
 .prestation-gallery__list {
   /* display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 3rem;
+  gap: 1.667rem;
   margin: auto;
-  margin-top: 4rem;
+  margin-top: 2.222rem;
   max-width: 140rem; */
 }
 
 .prestation-gallery__photo {
-  /* border-radius: 0.4rem;
+  /* border-radius: 0.222rem;
   overflow: hidden; */
 }
 
@@ -114,23 +114,23 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  margin-top: 4rem;
-  max-width: 140rem;
+  margin-top: 2.222rem;
+  max-width: 77.778rem;
 }
 
 .prestation-gallery__grid-column {
   flex: var(--column-width, 25%);
   max-width: var(--column-width, 25%);
-  padding: 0 1rem;
+  padding: 0 0.556rem;
 
   &:nth-child(even) {
-    margin-top: 3rem;
+    margin-top: 1.667rem;
   }
 }
 
 .prestation-gallery__grid-photo {
-  margin: 2rem 0;
-  border-radius: 0.4rem;
+  margin: 1.111rem 0;
+  border-radius: 0.222rem;
   overflow: hidden;
 
   img {

@@ -30,7 +30,7 @@ export default {
     },
 
     activeIconScale () {
-      return this.isMenuActive ? 2.5 : 3
+      return this.isMenuActive ? 1.389 : 1.667
     }
   },
 

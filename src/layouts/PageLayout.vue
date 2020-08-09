@@ -10,7 +10,7 @@
           class="page-layout__button"
           :color="theme['--text-color']"
           icon="cross"
-          :icon-scale="2"
+          :icon-scale="1.111"
           :icon-fill="false"
           @click="goBack"
         />
@@ -59,8 +59,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5rem;
-  margin-right: 5rem;
+  padding: 2.778rem;
+  margin-right: 2.778rem;
 }
 
 .page-layout__header-content {

@@ -7,7 +7,7 @@
 
 <style lang="scss" scoped>
 .copyright-statement {
-  font-size: 2.2rem;
+  font-size: 1.222rem;
   font-weight: 300;
   font-family: "Garamond Premier Pro Display", serif;
   line-height: 1.909em;

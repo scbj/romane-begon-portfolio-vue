@@ -37,7 +37,7 @@
             :route="{ name: 'clientArea' }"
             color="black"
             icon="galleries-2"
-            :icon-scale="1.8"
+            :icon-scale="1"
             text="VOIR LES GALLERIES"
           />
         </div>
@@ -123,25 +123,25 @@ export default {
   display: grid;
   grid-template-rows: 1fr auto;
   align-items: end;
-  row-gap: 4rem;
-  padding: 5rem;
-  padding-bottom: 18rem;
+  row-gap: 2.222rem;
+  padding: 2.778rem;
+  padding-bottom: 10rem;
 
   @media screen and (min-width: $medium) {
-    column-gap: 8rem;
+    column-gap: 4.444rem;
     row-gap: 0;
-    padding: 5rem;
+    padding: 2.778rem;
   }
 
   @media screen and (min-width: $large) {
-    column-gap: 10rem;
+    column-gap: 5.556rem;
     row-gap: 0;
   }
 
   @media screen and (min-width: $medium) {
     display: grid;
     grid-template-columns: 45% 55%;
-    column-gap: 12rem;
+    column-gap: 6.667rem;
     row-gap: 0;
     align-items: center;
     justify-items: stretch;
@@ -172,8 +172,8 @@ export default {
 .section-client-area__content-recents-galleries {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(241px, 1fr));
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: 1.667rem;
+  margin-top: 1.111rem;
 
   @media screen and (min-width: $medium) {
     grid-template-columns: repeat(auto-fill, minmax(241px, 300px));
@@ -182,13 +182,13 @@ export default {
 }
 
 .section-client-area__content-recents-more {
-  margin-top: 2rem;
+  margin-top: 1.111rem;
   align-self: center;
 }
 
 .section-client-area__content-recents-label {
   font-weight: 500;
   color: var(--color-dark-2);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.833rem;
 }
 </style>

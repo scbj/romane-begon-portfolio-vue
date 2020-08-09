@@ -69,15 +69,15 @@ export default {
   color: var(--color-dark-1);
   background: white;
   min-height: 100vh;
-  padding: 4rem;
+  padding: 2.222rem;
 }
 
 .client-area__galleries {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 3rem;
+  gap: 1.667rem;
   margin: auto;
-  margin-top: 4rem;
-  max-width: 140rem;
+  margin-top: 2.222rem;
+  max-width: 77.778rem;
 }
 </style>

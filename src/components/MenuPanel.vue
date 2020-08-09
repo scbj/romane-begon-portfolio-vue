@@ -52,7 +52,7 @@ export default {
     "nav"
     "social"
     "footer";
-  padding: 5rem;
+  padding: 2.778rem;
 
   @media screen and (min-width: $extraLarge) {
     padding-bottom: 6vh;
@@ -72,7 +72,7 @@ export default {
 
   display: grid;
   grid-auto-rows: auto;
-  gap: 0.3rem;
+  gap: 0.167rem;
 }
 
 .menu-panel__website-title,
@@ -86,7 +86,7 @@ export default {
 
 .menu-panel__social {
   grid-area: social;
-  margin-bottom: 4rem;
+  margin-bottom: 2.222rem;
 }
 
 .menu-panel__copyright,
@@ -100,7 +100,7 @@ export default {
 }
 
 .menu-panel__link {
-  font-size: 5.8rem;
+  font-size: 3.222rem;
   font-weight: 500;
   font-family: "Orpheus Pro", serif;
   line-height: 1.64em;

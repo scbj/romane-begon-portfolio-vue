@@ -20,7 +20,7 @@
           color="white"
           circle
           icon="play"
-          :icon-scale="1.12"
+          :icon-scale="0.622"
           text="DÉCOUVRIR PLUS EN DETAILS"
         />
       </ParallaxLayer>
@@ -152,8 +152,8 @@ export default {
 
 .section-prestation__content {
   color: var(--color-light-1);
-  padding: 5rem;
-  padding-bottom: 18rem;
+  padding: 2.778rem;
+  padding-bottom: 10rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -163,22 +163,22 @@ export default {
   @media screen and (min-width: $medium) {
     justify-content: center;
     padding: 0;
-    padding-left: 32rem;
+    padding-left: 17.778rem;
   }
 
   @media screen and (min-width: $large) {
     padding: 0;
-    padding-left: 37rem;
+    padding-left: 20.556rem;
   }
 
   @media screen and (min-width: $extraLarge) {
     padding: 0;
-    padding-left: 43rem;
+    padding-left: 23.889rem;
   }
 }
 
 .section-prestation__browse-button {
-  margin-top: 4.9rem;
+  margin-top: 2.722rem;
 }
 
 .section-prestation__title {

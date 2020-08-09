@@ -28,14 +28,14 @@ export default {
 }
 
 .website-title__title {
-  font-size: 2.5rem;
+  font-size: 1.389rem;
   line-height: 1.6em;
   letter-spacing: 0.14em;
   color: var(--text-color-2);
 }
 
 .website-title__subtitle {
-  font-size: 1.2rem;
+  font-size: 0.667rem;
   line-height: 1.6667em;
   letter-spacing: 0.0517em;
   color: var(--text-color-3);
@@ -43,13 +43,13 @@ export default {
 
 .website-title.large {
   .website-title__title {
-    font-size: 7rem;
+    font-size: 3.889rem;
     font-weight: 700;
     color: var(--color-light-1);
   }
 
   .website-title__subtitle {
-    font-size: 3.5rem;
+    font-size: 1.944rem;
     font-weight: 400;
     color: var(--color-light-2);
   }

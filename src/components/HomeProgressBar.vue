@@ -85,7 +85,7 @@ export default {
 .home-progress-bar {
   font-family: "Garamond Premier Pro Display", serif;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 0.833rem;
   letter-spacing: 0.1em;
   line-height: 1.438em;
   white-space: pre;
@@ -136,7 +136,7 @@ export default {
 
 .foo-enter,
 .foo-leave-to {
-  transform: translateX(-1rem) scale(0.995);
+  transform: translateX(-0.556rem) scale(0.995);
   opacity: 0;
 }
 </style>

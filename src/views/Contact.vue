@@ -97,7 +97,7 @@ export default {
 .contact-form {
   font-size: 16px;
   margin: auto;
-  padding: 2rem;
-  max-width: 60rem;
+  padding: 1.111rem;
+  max-width: 33.333rem;
 }
 </style>

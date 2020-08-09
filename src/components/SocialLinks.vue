@@ -6,7 +6,7 @@
         color="white"
         :href="link.href"
         :icon="link.icon"
-        :icon-scale="2.5"
+        :icon-scale="1.389"
       />
     </template>
   </div>
@@ -56,7 +56,7 @@ export default {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
-  gap: 2rem;
+  gap: 1.111rem;
 
   > * {
     cursor: pointer;
@@ -66,10 +66,10 @@ export default {
 .social-links--vertical {
   grid-auto-flow: row;
   grid-auto-rows: max-content;
-  gap: 4.5rem;
+  gap: 2.5rem;
 
   @media screen and (min-width: $extraLarge) {
-    gap: 6.8rem;
+    gap: 3.778rem;
   }
 }
 </style>

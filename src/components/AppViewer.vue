@@ -21,16 +21,16 @@
   color: var(--color-light-1);
   background: var(--color-dark-1);
 
-  $side-size: 16rem;
+  $side-size: 8.889rem;
   display: grid;
   grid-template-columns:
     [first carousel-start] minmax(0, 1fr)
     [next-button] minmax(0, 1fr) [carousel-end last];
   grid-template-rows:
-    [first controls] 12.1rem
+    [first controls] 6.722rem
     [carousel-start] 1fr
     [carousel-end] auto [last];
-  gap: 1.2rem;
+  gap: 0.667rem;
   height: 100%;
 
   @media screen and (min-width: $medium) {
@@ -43,7 +43,7 @@
       1fr
       [controls] auto
       [carousel-end] auto;
-    padding: 4rem 0;
+    padding: 2.222rem 0;
   }
 }
 
@@ -91,7 +91,7 @@
   display: grid;
   grid-auto-flow: column;
   justify-content: end;
-  gap: 1rem;
+  gap: 0.556rem;
   margin-right: 68px;
 
   .icon-sun,
