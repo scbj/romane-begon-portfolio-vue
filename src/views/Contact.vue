@@ -14,6 +14,7 @@
         label="Votre prénom et nom"
         placeholder="Votre prénom et nom"
         validation="required"
+        validation-name="Le prénom et nom"
       />
       <FormulateInput
         name="email"
@@ -21,6 +22,7 @@
         label="Votre email"
         placeholder="Votre email"
         validation="required"
+        validation-name="L'email"
       />
       <FormulateInput
         name="phone"
@@ -29,6 +31,7 @@
         placeholder="Votre téléphone"
         :validation="[['bail'],['required'],['matches', /^(\+\d\d\s?\.?\d|\d\d)(\s?\.?\d\d){4}$/]]"
         :validation-messages="{ matches: 'Votre téléphone n\'est pas valide.' }"
+        validation-name="Le numéro de téléphone"
       />
       <FormulateInput
         name="whereComesFrom"
@@ -37,6 +40,7 @@
         label="Comment m'avez-vous connue ?"
         placeholder="Sélectionner une option"
         validation="required"
+        validation-name="Ce champ"
       />
       <FormulateInput
         name="messageSubjet"
@@ -44,12 +48,14 @@
         :options="messageSubjetOptions"
         label="L'objet de votre message"
         validation="required"
+        validation-name="L'objet du message"
       />
       <FormulateInput
         name="message"
         type="textarea"
         label="Décrivez-votre projet en quelques lignes"
         validation="bail|required|min:50|max:600"
+        validation-name="Ce champ"
       />
       <FormulateInput type="submit" label="Envoyer" />
     </FormulateForm>

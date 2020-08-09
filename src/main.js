@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueFormulate from '@braid/vue-formulate'
+import { fr } from '@braid/vue-formulate-i18n'
 import VueMq from 'vue-mq'
 import VueSVGIcon from 'vue-svgicon'
 
@@ -11,7 +12,10 @@ import '../node_modules/@braid/vue-formulate/themes/snow/snow.scss'
 
 Vue.config.productionTip = false
 
-Vue.use(VueFormulate)
+Vue.use(VueFormulate, {
+  plugins: [fr],
+  locale: 'fr'
+})
 
 // Install vue-mq and initialize breakpoints.
 Vue.use(VueMq, {
