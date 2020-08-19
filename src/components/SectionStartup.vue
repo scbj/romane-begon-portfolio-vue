@@ -123,9 +123,9 @@ export default {
 .section-startup__content-citation {
   font-family: "Garamond Premier Pro Display", serif;
   font-size: 1.222rem;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.5em;
-  letter-spacing: 0.052em;
+  letter-spacing: 0.07em;
   text-align: center;
   color: #F3F3F3;
 
