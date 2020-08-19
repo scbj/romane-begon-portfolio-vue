@@ -119,9 +119,15 @@ export default {
   text-align: left;
   margin-bottom: 82px;
   cursor: pointer;
+  transition: color .2s ease-out;
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  &:hover {
+    color: white;
+    transition-duration: .1s;
   }
 }
 
