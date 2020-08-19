@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <RouterView class="app__page" />
-    <AppViewer v-show="isViewerActive" class="app__viewer" />
-    <AppMenu v-show="isMenuActive" class="app__menu" />
-    <AppButton class="app__menu-button" />
+    <AppViewer v-show="isViewerActive" />
+    <AppMenu v-show="isMenuActive" />
+    <AppButton />
   </div>
 </template>
 
@@ -45,45 +45,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: black;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr;
-  align-items: stretch;
-  justify-items: stretch;
   height: 100%;
+  position: relative;
 }
 
 .app__page {
-  grid-column: 1/3;
-  grid-row: 1/3;
   z-index: $z-index-app-page;
-}
-
-.app__viewer {
-  grid-column: 1/3;
-  grid-row: 1/3;
-  z-index: $z-index-app-viewer;
-}
-
-.app__menu {
-  grid-column: 1/3;
-  grid-row: 1/3;
-  z-index: $z-index-app-menu;
-}
-
-.app__menu-button {
-  position: relative;
-  grid-column: 2/3;
-  grid-row: 1/2;
-  justify-self: end;
-
-  margin-right: 2.778rem;
-  margin-top: 2.778rem;
-  z-index: $z-index-app-button;
-
-  @media screen and (min-width: $extraLarge) {
-    margin-right: 68px;
-    margin-top: 68px;
-  }
 }
 </style>

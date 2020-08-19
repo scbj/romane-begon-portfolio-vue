@@ -2,6 +2,7 @@
   <ThemeStyle reactive>
     <BaseButton
       slot-scope="{ theme }"
+      class="app-button"
       :color="theme['--text-color']"
       :icon="activeIconName"
       :icon-scale="activeIconScale"
@@ -46,3 +47,22 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/styles/_vars.scss';
+
+.app-button {
+  margin-right: 2.778rem;
+  margin-top: 2.778rem;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: $z-index-app-button;
+
+  @media screen and (min-width: $extraLarge) {
+    margin-right: 68px;
+    margin-top: 68px;
+  }
+}
+</style>

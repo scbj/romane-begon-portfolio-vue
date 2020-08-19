@@ -31,7 +31,13 @@
     [carousel-start] 1fr
     [carousel-end] auto [last];
   gap: 0.667rem;
-  height: 100%;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-app-viewer;
 
   @media screen and (min-width: $medium) {
     grid-template-columns:

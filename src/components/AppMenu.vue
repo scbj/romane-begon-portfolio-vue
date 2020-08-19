@@ -34,7 +34,12 @@ export default {
   grid-template-areas:
     "right";
 
-  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-app-menu;
 
   @media screen and (min-width: $extraLarge) {
     grid-template-columns: 60% 40%;
