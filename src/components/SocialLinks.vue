@@ -3,10 +3,10 @@
     <template v-for="(link, index) in links">
       <BaseButton
         :key="index"
-        color="white"
+        :color="color"
         :href="link.href"
         :icon="link.icon"
-        :icon-scale="1.389"
+        :icon-scale="scale"
       />
     </template>
   </div>
@@ -15,9 +15,17 @@
 <script>
 export default {
   props: {
+    color: {
+      type: String,
+      default: 'white'
+    },
     orientation: {
       type: String,
       default: 'horizontal'
+    },
+    scale: {
+      type: Number,
+      default: 1.389
     }
   },
 
