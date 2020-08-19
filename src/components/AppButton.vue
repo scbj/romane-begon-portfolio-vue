@@ -52,8 +52,8 @@ export default {
 @import '@/assets/styles/_vars.scss';
 
 .app-button {
-  margin-right: 2.778rem;
-  margin-top: 2.778rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
 
   position: fixed;
   top: 0;

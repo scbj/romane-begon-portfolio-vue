@@ -88,8 +88,8 @@ export default {
 
 .default-layout__right {
   position: fixed;
-  right: 2.778rem;
-  top: 7.778rem;
+  right: 2rem;
+  top: 7rem;
   z-index: 10;
 
   @media screen and (min-width: $extraLarge) {
