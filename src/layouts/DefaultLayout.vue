@@ -124,7 +124,7 @@ export default {
 .default-layout__scroll-down {
   font-family: 'TT Commons';
   font-size: 0.667rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.28em;
   line-height: 2.667em;
   color: var(--text-color);

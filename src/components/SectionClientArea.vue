@@ -187,7 +187,7 @@ export default {
 }
 
 .section-client-area__content-recents-label {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-dark-2);
   margin-bottom: 0.833rem;
 }
