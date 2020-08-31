@@ -27,7 +27,18 @@ if (process.env.NODE_ENV === 'production') {
       new PrerenderSPAPlugin({
         staticDir: path.join(__dirname, 'dist'),
         // Required - Routes to render.
-        routes: ['/', '/contact'/* , '/about', '/article/1', '/article/2', '/article/3' */]
+        routes: [
+          '/',
+          '/espace-client',
+          '/a-propos',
+          '/contact',
+          '/mariages',
+          '/mariages/galerie',
+          '/portraits',
+          '/portraits/galerie',
+          '/familles-couples',
+          '/familles-couples/galerie'
+        ]
       })
     ]
   }

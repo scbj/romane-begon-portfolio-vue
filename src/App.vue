@@ -10,14 +10,12 @@
 <script>
 import { get } from 'vuex-pathify'
 
-import AppViewer from '@/components/AppViewer.vue'
-import AppMenu from '@/components/AppMenu.vue'
 import AppButton from '@/components/AppButton.vue'
 
 export default {
   components: {
-    AppViewer,
-    AppMenu,
+    AppViewer: () => import(/* webpackPrefetch: true */ '@/components/AppViewer.vue'),
+    AppMenu: () => import(/* webpackPrefetch: true */ '@/components/AppMenu.vue'),
     AppButton
   },
 
