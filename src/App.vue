@@ -31,7 +31,10 @@ export default {
 
   data () {
     return {
-      timeline: null
+      timeline: null,
+      menuElements: {
+        navigationsLinks: null
+      }
     }
   },
 
@@ -39,6 +42,10 @@ export default {
     isMenuActive: get('ui/isMenuActive'),
     isMenuTransitionRunning: sync('ui/isMenuTransitionRunning'),
     isViewerActive: get('ui/isViewerActive')
+  },
+
+  mounted () {
+    this.menuElements.navigationsLinks = document.querySelectorAll('.menu-panel__link')
   },
 
   methods: {
@@ -49,10 +56,22 @@ export default {
       this.timeline = gsap.timeline({ onComplete: done })
       this.timeline
         .to(el, duration, {
-          x: 0, startAt: { x: '100%' }, ease
-        }).to(reverseEl, duration, {
+          x: 0,
+          startAt:
+          { x: '100%' },
+          ease
+        })
+        .to(reverseEl, duration, {
           x: 0, startAt: { x: '-100%' }, ease
         }, 0)
+        .set(this.menuElements.navigationsLinks, { opacity: 0 }, 0)
+        .to(this.menuElements.navigationsLinks, duration * 0.7, {
+          ease: Expo.easeOut,
+          startAt: { x: 150 },
+          opacity: 1,
+          x: 0,
+          stagger: 0.03
+        }, 0.5)
     },
     onMenuTransitionLeave (el, done) {
       this.timeline.eventCallback('onReverseComplete', done)

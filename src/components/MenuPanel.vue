@@ -105,5 +105,6 @@ export default {
   font-family: "Orpheus Pro", serif;
   line-height: 1.64em;
   letter-spacing: 0.05207em;
+  display: inline-block;
 }
 </style>
