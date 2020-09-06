@@ -3,8 +3,8 @@
     <BaseButton
       class="page-header__button"
       color="#0f0e0b"
-      icon="cross"
-      :icon-scale="1.111"
+      icon="arrow"
+      :icon-scale="1.9"
       :icon-fill="false"
       @click="goBack"
     />
@@ -44,6 +44,15 @@ export default {
     background: transparent;
     padding: 68px;
     padding-right: 134px;
+  }
+}
+
+.page-header__button {
+  transition: transform .27s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &:hover {
+    transition-duration: .13s;
+    transform: translateX(-0.3em);
   }
 }
 
