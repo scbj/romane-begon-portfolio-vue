@@ -9,6 +9,7 @@
         class="default-layout__content"
         tag="main"
         :perspective="220"
+        @scroll="onScroll"
       >
         <slot />
       </ParallaxContainer>
@@ -22,7 +23,11 @@
         <span class="default-layout__scroll-down">DÉFILER VERS LE BAS</span>
       </aside>
       <aside v-if="gte('medium')" class="default-layout__left">
-        <HomeProgressBar v-show="!options.hideProgressBar" />
+        <HomeProgressBar
+          v-show="!options.hideProgressBar"
+          :active-index="activeSectionIndex"
+          :percent="scrollPercent"
+        />
       </aside>
     </div>
   </ThemeStyle>
@@ -30,6 +35,7 @@
 
 <script>
 import { get } from 'vuex-pathify'
+import { throttle } from '@bit/scbj.utils.throttle'
 
 import ParallaxContainer from '@/components/parallax/ParallaxContainer'
 import HomeProgressBar from '@/components/HomeProgressBar'
@@ -57,8 +63,24 @@ export default {
     }
   },
 
+  data () {
+    return {
+      activeSectionIndex: 0,
+      scrollPercent: 0
+    }
+  },
+
   computed: {
     themeMode: get('ui/theme@mode')
+  },
+
+  methods: {
+    onScroll: throttle(function (event) {
+      const viewportHeight = window.innerHeight
+      const { scrollHeight, scrollTop } = event.target
+      this.activeSectionIndex = Math.round(scrollTop / viewportHeight)
+      this.scrollPercent = Math.round((scrollTop + viewportHeight / 2) * 100 / scrollHeight)
+    }, 100)
   }
 }
 </script>

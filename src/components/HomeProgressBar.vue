@@ -9,7 +9,11 @@
 
       <template v-for="(page, index) in pages">
         <!-- Page numbers -->
-        <span :key="'index' + index" class="home-progress-bar__index">
+        <span
+          :key="'index' + index"
+          class="home-progress-bar__index"
+          :class="{'home-progress-bar__index--active': isActive(index)}"
+        >
           0{{ index + 1 }}
         </span>
 
@@ -17,6 +21,7 @@
         <span
           :key="'label-' + index"
           class="home-progress-bar__label"
+          :class="{'home-progress-bar__label--active': isActive(index)}"
           @click="scrollIntoView(index)"
         >
           {{ page.toUpperCase() }}
@@ -27,13 +32,20 @@
 </template>
 
 <script>
-// TODO: Use IntersectionObserver instead of scroll event
-import { throttle } from '@bit/scbj.utils.throttle'
-
 export default {
+  props: {
+    activeIndex: {
+      type: Number,
+      required: true
+    },
+    percent: {
+      type: Number,
+      required: true
+    }
+  },
+
   data () {
     return {
-      activeIndex: 0,
       percentComplete: 0
     }
   },
@@ -52,25 +64,15 @@ export default {
     cssVariables () {
       return {
         '--row-count': this.pages.length,
-        '--scale-y': this.percentComplete
+        '--scale-y': this.percent / 100
       }
     }
   },
 
-  mounted () {
-    document.querySelector('main').addEventListener('scroll', this.updateIndicator)
-  },
-
-  beforeDestroy () {
-    document.querySelector('main').removeEventListener('scroll', this.updateIndicator)
-  },
-
   methods: {
-    updateIndicator: throttle(function (event) {
-      const scrollTop = event.target.scrollTop
-      const scrollHeight = event.target.scrollHeight
-      this.percentComplete = scrollTop / scrollHeight + 0.065
-    }, 100),
+    isActive (index) {
+      return index <= this.activeIndex
+    },
 
     scrollIntoView (index) {
       this.activeIndex = index
@@ -119,16 +121,21 @@ export default {
   text-align: left;
   margin-bottom: 82px;
   cursor: pointer;
-  transition: color .2s ease-out;
+  transition: opacity .2s ease-out;
+  opacity: 0.27;
 
   &:last-child {
     margin-bottom: 0;
   }
 
   &:hover {
-    color: white;
+    opacity: 1;
     transition-duration: .1s;
   }
+}
+
+.home-progress-bar__label--active {
+  opacity: 1;
 }
 
 .home-progress-bar__index {

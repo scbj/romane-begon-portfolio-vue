@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@bit/scbj.utils.throttle": "1.0.0",
+    "@bit/scbj.utils.throttle": "^1.0.0",
     "@braid/vue-formulate": "^2.4.3",
     "@braid/vue-formulate-i18n": "^1.11.0",
     "axios": "^0.19.2",

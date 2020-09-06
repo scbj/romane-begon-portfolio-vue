@@ -3,6 +3,7 @@
     :is="tag"
     class="parallax-container"
     :style="variables"
+    v-on="$listeners"
   >
     <slot />
   </component>
@@ -39,5 +40,6 @@ export default {
   perspective: calc(var(--parallax-perspective) * 1px);
 
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 </style>

@@ -820,7 +820,7 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@bit/scbj.utils.throttle@1.0.0":
+"@bit/scbj.utils.throttle@^1.0.0":
   version "1.0.0"
   resolved "https://node.bit.dev/scbj.utils.throttle/-/scbj.utils.throttle-1.0.0.tgz#8231926c6e909416a05115ffaa07a35f91604f93"
   integrity sha1-gjGSbG6QlBagURX/qgejX5FgT5M=
