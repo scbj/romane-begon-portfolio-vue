@@ -8,7 +8,11 @@
 
       <ParallaxLayer class="section-prestation__content" depth="base">
         <PrestationCounter />
-        <TextTitle extra-large class="section-prestation__title">
+        <TextTitle
+          ref="title"
+          extra-large
+          class="section-prestation__title"
+        >
           {{ title }}
         </TextTitle>
         <TextParagraph>
@@ -22,6 +26,7 @@
           icon="play"
           :icon-scale="0.622"
           text="DÉCOUVRIR PLUS EN DETAILS"
+          @mouseenter.native="onBrowseButtonEnter"
         />
       </ParallaxLayer>
     </ParallaxGroup>
@@ -30,6 +35,8 @@
 
 <script>
 import Intersect from 'vue-intersect'
+import { Quad, Quint, TimelineMax } from 'gsap'
+import charming from 'charming'
 
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 import ParallaxLayer from '@/components/parallax/ParallaxLayer'
@@ -74,6 +81,12 @@ export default {
     }
   },
 
+  data () {
+    return {
+      titleAnimationRunning: false
+    }
+  },
+
   computed: {
     cssVariables () {
       const size = Math.max(window.innerHeight, window.innerWidth)
@@ -91,17 +104,44 @@ export default {
     }
   },
 
+  mounted () {
+    charming(this.$refs.title)
+  },
+
   methods: {
     onEnter (entry) {
       if (entry[0].intersectionRatio > 0.2) {
         this.$emit('visible')
       }
+    },
+    onBrowseButtonEnter () {
+      if (this.titleAnimationRunning) {
+        return false
+      }
+      this.titleAnimationRunning = true
+
+      const letters = [...this.$refs.title.querySelectorAll('span')]
+      const animatedLetters = letters.filter(_ => Math.random() < 0.5)
+      // const remainingLettes = letters.filter(el => !animatedLetters.includes(el))
+
+      new TimelineMax({ onComplete: () => { this.titleAnimationRunning = false } })
+        .staggerTo(animatedLetters, 0.2, {
+          ease: Quad.easeIn,
+          x: '50%',
+          opacity: 0
+        }, 0.04, 0)
+        .staggerTo(animatedLetters, 0.6, {
+          ease: Quint.easeOut,
+          startAt: { x: '-35%' },
+          x: '0%',
+          opacity: 1
+        }, 0.04, 0.2)
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/assets/styles/_vars.scss';
 
 .section-prestation {
@@ -183,5 +223,11 @@ export default {
 
 .section-prestation__title {
   white-space: pre-line;
+  position: relative;
+
+  > span {
+    display: inline-block;
+    will-change: transform;
+  }
 }
 </style>
