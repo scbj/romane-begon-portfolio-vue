@@ -1,7 +1,7 @@
 <template>
   <div class="app-menu">
     <div class="app-menu_container">
-      <MenuCover v-if="gte('extraLarge')" />
+      <MenuCover v-show="gte('extraLarge')" />
       <MenuPanel />
     </div>
   </div>

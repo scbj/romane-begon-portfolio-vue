@@ -12,7 +12,7 @@
 .menu-cover {
   position: relative;
   overflow: hidden;
-  padding: 4rem;
+  padding: 3rem;
 }
 
 .menu-cover__picture {

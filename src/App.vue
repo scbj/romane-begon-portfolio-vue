@@ -33,7 +33,8 @@ export default {
     return {
       timeline: null,
       menuElements: {
-        navigationsLinks: null
+        navigationsLinks: null,
+        coverPicture: null
       }
     }
   },
@@ -46,10 +47,12 @@ export default {
 
   mounted () {
     this.menuElements.navigationsLinks = document.querySelectorAll('.menu-panel__link')
+    this.menuElements.cover = document.querySelector('.menu-cover')
   },
 
   methods: {
     onMenuTransitionEnter (el, done) {
+      console.log('☝️: onMenuTransitionEnter -> this.menuElements.cover', this.menuElements.cover)
       const duration = 1.2
       const ease = Expo.easeInOut
       const reverseEl = el.querySelector('.app-menu_container')
@@ -64,8 +67,15 @@ export default {
         .to(reverseEl, duration, {
           x: 0, startAt: { x: '-100%' }, ease
         }, 0)
+        .to(this.menuElements.cover, {
+          duration,
+          ease: ease,
+          startAt: { x: 50 },
+          x: 0
+        }, 0)
         .set(this.menuElements.navigationsLinks, { opacity: 0 }, 0)
-        .to(this.menuElements.navigationsLinks, duration * 0.7, {
+        .to(this.menuElements.navigationsLinks, {
+          duration: duration * 0.7,
           ease: Expo.easeOut,
           startAt: { x: 150 },
           opacity: 1,
