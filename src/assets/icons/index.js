@@ -1,4 +1,5 @@
 /* eslint-disable */
+require('./icon-arrow')
 require('./icon-cross')
 require('./icon-facebook')
 require('./icon-galleries-2')
