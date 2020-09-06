@@ -11,7 +11,7 @@
         <TextTitle
           ref="title"
           extra-large
-          class="section-prestation__title"
+          class="section-prestation__title text-charming"
         >
           {{ title }}
         </TextTitle>
@@ -35,8 +35,8 @@
 
 <script>
 import Intersect from 'vue-intersect'
-import { Quad, Quint, TimelineMax } from 'gsap'
-import charming from 'charming'
+
+import TextCharming from '@/animations/TextCharming'
 
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 import ParallaxLayer from '@/components/parallax/ParallaxLayer'
@@ -83,7 +83,8 @@ export default {
 
   data () {
     return {
-      titleAnimationRunning: false
+      titleAnimationRunning: false,
+      textEffect: null
     }
   },
 
@@ -105,7 +106,7 @@ export default {
   },
 
   mounted () {
-    charming(this.$refs.title)
+    this.textEffect = new TextCharming(this.$refs.title)
   },
 
   methods: {
@@ -115,27 +116,7 @@ export default {
       }
     },
     onBrowseButtonEnter () {
-      if (this.titleAnimationRunning) {
-        return false
-      }
-      this.titleAnimationRunning = true
-
-      const letters = [...this.$refs.title.querySelectorAll('span')]
-      const animatedLetters = letters.filter(_ => Math.random() < 0.5)
-      // const remainingLettes = letters.filter(el => !animatedLetters.includes(el))
-
-      new TimelineMax({ onComplete: () => { this.titleAnimationRunning = false } })
-        .staggerTo(animatedLetters, 0.2, {
-          ease: Quad.easeIn,
-          x: '50%',
-          opacity: 0
-        }, 0.04, 0)
-        .staggerTo(animatedLetters, 0.6, {
-          ease: Quint.easeOut,
-          startAt: { x: '-35%' },
-          x: '0%',
-          opacity: 1
-        }, 0.04, 0.2)
+      this.textEffect.charm()
     }
   }
 }
@@ -223,11 +204,5 @@ export default {
 
 .section-prestation__title {
   white-space: pre-line;
-  position: relative;
-
-  > span {
-    display: inline-block;
-    will-change: transform;
-  }
 }
 </style>

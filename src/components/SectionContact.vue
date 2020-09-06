@@ -8,7 +8,11 @@
 
       <ParallaxLayer class="section-contact__content" depth="base">
         <PrestationCounter />
-        <TextTitle extra-large>
+        <TextTitle
+          ref="title"
+          class="text-charming"
+          extra-large
+        >
           Contact
         </TextTitle>
         <TextTitle large style="text-align: center">
@@ -24,6 +28,7 @@
           icon="play"
           :icon-scale="0.622"
           text="ÉCRIVONS-NOUS"
+          @mouseenter.native="onContactButtonEnter"
         />
       </ParallaxLayer>
     </ParallaxGroup>
@@ -32,6 +37,8 @@
 
 <script>
 import Intersect from 'vue-intersect'
+
+import TextCharming from '@/animations/TextCharming'
 
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 import ParallaxLayer from '@/components/parallax/ParallaxLayer'
@@ -49,6 +56,12 @@ export default {
     PrestationCounter,
     TextParagraph,
     TextTitle
+  },
+
+  data () {
+    return {
+      titleEffect: null
+    }
   },
 
   computed: {
@@ -73,11 +86,19 @@ export default {
     }
   },
 
+  mounted () {
+    this.titleEffect = new TextCharming(this.$refs.title)
+  },
+
   methods: {
     onEnter (entry) {
       if (entry[0].intersectionRatio > 0.2) {
         this.$emit('visible')
       }
+    },
+
+    onContactButtonEnter () {
+      this.titleEffect.charm()
     }
   }
 }
