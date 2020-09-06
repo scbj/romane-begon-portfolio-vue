@@ -12,11 +12,12 @@
 .menu-cover {
   position: relative;
   overflow: hidden;
+  padding: 4rem;
 }
 
 .menu-cover__picture {
   object-fit: cover;
-  position: absolute;
+  // position: absolute;
   height: 100%;
   width: 100%;
 }

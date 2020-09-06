@@ -1,7 +1,9 @@
 <template>
   <div class="app-menu">
-    <MenuCover v-if="gte('extraLarge')" />
-    <MenuPanel />
+    <div class="app-menu_container">
+      <MenuCover v-if="gte('extraLarge')" />
+      <MenuPanel />
+    </div>
   </div>
 </template>
 
@@ -25,6 +27,16 @@ export default {
 @import '@/assets/styles/_vars.scss';
 
 .app-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-app-menu;
+  overflow: hidden;
+}
+
+.app-menu_container {
   color: var(--color-light-1);
   background: var(--color-dark-1);
 
@@ -34,12 +46,8 @@ export default {
   grid-template-areas:
     "right";
 
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: $z-index-app-menu;
+  width: 100%;
+  height: 100%;
 
   @media screen and (min-width: $extraLarge) {
     grid-template-columns: 60% 40%;
