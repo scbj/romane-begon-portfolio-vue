@@ -1,6 +1,6 @@
 <template>
-  <DefaultLayout :options="layoutOptions">
-    <SectionStartup @visible="keepOnlySocialLinks()" />
+  <DefaultLayout>
+    <SectionStartup />
     <template v-for="(prestation, index) in prestations">
       <SectionPrestation
         :key="index"
@@ -10,18 +10,15 @@
         :title="prestation.title"
         :description="prestation.description"
         :to="slugifyPrestationParam(prestation.title)"
-        @visible="showAllComponents()"
       />
     </template>
-    <SectionAbout @visible="freeSideSpaces()" />
-    <SectionContact @visible="foo()" />
-    <SectionClientArea @visible="freeSideSpaces()" />
+    <SectionAbout />
+    <SectionContact />
+    <SectionClientArea />
   </DefaultLayout>
 </template>
 
 <script>
-import { sync } from 'vuex-pathify'
-
 import DefaultLayout from '@/layouts/DefaultLayout'
 
 import SectionAbout from '@/components/SectionAbout'
@@ -43,58 +40,14 @@ export default {
     SectionStartup
   },
 
-  data () {
-    return {
-      layoutOptions: {
-        hideProgressBar: true,
-        hideSocialLinks: false,
-        hideWebsiteTitle: false
-      }
-    }
-  },
-
   computed: {
-    themeMode: sync('ui/theme@mode'),
-
     prestations () {
       return data.prestations
     }
   },
 
   methods: {
-    slugifyPrestationParam,
-
-    onVisiblityChanged (isVisible) {
-      this.layoutOptions.hideProgressBar = !isVisible
-    },
-
-    freeSideSpaces () {
-      this.layoutOptions.hideProgressBar = true
-      this.layoutOptions.hideSocialLinks = true
-      this.layoutOptions.hideWebsiteTitle = false
-      this.themeMode = 'light'
-    },
-
-    keepOnlySocialLinks () {
-      this.layoutOptions.hideProgressBar = true
-      this.layoutOptions.hideSocialLinks = false
-      this.layoutOptions.hideWebsiteTitle = true
-      this.themeMode = 'dark'
-    },
-
-    showAllComponents () {
-      this.layoutOptions.hideProgressBar = false
-      this.layoutOptions.hideSocialLinks = false
-      this.layoutOptions.hideWebsiteTitle = false
-      this.themeMode = 'dark'
-    },
-
-    foo () {
-      this.layoutOptions.hideProgressBar = false
-      this.layoutOptions.hideSocialLinks = false
-      this.layoutOptions.hideWebsiteTitle = true
-      this.themeMode = 'dark'
-    }
+    slugifyPrestationParam
   }
 }
 </script>

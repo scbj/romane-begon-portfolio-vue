@@ -1,25 +1,21 @@
 <template>
-  <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="section-startup" :style="cssVariables">
-      <ParallaxLayer class="section-startup__background" depth="back">
-        <div class="section-startup__background-picture" />
-        <div class="section-startup__background-overlay" />
-      </ParallaxLayer>
+  <ParallaxGroup class="section-startup" :style="cssVariables">
+    <ParallaxLayer class="section-startup__background" depth="back">
+      <div class="section-startup__background-picture" />
+      <div class="section-startup__background-overlay" />
+    </ParallaxLayer>
 
-      <ParallaxLayer class="section-startup__content" depth="base">
-        <WebsiteTitle size="large" />
-        <div class="section-startup__content-citation">
-          <span class="sentence-1">« {{ sentence.text }}. »</span>
-          <span class="sentence-2">{{ sentence.author }}</span>
-        </div>
-      </ParallaxLayer>
-    </ParallaxGroup>
-  </Intersect>
+    <ParallaxLayer class="section-startup__content" depth="base">
+      <WebsiteTitle size="large" />
+      <div class="section-startup__content-citation">
+        <span class="sentence-1">« {{ sentence.text }}. »</span>
+        <span class="sentence-2">{{ sentence.author }}</span>
+      </div>
+    </ParallaxLayer>
+  </ParallaxGroup>
 </template>
 
 <script>
-import Intersect from 'vue-intersect'
-
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 import ParallaxLayer from '@/components/parallax/ParallaxLayer'
 import WebsiteTitle from '@/components/WebsiteTitle'
@@ -28,7 +24,6 @@ import data from '@/assets/data/home.json'
 
 export default {
   components: {
-    Intersect,
     ParallaxGroup,
     ParallaxLayer,
     WebsiteTitle
@@ -49,14 +44,6 @@ export default {
         : `${size}x`
       return {
         '--background-image': `url(https://ucarecdn.com/3aab7c22-2672-4fe6-ba7f-dbd5bc5038bc/-/resize/${resizing}/)`
-      }
-    }
-  },
-
-  methods: {
-    onEnter (entry) {
-      if (entry[0].intersectionRatio > 0.2) {
-        this.$emit('visible')
       }
     }
   }

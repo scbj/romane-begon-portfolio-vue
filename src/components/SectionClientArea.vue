@@ -1,54 +1,51 @@
 <template>
-  <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="section-client-area">
-      <ParallaxLayer class="section-client-area__background" depth="back" />
-      <ParallaxLayer class="section-client-area__content" depth="base">
-        <div class="section-client-area__content-text">
-          <TextTitle large>
-            Espace Client
-          </TextTitle>
-          <TextParagraph>
-            Je vous ai accompagné dans les belles rues de Toulouse pour une séance photo inoubliable
-            ? Je vous ai suivi dans un lieu magique pour immortaliser votre histoire ? J’ai passé l’une des
-            plus belles journées de votre vie en votre compagnie ?
-          </TextParagraph>
-          <TextParagraph v-if="gte('medium')">
-            Bienvenue dans votre espace personnel, il ne vous reste plus qu’à entrer votre mot de passe
-            personnel pour frissonner d’émotions, revoir les sourires de vos proches, admirer les
-            empreintes du bonheur ou revivre le plus beau jour de votre vie
-          </TextParagraph>
-        </div>
-        <div class="section-client-area__content-recents">
-          <TextParagraph class="section-client-area__content-recents-label">
-            <template v-if="gte('small')">
-              Galeries récentes ↓
-            </template>
-            <template v-else>
-              Dernière galerie ↓
-            </template>
-          </TextParagraph>
-          <BaseList class="section-client-area__content-recents-galleries" :items="firstGalleries">
-            <template #item="{ item }">
-              <ClientAreaGallery :gallery="item" />
-            </template>
-          </BaseList>
-          <BaseButton
-            class="section-client-area__content-recents-more"
-            :route="{ name: 'clientArea' }"
-            color="black"
-            icon="galleries-2"
-            :icon-scale="1"
-            text="VOIR LES GALLERIES"
-          />
-        </div>
-      </ParallaxLayer>
-    </ParallaxGroup>
-  </Intersect>
+  <ParallaxGroup class="section-client-area">
+    <ParallaxLayer class="section-client-area__background" depth="back" />
+    <ParallaxLayer class="section-client-area__content" depth="base">
+      <div class="section-client-area__content-text">
+        <TextTitle large>
+          Espace Client
+        </TextTitle>
+        <TextParagraph>
+          Je vous ai accompagné dans les belles rues de Toulouse pour une séance photo inoubliable
+          ? Je vous ai suivi dans un lieu magique pour immortaliser votre histoire ? J’ai passé l’une des
+          plus belles journées de votre vie en votre compagnie ?
+        </TextParagraph>
+        <TextParagraph v-if="gte('medium')">
+          Bienvenue dans votre espace personnel, il ne vous reste plus qu’à entrer votre mot de passe
+          personnel pour frissonner d’émotions, revoir les sourires de vos proches, admirer les
+          empreintes du bonheur ou revivre le plus beau jour de votre vie
+        </TextParagraph>
+      </div>
+      <div class="section-client-area__content-recents">
+        <TextParagraph class="section-client-area__content-recents-label">
+          <template v-if="gte('small')">
+            Galeries récentes ↓
+          </template>
+          <template v-else>
+            Dernière galerie ↓
+          </template>
+        </TextParagraph>
+        <BaseList class="section-client-area__content-recents-galleries" :items="firstGalleries">
+          <template #item="{ item }">
+            <ClientAreaGallery :gallery="item" />
+          </template>
+        </BaseList>
+        <BaseButton
+          class="section-client-area__content-recents-more"
+          :route="{ name: 'clientArea' }"
+          color="black"
+          icon="galleries-2"
+          :icon-scale="1"
+          text="VOIR LES GALLERIES"
+        />
+      </div>
+    </ParallaxLayer>
+  </ParallaxGroup>
 </template>
 
 <script>
 import { call, get } from 'vuex-pathify'
-import Intersect from 'vue-intersect'
 
 import responsive from '@/mixins/responsive'
 
@@ -63,7 +60,6 @@ export default {
   components: {
     ParallaxGroup,
     ParallaxLayer,
-    Intersect,
     BaseList,
     ClientAreaGallery,
     TextParagraph,
@@ -91,13 +87,7 @@ export default {
   },
 
   methods: {
-    loadLumysGalleries: call('clientArea/loadLumysGalleries'),
-
-    onEnter (entry) {
-      if (entry[0].intersectionRatio > 0.2) {
-        this.$emit('visible')
-      }
-    }
+    loadLumysGalleries: call('clientArea/loadLumysGalleries')
   }
 }
 </script>

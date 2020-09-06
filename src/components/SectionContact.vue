@@ -1,43 +1,39 @@
 <template>
-  <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="section-contact" :style="cssVariables">
-      <ParallaxLayer class="section-contact__background" depth="back">
-        <div class="section-contact__background-picture" />
-        <div class="section-contact__background-overlay section-contact__background--foo" />
-      </ParallaxLayer>
+  <ParallaxGroup class="section-contact" :style="cssVariables">
+    <ParallaxLayer class="section-contact__background" depth="back">
+      <div class="section-contact__background-picture" />
+      <div class="section-contact__background-overlay section-contact__background--foo" />
+    </ParallaxLayer>
 
-      <ParallaxLayer class="section-contact__content" depth="base">
-        <PrestationCounter />
-        <TextTitle
-          ref="title"
-          class="text-charming"
-          extra-large
-        >
-          Contact
-        </TextTitle>
-        <TextTitle large style="text-align: center">
-          <span class="no-wrap">Les réservations</span> <span class="no-wrap">sont ouvertes !</span>
-        </TextTitle>
-        <TextParagraph>
-          Racontez-moi votre histoire, vos projets et vos envies en détails !
-        </TextParagraph>
-        <BaseButton
-          class="section-contact__contact-button"
-          :route="{ name: 'contact' }"
-          color="white"
-          icon="play"
-          :icon-scale="0.622"
-          text="ÉCRIVONS-NOUS"
-          @mouseenter.native="onContactButtonEnter"
-        />
-      </ParallaxLayer>
-    </ParallaxGroup>
-  </Intersect>
+    <ParallaxLayer class="section-contact__content" depth="base">
+      <PrestationCounter />
+      <TextTitle
+        ref="title"
+        class="text-charming"
+        extra-large
+      >
+        Contact
+      </TextTitle>
+      <TextTitle large style="text-align: center">
+        <span class="no-wrap">Les réservations</span> <span class="no-wrap">sont ouvertes !</span>
+      </TextTitle>
+      <TextParagraph>
+        Racontez-moi votre histoire, vos projets et vos envies en détails !
+      </TextParagraph>
+      <BaseButton
+        class="section-contact__contact-button"
+        :route="{ name: 'contact' }"
+        color="white"
+        icon="play"
+        :icon-scale="0.622"
+        text="ÉCRIVONS-NOUS"
+        @mouseenter.native="onContactButtonEnter"
+      />
+    </ParallaxLayer>
+  </ParallaxGroup>
 </template>
 
 <script>
-import Intersect from 'vue-intersect'
-
 import TextCharming from '@/animations/TextCharming'
 
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
@@ -50,7 +46,6 @@ import data from '@/assets/data/home.json'
 
 export default {
   components: {
-    Intersect,
     ParallaxGroup,
     ParallaxLayer,
     PrestationCounter,
@@ -91,12 +86,6 @@ export default {
   },
 
   methods: {
-    onEnter (entry) {
-      if (entry[0].intersectionRatio > 0.2) {
-        this.$emit('visible')
-      }
-    },
-
     onContactButtonEnter () {
       this.titleEffect.charm()
     }

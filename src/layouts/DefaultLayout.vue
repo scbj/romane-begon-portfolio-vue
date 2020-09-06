@@ -14,17 +14,17 @@
         <slot />
       </ParallaxContainer>
       <aside class="default-layout__top">
-        <WebsiteTitle v-show="!options.hideWebsiteTitle" :style="theme" />
+        <WebsiteTitle v-show="displayWebsiteTitle" :style="theme" />
       </aside>
       <aside class="default-layout__right">
-        <SocialLinks v-show="!options.hideSocialLinks" orientation="vertical" />
+        <SocialLinks v-show="displaySocialLinks" orientation="vertical" />
       </aside>
       <aside class="default-layout__bottom">
         <span class="default-layout__scroll-down">DÉFILER VERS LE BAS</span>
       </aside>
       <aside v-if="gte('medium')" class="default-layout__left">
         <HomeProgressBar
-          v-show="!options.hideProgressBar"
+          v-show="displayProgressBar"
           :active-index="activeSectionIndex"
           :percent="scrollPercent"
         />
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { get } from 'vuex-pathify'
+import { sync } from 'vuex-pathify'
 import { throttle } from '@bit/scbj.utils.throttle'
 
 import ParallaxContainer from '@/components/parallax/ParallaxContainer'
@@ -56,13 +56,6 @@ export default {
 
   mixins: [responsive],
 
-  props: {
-    options: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-
   data () {
     return {
       activeSectionIndex: 0,
@@ -71,7 +64,37 @@ export default {
   },
 
   computed: {
-    themeMode: get('ui/theme@mode')
+    themeMode: sync('ui/theme@mode'),
+
+    options () {
+      return {
+        progressBar: [false, true, true, true, false, true, false],
+        socialLinks: [true, true, true, true, false, true, false],
+        websiteTitle: [false, true, true, true, true, false, true],
+        darkTheme: [true, true, true, true, false, true, false]
+      }
+    },
+
+    displayProgressBar () {
+      return this.options.progressBar[this.activeSectionIndex]
+    },
+
+    displaySocialLinks () {
+      return this.options.socialLinks[this.activeSectionIndex]
+    },
+
+    displayWebsiteTitle () {
+      return this.options.websiteTitle[this.activeSectionIndex]
+    }
+  },
+
+  watch: {
+    activeSectionIndex: {
+      immediate: true,
+      handler (index) {
+        this.themeMode = this.options.darkTheme[index] ? 'dark' : 'light'
+      }
+    }
   },
 
   methods: {

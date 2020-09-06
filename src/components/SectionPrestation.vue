@@ -1,41 +1,37 @@
 <template>
-  <Intersect :treshold="[0.1, 0.5, 0.9]" @enter="onEnter">
-    <ParallaxGroup class="section-prestation" :style="cssVariables">
-      <ParallaxLayer class="section-prestation__background" depth="back">
-        <div class="section-prestation__background-picture" />
-        <div class="section-prestation__background-overlay" :class="overlayClass" />
-      </ParallaxLayer>
+  <ParallaxGroup class="section-prestation" :style="cssVariables">
+    <ParallaxLayer class="section-prestation__background" depth="back">
+      <div class="section-prestation__background-picture" />
+      <div class="section-prestation__background-overlay" :class="overlayClass" />
+    </ParallaxLayer>
 
-      <ParallaxLayer class="section-prestation__content" depth="base">
-        <PrestationCounter />
-        <TextTitle
-          ref="title"
-          extra-large
-          class="section-prestation__title text-charming"
-        >
-          {{ title }}
-        </TextTitle>
-        <TextParagraph>
-          {{ description }}
-        </TextParagraph>
-        <BaseButton
-          class="section-prestation__browse-button"
-          :route="{ name: 'prestationInfos', params: { prestation: to } }"
-          color="white"
-          circle
-          icon="play"
-          :icon-scale="0.622"
-          text="DÉCOUVRIR PLUS EN DETAILS"
-          @mouseenter.native="onBrowseButtonEnter"
-        />
-      </ParallaxLayer>
-    </ParallaxGroup>
-  </Intersect>
+    <ParallaxLayer class="section-prestation__content" depth="base">
+      <PrestationCounter />
+      <TextTitle
+        ref="title"
+        extra-large
+        class="section-prestation__title text-charming"
+      >
+        {{ title }}
+      </TextTitle>
+      <TextParagraph>
+        {{ description }}
+      </TextParagraph>
+      <BaseButton
+        class="section-prestation__browse-button"
+        :route="{ name: 'prestationInfos', params: { prestation: to } }"
+        color="white"
+        circle
+        icon="play"
+        :icon-scale="0.622"
+        text="DÉCOUVRIR PLUS EN DETAILS"
+        @mouseenter.native="onBrowseButtonEnter"
+      />
+    </ParallaxLayer>
+  </ParallaxGroup>
 </template>
 
 <script>
-import Intersect from 'vue-intersect'
-
 import TextCharming from '@/animations/TextCharming'
 
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
@@ -46,7 +42,6 @@ import TextTitle from '@/components/TextTitle'
 
 export default {
   components: {
-    Intersect,
     ParallaxGroup,
     ParallaxLayer,
     PrestationCounter,
@@ -110,11 +105,6 @@ export default {
   },
 
   methods: {
-    onEnter (entry) {
-      if (entry[0].intersectionRatio > 0.2) {
-        this.$emit('visible')
-      }
-    },
     onBrowseButtonEnter () {
       this.textEffect.charm()
     }
