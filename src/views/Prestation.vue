@@ -52,10 +52,22 @@ export default {
 }
 
 .prestation_navigation-link {
-  opacity: .7;
+  opacity: .4;
+  margin-right: 1rem;
+  position: relative;
 
-  &.active {
+  &.exact-active {
     opacity: 1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 2rem;
+      height: 1px;
+      background: currentColor;
+      top: 100%;
+      left: 0;
+    }
   }
 }
 </style>
