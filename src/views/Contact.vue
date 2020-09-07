@@ -100,8 +100,8 @@ export default {
   },
 
   methods: {
-    async send (data) {
-      console.log('☝️: send -> data', data)
+    async send (/* data */) {
+      // console.log('☝️: send -> data', data)
     }
   }
 }

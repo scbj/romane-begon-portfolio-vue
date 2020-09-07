@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueFormulate from '@braid/vue-formulate'
-import { fr } from '@braid/vue-formulate-i18n'
 import VueMq from 'vue-mq'
 import VueSVGIcon from 'vue-svgicon'
 
+import { fr } from '../lib/vue-formulate-i18n/fr..min'
 import App from './App.vue'
 import router from './router'
 import store from './store'

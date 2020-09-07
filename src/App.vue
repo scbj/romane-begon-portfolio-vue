@@ -19,13 +19,13 @@ import { get, sync } from 'vuex-pathify'
 import gsap, { Expo } from 'gsap'
 
 import AppButton from '@/components/AppButton.vue'
-import AppMenu from '@/components/AppMenu.vue'
+// import AppMenu from '@/components/AppMenu.vue'
 
 export default {
   components: {
     AppViewer: () => import(/* webpackPrefetch: true */ '@/components/AppViewer.vue'),
-    // AppMenu: () => import(/* webpackPrefetch: true */ '@/components/AppMenu.vue'),
-    AppMenu,
+    AppMenu: () => import(/* webpackPrefetch: true */ '@/components/AppMenu.vue'),
+    // AppMenu,
     AppButton
   },
 
@@ -52,7 +52,6 @@ export default {
 
   methods: {
     onMenuTransitionEnter (el, done) {
-      console.log('☝️: onMenuTransitionEnter -> this.menuElements.cover', this.menuElements.cover)
       const duration = 1.2
       const ease = Expo.easeInOut
       const reverseEl = el.querySelector('.app-menu_container')
