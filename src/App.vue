@@ -19,13 +19,12 @@ import { get, sync } from 'vuex-pathify'
 import gsap, { Expo } from 'gsap'
 
 import AppButton from '@/components/AppButton.vue'
-// import AppMenu from '@/components/AppMenu.vue'
+import AppMenu from '@/components/AppMenu.vue'
 
 export default {
   components: {
     AppViewer: () => import(/* webpackPrefetch: true */ '@/components/AppViewer.vue'),
-    AppMenu: () => import(/* webpackPrefetch: true */ '@/components/AppMenu.vue'),
-    // AppMenu,
+    AppMenu,
     AppButton
   },
 
