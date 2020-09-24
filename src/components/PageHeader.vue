@@ -31,7 +31,8 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  background: white;
+  background: rgba(white, 0.9);
+  backdrop-filter: blur(13px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,6 +43,7 @@ export default {
 
   @media screen and (min-width: $extraLarge) {
     background: transparent;
+    backdrop-filter: none;
     padding: 68px;
     padding-right: 134px;
   }
