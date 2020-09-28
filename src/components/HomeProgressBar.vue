@@ -75,7 +75,7 @@ export default {
     },
 
     scrollIntoView (index) {
-      this.activeIndex = index
+      // this.activeIndex = index
       const sections = document.querySelectorAll('main section')
       sections[index].scrollIntoView({ behavior: 'smooth' })
     }
@@ -134,12 +134,14 @@ export default {
   }
 }
 
-.home-progress-bar__label--active {
-  opacity: 1;
-}
-
 .home-progress-bar__index {
   text-align: right;
+  opacity: 0.27;
+}
+
+.home-progress-bar__index--active,
+.home-progress-bar__label--active {
+  opacity: 1;
 }
 
 .foo-enter-active,
