@@ -76,6 +76,7 @@ export default {
   },
 
   async mounted () {
+    this.$store.set('ui/theme@mode', 'dark')
     const mariages = () => import('@/assets/data/galleries/mariages.json')
     const portraits = () => import('@/assets/data/galleries/portraits.json')
     const famillesCouples = () => import('@/assets/data/galleries/familles-couples.json')
@@ -91,6 +92,10 @@ export default {
         break
     }
     this.photos = this.photos.slice(0, this.photos.length - 1)
+  },
+
+  beforeDestroy () {
+    this.$store.set('ui/theme@mode', 'light')
   }
 }
 </script>
@@ -121,7 +126,7 @@ export default {
 .prestation-gallery__grid-column {
   flex: var(--column-width, 25%);
   max-width: var(--column-width, 25%);
-  padding: 0 0.556rem;
+  padding: 0 0.8rem;
 
   &:nth-child(even) {
     margin-top: 1.667rem;
@@ -129,7 +134,7 @@ export default {
 }
 
 .prestation-gallery__grid-photo {
-  margin: 1.111rem 0;
+  margin: 1.6rem 0;
   border-radius: 0.222rem;
   overflow: hidden;
 

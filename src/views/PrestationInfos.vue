@@ -15,6 +15,7 @@ export default {
   },
 
   async mounted () {
+    this.$store.set('ui/theme@mode', 'light')
     const mariages = () => import('@/assets/data/prestations/mariages.md')
     const portraits = () => import('@/assets/data/prestations/portraits.md')
     const famillesCouples = () => import('@/assets/data/prestations/familles-couples.md')
@@ -29,6 +30,10 @@ export default {
         this.content2 = await famillesCouples()
         break
     }
+  },
+
+  beforeDestroy () {
+    this.$store.set('ui/theme@mode', 'dark')
   }
 }
 </script>

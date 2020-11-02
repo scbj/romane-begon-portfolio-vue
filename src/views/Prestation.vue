@@ -1,27 +1,36 @@
 <template>
-  <PageLayout class="prestation">
-    <template #header>
-      <BaseButton
-        class="prestation_navigation-link"
-        :route="{ name: 'prestationInfos' }"
-        color="#222"
-      >
-        Infos
-      </BaseButton>
-      <BaseButton
-        class="prestation_navigation-link"
-        :route="{ name: 'prestationGallery' }"
-        color="#222"
-      >
-        Galerie
-      </BaseButton>
-    </template>
-    <RouterView />
-  </PageLayout>
+  <ThemeStyle reactive>
+    <PageLayout
+      slot-scope="{ theme }"
+      class="prestation"
+      :background="backgroundColor"
+    >
+      <template #header>
+        <BaseButton
+          class="prestation_navigation-link"
+          :route="{ name: 'prestationInfos' }"
+          :style="theme"
+        >
+          Infos
+        </BaseButton>
+        <BaseButton
+          class="prestation_navigation-link"
+          :route="{ name: 'prestationGallery' }"
+          :style="theme"
+        >
+          Galerie
+        </BaseButton>
+      </template>
+      <RouterView />
+    </PageLayout>
+  </ThemeStyle>
 </template>
 
 <script>
+import { get } from 'vuex-pathify'
+
 import PageLayout from '@/layouts/PageLayout'
+import ThemeStyle from '@/components/ThemeStyle'
 
 function routeGuard (to, from, next) {
   const allowed = ['mariages', 'portraits', 'familles-couples']
@@ -33,7 +42,16 @@ function routeGuard (to, from, next) {
 
 export default {
   components: {
-    PageLayout
+    PageLayout,
+    ThemeStyle
+  },
+
+  computed: {
+    themeMode: get('ui/theme@mode'),
+
+    backgroundColor () {
+      return this.themeMode === 'dark' ? '#0e0e0e' : 'white'
+    }
   },
 
   beforeRouteUpdate: routeGuard,
@@ -52,6 +70,7 @@ export default {
 }
 
 .prestation_navigation-link {
+  color: var(--text-color);
   opacity: .4;
   margin-right: 1rem;
   position: relative;

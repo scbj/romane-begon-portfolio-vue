@@ -1,21 +1,45 @@
 <template>
-  <header class="page-header">
-    <BaseButton
-      class="page-header__button"
-      color="#0f0e0b"
-      icon="arrow"
-      :icon-scale="1.9"
-      :icon-fill="false"
-      @click="goBack"
-    />
-    <div class="page-header__content">
-      <slot />
-    </div>
-  </header>
+  <ThemeStyle reactive>
+    <header
+      slot-scope="{ theme }"
+      class="page-header"
+      :style="customProperties"
+    >
+      <BaseButton
+        class="page-header__button"
+        :color="theme['--text-color']"
+        icon="arrow"
+        :icon-scale="1.9"
+        :icon-fill="false"
+        @click="goBack"
+      />
+      <div class="page-header__content">
+        <slot />
+      </div>
+    </header>
+  </ThemeStyle>
 </template>
 
 <script>
+import { get } from 'vuex-pathify'
+
+import ThemeStyle from '@/components/ThemeStyle'
+
 export default {
+  components: {
+    ThemeStyle
+  },
+
+  computed: {
+    themeMode: get('ui/theme@mode'),
+
+    customProperties () {
+      return {
+        '--background': this.themeMode === 'dark' ? 'rgba(0,0,0,0.9)' : 'rgba(255,255,255,0.9)'
+      }
+    }
+  },
+
   methods: {
     goBack () {
       this.$router.push({ name: 'home' })
@@ -31,7 +55,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(white, 0.9);
+  background: var(--background);
   backdrop-filter: blur(13px);
   display: flex;
   justify-content: space-between;

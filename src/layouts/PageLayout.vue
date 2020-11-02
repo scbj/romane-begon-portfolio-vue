@@ -1,5 +1,5 @@
 <template>
-  <ThemeStyle mode="light">
+  <ThemeStyle mode="light" :style="customProperties">
     <div
       slot-scope="{ theme }"
       class="page-layout"
@@ -28,6 +28,21 @@ export default {
     ThemeStyle
   },
 
+  props: {
+    background: {
+      type: String,
+      default: 'white'
+    }
+  },
+
+  computed: {
+    customProperties () {
+      return {
+        '--background': this.background
+      }
+    }
+  },
+
   mounted () {
     this.$store.set('ui/theme@mode', 'light')
   }
@@ -38,10 +53,12 @@ export default {
 @import '@/assets/styles/_vars.scss';
 
 .page-layout {
-  background: white;
+  background: var(--background);
 
   min-height: 100%;
   position: relative;
+
+  transition: background .04s ease-out;
 }
 
 .page-layout__content {
