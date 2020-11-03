@@ -69,6 +69,9 @@ export default {
 .prestation {
   display: flex;
   flex-direction: column;
+  /* Need to set overflow: hidden to prevent the scrollbar from
+  appearing when transitions between pages. */
+  overflow: hidden;
 }
 
 .prestation__header {
