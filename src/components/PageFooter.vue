@@ -2,7 +2,7 @@
   <footer class="page-footer">
     <SocialLinks
       class="page-footer__social"
-      color="#1C1C1C"
+      :color="textColor"
       :scale="1"
     />
     <CopyrightStatement class="page-footer__copyright" />
@@ -17,6 +17,19 @@ export default {
   components: {
     CopyrightStatement,
     SocialLinks
+  },
+
+  props: {
+    theme: {
+      type: Object,
+      required: true
+    }
+  },
+
+  computed: {
+    textColor () {
+      return this.theme && this.theme['--text-color']
+    }
   }
 }
 </script>
@@ -33,6 +46,7 @@ export default {
 
 .page-footer__copyright {
   color: #1C1C1C;
+  color: var(--text-color);
   text-align: center;
   font-size: 1rem;
   line-height: 1.4em;

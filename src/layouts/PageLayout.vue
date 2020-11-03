@@ -1,5 +1,5 @@
 <template>
-  <ThemeStyle mode="light" :style="customProperties">
+  <ThemeStyle reactive :style="customProperties">
     <div
       slot-scope="{ theme }"
       class="page-layout"
@@ -11,7 +11,7 @@
       <div class="page-layout__content">
         <slot />
       </div>
-      <PageFooter />
+      <PageFooter :theme="theme" />
     </div>
   </ThemeStyle>
 </template>
