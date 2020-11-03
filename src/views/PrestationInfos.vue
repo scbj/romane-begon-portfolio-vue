@@ -1,11 +1,18 @@
 <template>
-  <content class="prestation-infos">
+  <div class="prestation-infos">
     <component :is="content2.vue.component" v-if="content2" />
-  </content>
+  </div>
 </template>
 
 <script>
+import store from '@/store'
+
 import '@/assets/styles/markdown.scss'
+
+function routeGuard (to, from, next) {
+  store.set('ui/theme@mode', 'light')
+  return next()
+}
 
 export default {
   data () {
@@ -15,7 +22,6 @@ export default {
   },
 
   async mounted () {
-    this.$store.set('ui/theme@mode', 'light')
     const mariages = () => import('@/assets/data/prestations/mariages.md')
     const portraits = () => import('@/assets/data/prestations/portraits.md')
     const famillesCouples = () => import('@/assets/data/prestations/familles-couples.md')
@@ -32,8 +38,7 @@ export default {
     }
   },
 
-  beforeDestroy () {
-    this.$store.set('ui/theme@mode', 'dark')
-  }
+  beforeRouteUpdate: routeGuard,
+  beforeRouteEnter: routeGuard
 }
 </script>

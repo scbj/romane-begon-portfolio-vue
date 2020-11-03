@@ -1,5 +1,5 @@
 <template>
-  <content class="prestation-gallery">
+  <div class="prestation-gallery">
     <div class="prestation-gallery__grid" :style="columnStyle">
       <div
         v-for="(column, index) in columns"
@@ -19,11 +19,18 @@
         </div>
       </div>
     </div>
-  </content>
+  </div>
 </template>
 
 <script>
+import store from '@/store'
+
 import responsive from '@/mixins/responsive'
+
+function routeGuard (to, from, next) {
+  store.set('ui/theme@mode', 'dark')
+  return next()
+}
 
 const columnPropertiesMap = [
   {
@@ -76,7 +83,6 @@ export default {
   },
 
   async mounted () {
-    this.$store.set('ui/theme@mode', 'dark')
     const mariages = () => import('@/assets/data/galleries/mariages.json')
     const portraits = () => import('@/assets/data/galleries/portraits.json')
     const famillesCouples = () => import('@/assets/data/galleries/familles-couples.json')
@@ -94,9 +100,8 @@ export default {
     this.photos = this.photos.slice(0, this.photos.length - 1)
   },
 
-  beforeDestroy () {
-    this.$store.set('ui/theme@mode', 'light')
-  }
+  beforeRouteUpdate: routeGuard,
+  beforeRouteEnter: routeGuard
 }
 </script>
 

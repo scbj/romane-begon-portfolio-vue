@@ -11,17 +11,21 @@
           :route="{ name: 'prestationInfos' }"
           :style="theme"
         >
-          Infos
+          INFOS
         </BaseButton>
         <BaseButton
           class="prestation_navigation-link"
           :route="{ name: 'prestationGallery' }"
           :style="theme"
         >
-          Galerie
+          GALERIE
         </BaseButton>
       </template>
-      <RouterView />
+      <Transition name="fade" mode="out-in">
+        <KeepAlive>
+          <RouterView />
+        </KeepAlive>
+      </Transition>
     </PageLayout>
   </ThemeStyle>
 </template>
@@ -60,6 +64,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_animations.scss';
+
 .prestation {
   display: flex;
   flex-direction: column;
@@ -87,6 +93,26 @@ export default {
       top: 100%;
       left: 0;
     }
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  animation: push-in 300ms $easing;
+}
+
+.fade-leave-active {
+  animation-direction: reverse;
+}
+
+@keyframes push-in {
+  from {
+    opacity: 0;
+    transform: translateX(2em) translateY(.5em);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
   }
 }
 </style>
