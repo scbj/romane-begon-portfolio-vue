@@ -43,7 +43,7 @@ export default {
     }
   },
 
-  mounted () {
+  created () {
     this.$store.set('ui/theme@mode', 'light')
   }
 }
