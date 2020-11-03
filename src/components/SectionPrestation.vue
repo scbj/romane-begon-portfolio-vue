@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable vue/multiline-html-element-content-newline -->
   <ParallaxGroup class="section-prestation" :style="cssVariables">
     <ParallaxLayer class="section-prestation__background" depth="back">
       <div class="section-prestation__background-picture" />
@@ -11,9 +12,9 @@
         ref="title"
         extra-large
         class="section-prestation__title text-charming"
-      >
-        {{ title }}
-      </TextTitle>
+      >{{
+        title
+      }}</TextTitle>
       <TextParagraph>
         {{ description }}
       </TextParagraph>
@@ -101,12 +102,15 @@ export default {
   },
 
   mounted () {
-    this.textEffect = new TextCharming(this.$refs.title)
+    const hasWhitespace = /\s/g.test(this.$refs.title.textContent)
+    if (!hasWhitespace) {
+      this.textEffect = new TextCharming(this.$refs.title)
+    }
   },
 
   methods: {
     onBrowseButtonEnter () {
-      this.textEffect.charm()
+      this.textEffect && this.textEffect.charm()
     }
   }
 }
