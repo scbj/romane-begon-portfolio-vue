@@ -28,11 +28,11 @@ export default {
     isViewerActive: get('ui/isViewerActive'),
 
     activeIconName () {
-      return this.isMenuActive ? 'cross' : 'menu'
+      return this.isMenuActive || this.isViewerActive ? 'cross' : 'menu'
     },
 
     activeIconScale () {
-      return this.isMenuActive ? 1.389 : 1.667
+      return this.isMenuActive || this.isViewerActive ? 1.389 : 1.667
     }
   },
 
