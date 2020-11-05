@@ -15,6 +15,7 @@
             content
             :src="`${src}-/resize/330x/`"
             alt="Photo"
+            @click.native="onImageClick"
           />
         </div>
       </div>
@@ -98,6 +99,12 @@ export default {
         break
     }
     this.photos = this.photos.slice(0, this.photos.length - 1)
+  },
+
+  methods: {
+    onImageClick () {
+      this.$store.set('ui/isViewerActive', true)
+    }
   },
 
   beforeRouteUpdate: routeGuard,

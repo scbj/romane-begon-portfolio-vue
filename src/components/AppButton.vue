@@ -8,7 +8,7 @@
       :icon-scale="activeIconScale"
       :icon-fill="false"
       :style="theme"
-      @click="toggleMenuVisibility"
+      @click="toggleModalVisibility"
     />
   </ThemeStyle>
 </template>
@@ -25,6 +25,7 @@ export default {
 
   computed: {
     isMenuActive: get('ui/isMenuActive'),
+    isViewerActive: get('ui/isViewerActive'),
 
     activeIconName () {
       return this.isMenuActive ? 'cross' : 'menu'
@@ -38,8 +39,12 @@ export default {
   methods: {
     openMenu: call('ui/openMenu'),
     closeMenu: call('ui/closeMenu'),
+    closeViewer: call('ui/closeViewer'),
 
-    toggleMenuVisibility () {
+    toggleModalVisibility () {
+      if (this.isViewerActive) {
+        return this.closeViewer()
+      }
       return this.isMenuActive
         ? this.closeMenu()
         : this.openMenu()

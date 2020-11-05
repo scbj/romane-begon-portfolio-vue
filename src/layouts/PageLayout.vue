@@ -41,10 +41,6 @@ export default {
         '--background': this.background
       }
     }
-  },
-
-  created () {
-    this.$store.set('ui/theme@mode', 'light')
   }
 }
 </script>

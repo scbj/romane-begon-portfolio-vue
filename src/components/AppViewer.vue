@@ -666,9 +666,9 @@ export default {
 
   @media screen and (min-width: $medium) {
     grid-template-columns:
-      [first] minmax($side-size, auto)
-      [carousel-start] 1fr
-      [carousel-end next-button] minmax($side-size, auto) [last];
+      [first] minmax(8.889rem, auto)
+      [carousel-start] 1fr [next-button] 1fr [carousel-end]
+      minmax(8.889rem, auto) [last];
     grid-template-rows:
       [first carousel-start] auto
       1fr
@@ -710,7 +710,9 @@ export default {
 
 .app-viewer__next,
 .app-viewer__previous  {
+  background: transparent;
   grid-row: carousel-start / carousel-end;
+  z-index: 2;
 }
 
 .app-viewer__next {
@@ -719,6 +721,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media screen and (min-width: $medium) {
+    grid-column: next-button / last;
+  }
 }
 
 .app-viewer__previous {
@@ -727,6 +733,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  @media screen and (min-width: $medium) {
+    grid-column: first / next-button;
+  }
 }
 
 .app-viewer__counter {
