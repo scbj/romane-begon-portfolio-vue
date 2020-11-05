@@ -43,6 +43,7 @@ export default {
 
     toggleModalVisibility () {
       if (this.isViewerActive) {
+        this.$router.go(-1)
         return this.closeViewer()
       }
       return this.isMenuActive

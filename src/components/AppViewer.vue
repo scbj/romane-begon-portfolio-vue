@@ -1,18 +1,18 @@
 <template>
   <div class="app-viewer">
     <div class="app-viewer__counter">
-      {{ activeIndex }} / {{ items.length }}
+      {{ activeIndex + 1 }} / {{ photos.length }}
     </div>
     <div class="app-viewer__carousel">
-      <img class="app-viewer__image" :src="activeImage">
+      <img class="app-viewer__image" :src="image(activePhoto, 1280)">
     </div>
     <div class="app-viewer__thumbnails">
       <img
-        v-for="(item, index) in items"
+        v-for="(photo, index) in photos"
         :key="index"
-        :src="image(item, 200)"
+        :src="image(photo, 200)"
         class="app-viewer__thumbnail"
-        @click="activeIndex = index"
+        @click="() => updateActive(index)"
       >
     </div>
     <div class="app-viewer__controls">
@@ -24,11 +24,10 @@
         <BaseButton
           slot-scope="{ theme }"
           :color="theme['--text-color']"
-          icon="menu"
-          :icon-scale="1.667"
-          :icon-fill="false"
           :style="theme"
-        />
+        >
+          PREV
+        </BaseButton>
       </ThemeStyle>
     </div>
     <div class="app-viewer__next" @click="next">
@@ -36,17 +35,18 @@
         <BaseButton
           slot-scope="{ theme }"
           :color="theme['--text-color']"
-          icon="menu"
-          :icon-scale="1.667"
-          :icon-fill="false"
           :style="theme"
-        />
+        >
+          NEXT
+        </BaseButton>
       </ThemeStyle>
     </div>
   </div>
 </template>
 
 <script>
+import { call, get } from 'vuex-pathify'
+
 import ThemeStyle from '@/components/ThemeStyle'
 
 export default {
@@ -54,13 +54,11 @@ export default {
     ThemeStyle
   },
 
-  data () {
-    return {
-      activeIndex: 4
-    }
-  },
-
   computed: {
+    activeIndex: get('viewer/activeIndex'),
+    activePhoto: get('viewer/activePhoto'),
+    photos: get('viewer/photos'),
+
     items () {
       return [
         {
@@ -615,25 +613,16 @@ export default {
           default_effects: ''
         }
       ]
-    },
-
-    activeImage () {
-      const item = this.items[this.activeIndex]
-      return this.image(item, 1280)
     }
   },
 
   methods: {
-    image (item, dimension) {
-      return `https://ucarecdn.com/${item.uuid}/-/resize/${dimension}x/`
-    },
+    next: call('viewer/next'),
+    previous: call('viewer/previous'),
+    updateActive: call('viewer/updateActive'),
 
-    next () {
-      this.activeIndex += 1
-    },
-
-    previous () {
-      this.activeIndex -= 1
+    image (src, dimension) {
+      return `${src}/-/resize/${dimension}x/`
     }
   }
 }
@@ -706,6 +695,7 @@ export default {
   width: 100%;
   object-fit: cover;
   margin: 0 0.4rem;
+  cursor: pointer;
 }
 
 .app-viewer__next,
@@ -713,6 +703,8 @@ export default {
   background: transparent;
   grid-row: carousel-start / carousel-end;
   z-index: 2;
+  padding: 2rem;
+  cursor: pointer;
 }
 
 .app-viewer__next {
@@ -742,7 +734,7 @@ export default {
 .app-viewer__counter {
   grid-column: first;
   grid-row: first;
-  padding: 0 1rem;
+  padding: 2rem;
 }
 
 .app-viewer__controls {

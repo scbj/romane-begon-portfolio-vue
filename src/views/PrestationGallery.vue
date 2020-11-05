@@ -15,7 +15,7 @@
             content
             :src="`${src}-/resize/330x/`"
             alt="Photo"
-            @click.native="onImageClick"
+            @click.native="() => onImageClick(src)"
           />
         </div>
       </div>
@@ -102,8 +102,11 @@ export default {
   },
 
   methods: {
-    onImageClick () {
-      this.$store.set('ui/isViewerActive', true)
+    onImageClick (src) {
+      this.$store.dispatch('viewer/open', {
+        activePhoto: src,
+        photos: this.photos
+      })
     }
   },
 
@@ -149,6 +152,7 @@ export default {
   margin: 1.6rem 0;
   border-radius: 0.222rem;
   overflow: hidden;
+  cursor: pointer;
 
   img {
     /* Remove undesired whitespace below <img> tags */
