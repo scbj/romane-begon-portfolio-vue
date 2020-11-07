@@ -3,7 +3,7 @@
     <BaseButton
       slot-scope="{ theme }"
       class="app-button"
-      :color="theme['--text-color']"
+      :color="isMenuActive ? '#f3f3f3' : theme['--text-color']"
       :icon="activeIconName"
       :icon-scale="activeIconScale"
       :icon-fill="false"
