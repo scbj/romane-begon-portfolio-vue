@@ -1,18 +1,29 @@
 export const navigationLinks = [
   {
     label: 'Prestations',
-    path: '#'
+    route: {
+      name: 'home',
+      hash: '#prestations'
+    }
   },
   {
     label: 'Espace Client',
-    path: '#'
+    route: {
+      name: 'clientArea'
+    }
   },
   {
     label: 'Contact',
-    path: '#'
+    route: {
+      name: 'contact'
+    }
   },
   {
     label: 'A propos',
-    path: '#'
+    sectionIndex: 4,
+    route: {
+      name: 'home',
+      hash: '#a-propos'
+    }
   }
 ]

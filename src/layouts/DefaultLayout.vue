@@ -14,7 +14,12 @@
         <slot />
       </ParallaxContainer>
       <aside class="default-layout__top">
-        <WebsiteTitle v-show="displayWebsiteTitle" :style="theme" />
+        <WebsiteTitle
+          v-show="displayWebsiteTitle"
+          class="default-layout__website-title"
+          :style="theme"
+          @click="onWebsiteTitleClick"
+        />
       </aside>
       <aside class="default-layout__right">
         <SocialLinks v-show="displaySocialLinks" orientation="vertical" />
@@ -103,7 +108,11 @@ export default {
       const { scrollHeight, scrollTop } = event.target
       this.activeSectionIndex = Math.round(scrollTop / viewportHeight)
       this.scrollPercent = Math.round((scrollTop + viewportHeight / 2) * 100 / scrollHeight)
-    }, 100)
+    }, 100),
+
+    onWebsiteTitleClick () {
+      this.$router.push({ name: 'home' })
+    }
   }
 }
 </script>
@@ -164,6 +173,10 @@ export default {
   @media screen and (min-width: $extraLarge) {
     left: 3.778rem;
   }
+}
+
+.default-layout__website-title {
+  cursor: pointer;
 }
 
 .default-layout__scroll-down {

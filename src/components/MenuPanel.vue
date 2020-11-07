@@ -3,9 +3,12 @@
     <WebsiteTitle class="menu-panel__website-title" />
     <BaseList :items="navigationLinks" class="menu-panel__list">
       <template #item="{ item }">
-        <a :href="item.path" class="menu-panel__link">
+        <span
+          class="menu-panel__link"
+          @click="onLinkClick(item)"
+        >
           {{ item.label }}
-        </a>
+        </span>
       </template>
     </BaseList>
     <SocialLinks class="menu-panel__social" />
@@ -36,6 +39,15 @@ export default {
 
   computed: {
     navigationLinks: () => navigationLinks
+  },
+
+  methods: {
+    onLinkClick (link) {
+      this.$store.dispatch('ui/closeMenu')
+      setTimeout(() => {
+        this.$router.push(link.route)
+      }, 1000)
+    }
   }
 }
 </script>
@@ -106,5 +118,6 @@ export default {
   line-height: 1.64em;
   letter-spacing: 0.05207em;
   display: inline-block;
+  cursor: pointer;
 }
 </style>

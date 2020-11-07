@@ -51,7 +51,7 @@ export default {
 
   methods: {
     onMenuTransitionEnter (el, done) {
-      const duration = 1.2
+      const duration = 1
       const ease = Expo.easeInOut
       const reverseEl = el.querySelector('.app-menu_container')
       this.timeline = gsap.timeline({ onComplete: done })

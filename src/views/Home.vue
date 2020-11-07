@@ -46,8 +46,35 @@ export default {
     }
   },
 
+  watch: {
+    $route: {
+      handler (route) {
+        const hash = location.hash
+        this.onHashChange(hash)
+      }
+    }
+  },
+
+  mounted () {
+    const hash = location.hash
+    hash && this.onHashChange(hash)
+  },
+
   methods: {
-    slugifyPrestationParam
+    slugifyPrestationParam,
+
+    onHashChange (hash) {
+      const hashSectionIndexMap = {
+        '#prestations': 1,
+        '#a-propos': 4,
+        '': 0
+      }
+      if (hash in hashSectionIndexMap) {
+        const index = hashSectionIndexMap[hash]
+        const sections = document.querySelectorAll('main section')
+        sections[index].scrollIntoView({ behavior: 'smooth' })
+      }
+    }
   }
 }
 </script>

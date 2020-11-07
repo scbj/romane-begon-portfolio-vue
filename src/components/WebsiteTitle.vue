@@ -1,5 +1,9 @@
 <template>
-  <div class="website-title" :class="{ large: size === 'large' }">
+  <div
+    class="website-title"
+    :class="{ large: size === 'large' }"
+    @click="$emit('click')"
+  >
     <span class="website-title__subtitle">Photographie avec</span>
     <span class="website-title__title">ROMANE BÉGON</span>
   </div>
