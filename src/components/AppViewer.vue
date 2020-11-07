@@ -18,6 +18,14 @@
     <div class="app-viewer__controls">
       <div class="icon-sun" />
       <div class="icon-fullscreen" />
+      <BaseButton
+        class="page-header__full-screen"
+        color="white"
+        icon="full-screen"
+        :icon-scale="1.9"
+        :icon-fill="false"
+        @click="() => {}"
+      />
     </div>
     <div class="app-viewer__previous" @click="previous">
       <ThemeStyle reactive>

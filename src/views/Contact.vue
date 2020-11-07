@@ -63,8 +63,15 @@
 </template>
 
 <script>
+import store from '@/store'
+
 import PageLayout from '@/layouts/PageLayout'
 import TextTitle from '@/components/TextTitle'
+
+function routeGuard (to, from, next) {
+  store.set('ui/theme@mode', 'light')
+  return next()
+}
 
 export default {
   components: {
@@ -103,7 +110,10 @@ export default {
     async send (/* data */) {
       // console.log('☝️: send -> data', data)
     }
-  }
+  },
+
+  beforeRouteUpdate: routeGuard,
+  beforeRouteEnter: routeGuard
 }
 </script>
 

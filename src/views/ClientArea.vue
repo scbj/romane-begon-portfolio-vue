@@ -32,6 +32,8 @@
 <script>
 import { call, get } from 'vuex-pathify'
 
+import store from '@/store'
+
 import PageLayout from '@/layouts/PageLayout'
 
 import BaseList from '@/components/base/BaseList'
@@ -39,6 +41,11 @@ import ClientAreaGallery from '@/components/ClientAreaGallery'
 import TextTitle from '@/components/TextTitle'
 import TextParagraph from '@/components/TextParagraph'
 import ThemeStyle from '@/components/ThemeStyle'
+
+function routeGuard (to, from, next) {
+  store.set('ui/theme@mode', 'light')
+  return next()
+}
 
 export default {
   components: {
@@ -60,7 +67,10 @@ export default {
 
   methods: {
     loadLumysGalleries: call('clientArea/loadLumysGalleries')
-  }
+  },
+
+  beforeRouteUpdate: routeGuard,
+  beforeRouteEnter: routeGuard
 }
 </script>
 

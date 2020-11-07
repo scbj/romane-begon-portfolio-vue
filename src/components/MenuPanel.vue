@@ -46,7 +46,7 @@ export default {
       this.$store.dispatch('ui/closeMenu')
       setTimeout(() => {
         this.$router.push(link.route)
-      }, 1000)
+      }, 840)
     }
   }
 }
