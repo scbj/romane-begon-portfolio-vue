@@ -216,6 +216,14 @@ export default {
 
 .section-prestation__browse-button {
   margin-top: 2.722rem;
+
+  span {
+    font-size: clamp(0.889rem, 2vw ,1.1rem) !important;
+  }
+
+  svg {
+    transform: translateX(1.8px) translateY(-1px);
+  }
 }
 
 .section-prestation__title {

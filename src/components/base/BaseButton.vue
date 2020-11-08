@@ -139,7 +139,7 @@ export default {
   }
 
   &:hover.base-button--circle .base-button__icon {
-    border-color: rgba(255,255,255,.6);
+    border-color: rgba(255,255,255,.9);
     transition-duration: 0;
   }
 }
@@ -152,7 +152,7 @@ export default {
 }
 
 .base-button--circle .base-button__icon {
-  border: 1px solid rgba(255,255,255, .4);
+  border: 1px solid rgba(255,255,255, .6);
 
   transition: border-color .1s ease-out;
 }
@@ -163,7 +163,6 @@ export default {
   font-family: "TT Commons", sans-serif;
   line-height: 2.286em;
   letter-spacing: 0.28em;
-  padding-top: 0.5em;
-  padding-bottom: 0.2em;
+  padding: 0.3em 0;
 }
 </style>
