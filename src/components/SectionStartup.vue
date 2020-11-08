@@ -26,6 +26,8 @@ import WebsiteTitle from '@/components/WebsiteTitle'
 
 import data from '@/assets/data/home.json'
 
+let isBackgroundImagePrefetch = false
+
 export default {
   components: {
     ParallaxGroup,
@@ -35,7 +37,7 @@ export default {
 
   data () {
     return {
-      isBackgroundImageReady: false
+      isBackgroundImageReady: isBackgroundImagePrefetch
     }
   },
 
@@ -78,7 +80,7 @@ export default {
   created () {
     this.preloadImage(this.backgroundImage.responsive)
       .then(() => {
-        this.isBackgroundImageReady = true
+        isBackgroundImagePrefetch = this.isBackgroundImageReady = true
         this.$emit('ready')
       })
   },
@@ -112,7 +114,7 @@ export default {
 
   &--loading .section-startup__background-picture {
     filter: blur(30px);
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 }
 
