@@ -4,12 +4,7 @@
     <template v-for="(prestation, index) in prestations">
       <SectionPrestation
         :key="index"
-        :bg-image="prestation.backgroundImage"
-        :bg-position="prestation.backgroundPosition"
-        :overlay="prestation.overlay"
-        :title="prestation.title"
-        :description="prestation.description"
-        :to="slugifyPrestationParam(prestation.title)"
+        :prestation="prestation"
       />
     </template>
     <SectionAbout />
@@ -28,7 +23,6 @@ import SectionPrestation from '@/components/SectionPrestation'
 import SectionStartup from '@/components/SectionStartup'
 
 import data from '@/assets/data/home.json'
-import { slugifyPrestationParam } from '@/router/routes'
 
 export default {
   components: {
@@ -61,8 +55,6 @@ export default {
   },
 
   methods: {
-    slugifyPrestationParam,
-
     onHashChange (hash) {
       const hashSectionIndexMap = {
         '#prestations': 1,

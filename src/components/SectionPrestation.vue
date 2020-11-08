@@ -1,9 +1,13 @@
 <template>
   <!-- eslint-disable vue/multiline-html-element-content-newline -->
-  <ParallaxGroup class="section-prestation" :style="cssVariables">
+  <ParallaxGroup
+    class="section-prestation"
+    :style="cssVariables"
+    :class="modifiers"
+  >
     <ParallaxLayer class="section-prestation__background" depth="back">
       <div class="section-prestation__background-picture" />
-      <div class="section-prestation__background-overlay" :class="overlayClass" />
+      <div class="section-prestation__background-overlay" />
     </ParallaxLayer>
 
     <ParallaxLayer class="section-prestation__content" depth="base">
@@ -13,14 +17,14 @@
         extra-large
         class="section-prestation__title text-charming"
       >{{
-        title
+        prestation.title
       }}</TextTitle>
-      <TextParagraph>
-        {{ description }}
+      <TextParagraph class="section-prestation__description">
+        {{ prestation.description }}
       </TextParagraph>
       <BaseButton
         class="section-prestation__browse-button"
-        :route="{ name: 'prestationInfos', params: { prestation: to } }"
+        :route="linkRoute"
         color="white"
         circle
         icon="play"
@@ -34,6 +38,8 @@
 
 <script>
 import TextCharming from '@/animations/TextCharming'
+
+import { slugifyPrestationParam } from '@/router/routes'
 
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 import ParallaxLayer from '@/components/parallax/ParallaxLayer'
@@ -51,28 +57,8 @@ export default {
   },
 
   props: {
-    bgImage: {
-      type: String,
-      required: true
-    },
-    bgPosition: {
-      type: String,
-      default: '63%'
-    },
-    description: {
-      type: String,
-      required: true
-    },
-    overlay: {
-      type: String,
-      default: 'left'
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    to: {
-      type: String,
+    prestation: {
+      type: Object,
       required: true
     }
   },
@@ -80,7 +66,8 @@ export default {
   data () {
     return {
       titleAnimationRunning: false,
-      textEffect: null
+      textEffect: null,
+      isBackgroundImageReady: false
     }
   },
 
@@ -91,14 +78,34 @@ export default {
         ? `x${size}`
         : `${size}x`
       return {
-        '--background-image': `url(${this.bgImage}-/resize/${resizing}/)`,
-        '--background-position': this.bgPosition
+        '--background-image': `url(${this.prestation.backgroundImage}-/resize/${this.isBackgroundImageReady ? resizing : '200'}/)`,
+        '--background-position': this.prestation.backgroundPosition ?? '63%'
       }
     },
 
-    overlayClass () {
-      return `section-prestation__background--${this.overlay}`
+    modifiers () {
+      const overlay = this.prestation.overlay ?? 'left'
+      return {
+        [`section-prestation--overlay-${overlay}`]: true,
+        'section-prestation--loading': !this.isBackgroundImageReady
+      }
+    },
+
+    linkRoute () {
+      return {
+        name: 'prestationInfos',
+        params: {
+          prestation: slugifyPrestationParam(this.prestation.title)
+        }
+      }
     }
+  },
+
+  created () {
+    this.preloadImage(this.prestation.backgroundImage)
+      .then(() => {
+        this.isBackgroundImageReady = true
+      })
   },
 
   mounted () {
@@ -111,6 +118,19 @@ export default {
   methods: {
     onBrowseButtonEnter () {
       this.textEffect && this.textEffect.charm()
+    },
+    /**
+     * Preload the specified image and return true if successful.
+     * @param {String} src The image source
+     */
+    preloadImage (src) {
+      return new Promise((resolve, reject) => {
+        if (!src) return resolve(false)
+        const image = new Image()
+        image.onload = () => resolve(true)
+        image.onerror = () => resolve(false)
+        image.src = src
+      })
     }
   }
 }
@@ -124,6 +144,20 @@ export default {
   min-height: 100vh;
   align-items: stretch;
   justify-items: stretch;
+
+  // Modifiers
+  &--overlay-left .section-prestation__background-overlay  {
+    background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 59%);
+  }
+  &--overlay-wide .section-prestation__background-overlay  {
+    background: linear-gradient(90deg, rgba(15,14,11,1) 0%, rgba(15,14,11,0.06) 62%);
+  }
+  &--overlay-foo .section-prestation__background-overlay  {
+    background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 70%);
+  }
+  &--loading .section-prestation__background-picture {
+    filter: blur(30px);
+  }
 }
 
 .section-prestation__background,
@@ -151,18 +185,6 @@ export default {
   background-size: cover;
   background-position: var(--background-position);
   background-repeat: no-repeat;
-}
-
-.section-prestation__background-overlay {
-  &[class*="--left"] {
-    background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 59%);
-  }
-  &[class*="--wide"] {
-    background: linear-gradient(90deg, rgba(15,14,11,1) 0%, rgba(15,14,11,0.06) 62%);
-  }
-  &[class*="--foo"] {
-    background: linear-gradient(90deg, rgba(15,14,11,1) 8%, rgba(15,14,11,0.06) 70%);
-  }
 }
 
 .section-prestation__content {
