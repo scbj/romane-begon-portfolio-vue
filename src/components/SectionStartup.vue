@@ -90,7 +90,7 @@ export default {
 }
 
 .section-startup__content {
-  padding: 0 0.556rem;
+  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,10 +109,10 @@ export default {
 
 .section-startup__content-citation {
   font-family: "Garamond Premier Pro Display", serif;
-  font-size: 1.222rem;
-  font-weight: 500;
+  font-size: 1.422rem;
+  font-weight: 600;
   line-height: 1.5em;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   text-align: center;
   color: #F3F3F3;
 
@@ -133,7 +133,7 @@ export default {
     }
 
     &.sentence-2 {
-      margin-top: 0.1em;
+      margin-top: 0.4em;
     }
   }
 }

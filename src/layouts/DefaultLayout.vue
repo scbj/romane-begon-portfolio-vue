@@ -155,7 +155,7 @@ export default {
 
 .default-layout__bottom {
   position: fixed;
-  bottom: 3.333rem;
+  bottom: 0.433rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -181,7 +181,7 @@ export default {
 
 .default-layout__scroll-down {
   font-family: 'TT Commons';
-  font-size: 0.667rem;
+  font-size: clamp(0.8rem, 1.7vw, 1rem);
   font-weight: 600;
   letter-spacing: 0.28em;
   line-height: 2.667em;

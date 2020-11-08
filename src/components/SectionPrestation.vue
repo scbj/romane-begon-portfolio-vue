@@ -177,17 +177,17 @@ export default {
 
   @media screen and (min-width: $medium) {
     justify-content: center;
-    padding: 0;
+    padding: 2rem 60px;
     padding-left: 17.778rem;
   }
 
   @media screen and (min-width: $large) {
-    padding: 0;
+    padding: 2rem 60px;
     padding-left: 20.556rem;
   }
 
   @media screen and (min-width: $extraLarge) {
-    padding: 0;
+    padding: 2rem 60px;
     padding-left: 23.889rem;
   }
 }
@@ -198,5 +198,10 @@ export default {
 
 .section-prestation__title {
   white-space: pre-line;
+  font-size: clamp(4.556rem, 8.4vw, 7.056rem)
+}
+
+.section-prestation__description {
+  font-size: clamp(16px, 3vw, 22px)
 }
 </style>
