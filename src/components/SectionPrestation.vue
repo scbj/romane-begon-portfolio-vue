@@ -2,7 +2,7 @@
   <!-- eslint-disable vue/multiline-html-element-content-newline -->
   <ParallaxGroup
     class="section-prestation"
-    :style="cssVariables"
+    :style="customProperties"
     :class="modifiers"
   >
     <ParallaxLayer class="section-prestation__background" depth="back">
@@ -72,14 +72,24 @@ export default {
   },
 
   computed: {
-    cssVariables () {
+    customProperties () {
+      const backgroundImageUrl = this.isBackgroundImageReady
+        ? this.backgroundImage.responsive
+        : this.backgroundImage.blur
+      return {
+        '--background-image': `url(${backgroundImageUrl})`,
+        '--background-position': this.prestation.backgroundPosition ?? '63%'
+      }
+    },
+
+    backgroundImage () {
       const size = Math.max(window.innerHeight, window.innerWidth)
       const resizing = window.innerHeight > window.innerWidth
         ? `x${size}`
         : `${size}x`
       return {
-        '--background-image': `url(${this.prestation.backgroundImage}-/resize/${this.isBackgroundImageReady ? resizing : '200'}/)`,
-        '--background-position': this.prestation.backgroundPosition ?? '63%'
+        blur: `${this.prestation.backgroundImage}-/resize/200x/`,
+        responsive: `${this.prestation.backgroundImage}-/resize/${resizing}/`
       }
     },
 
@@ -102,7 +112,7 @@ export default {
   },
 
   created () {
-    this.preloadImage(this.prestation.backgroundImage)
+    this.preloadImage(this.backgroundImage.responsive)
       .then(() => {
         this.isBackgroundImageReady = true
       })

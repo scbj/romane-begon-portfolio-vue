@@ -1,5 +1,9 @@
 <template>
-  <ParallaxGroup class="section-startup" :style="cssVariables">
+  <ParallaxGroup
+    class="section-startup"
+    :style="customProperties"
+    :class="modifiers"
+  >
     <ParallaxLayer class="section-startup__background" depth="back">
       <div class="section-startup__background-picture" />
       <div class="section-startup__background-overlay" />
@@ -29,6 +33,12 @@ export default {
     WebsiteTitle
   },
 
+  data () {
+    return {
+      isBackgroundImageReady: false
+    }
+  },
+
   computed: {
     sentence () {
       return {
@@ -37,14 +47,55 @@ export default {
       }
     },
 
-    cssVariables () {
+    backgroundImage () {
+      const url = 'https://ucarecdn.com/3aab7c22-2672-4fe6-ba7f-dbd5bc5038bc/'
       const size = Math.max(window.innerHeight, window.innerWidth)
       const resizing = window.innerHeight > window.innerWidth
         ? `x${size}`
         : `${size}x`
       return {
-        '--background-image': `url(https://ucarecdn.com/3aab7c22-2672-4fe6-ba7f-dbd5bc5038bc/-/resize/${resizing}/)`
+        blur: `${url}-/resize/200x/`,
+        responsive: `${url}-/resize/${resizing}/`
       }
+    },
+
+    customProperties () {
+      const backgroundImageUrl = this.isBackgroundImageReady
+        ? this.backgroundImage.responsive
+        : this.backgroundImage.blur
+      return {
+        '--background-image': `url(${backgroundImageUrl})`
+      }
+    },
+
+    modifiers () {
+      return {
+        'section-startup--loading': !this.isBackgroundImageReady
+      }
+    }
+  },
+
+  created () {
+    this.preloadImage(this.backgroundImage.responsive)
+      .then(() => {
+        this.isBackgroundImageReady = true
+        this.$emit('ready')
+      })
+  },
+
+  methods: {
+    /**
+     * Preload the specified image and return true if successful.
+     * @param {String} src The image source
+     */
+    preloadImage (src) {
+      return new Promise((resolve, reject) => {
+        if (!src) return resolve(false)
+        const image = new Image()
+        image.onload = () => resolve(true)
+        image.onerror = () => resolve(false)
+        image.src = src
+      })
     }
   }
 }
@@ -58,6 +109,11 @@ export default {
   min-height: 100vh;
   align-items: stretch;
   justify-items: stretch;
+
+  &--loading .section-startup__background-picture {
+    filter: blur(30px);
+    transform: scale(1.05);
+  }
 }
 
 .section-startup__background,
@@ -83,6 +139,7 @@ export default {
   background-size: cover;
   background-position: 63%;
   background-repeat: no-repeat;
+  transition: filter 1s ease-out;
 }
 
 .section-startup__background-overlay {

@@ -1,15 +1,17 @@
 <template>
   <DefaultLayout>
-    <SectionStartup />
-    <template v-for="(prestation, index) in prestations">
-      <SectionPrestation
-        :key="index"
-        :prestation="prestation"
-      />
+    <SectionStartup @ready="onStartupSectionReady" />
+    <template v-if="isReady">
+      <template v-for="(prestation, index) in prestations">
+        <SectionPrestation
+          :key="index"
+          :prestation="prestation"
+        />
+      </template>
+      <SectionAbout />
+      <SectionContact />
+      <SectionClientArea />
     </template>
-    <SectionAbout />
-    <SectionContact />
-    <SectionClientArea />
   </DefaultLayout>
 </template>
 
@@ -34,6 +36,11 @@ export default {
     SectionStartup
   },
 
+  data () {
+    return {
+      isReady: false
+    }
+  },
   computed: {
     prestations () {
       return data.prestations
@@ -66,6 +73,10 @@ export default {
         const sections = document.querySelectorAll('main section')
         sections[index].scrollIntoView({ behavior: 'smooth' })
       }
+    },
+
+    onStartupSectionReady () {
+      this.isReady = true
     }
   }
 }
