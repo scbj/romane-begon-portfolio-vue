@@ -139,7 +139,7 @@ export default {
   background-size: cover;
   background-position: 63%;
   background-repeat: no-repeat;
-  transition: filter 1s ease-out;
+  transition: filter 600ms ease-out;
 }
 
 .section-startup__background-overlay {

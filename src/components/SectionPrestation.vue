@@ -195,6 +195,7 @@ export default {
   background-size: cover;
   background-position: var(--background-position);
   background-repeat: no-repeat;
+  transition: filter 600ms ease-out;
 }
 
 .section-prestation__content {
