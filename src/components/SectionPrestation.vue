@@ -11,7 +11,7 @@
     </ParallaxLayer>
 
     <ParallaxLayer class="section-prestation__content" depth="base">
-      <PrestationCounter />
+      <PrestationCounter :value="progressNumber" />
       <TextTitle
         ref="title"
         extra-large
@@ -59,6 +59,10 @@ export default {
   props: {
     prestation: {
       type: Object,
+      required: true
+    },
+    progressNumber: {
+      type: Number,
       required: true
     }
   },

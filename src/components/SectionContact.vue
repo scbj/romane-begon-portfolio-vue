@@ -6,7 +6,7 @@
     </ParallaxLayer>
 
     <ParallaxLayer class="section-contact__content" depth="base">
-      <PrestationCounter />
+      <PrestationCounter :value="6" />
       <TextTitle
         ref="title"
         class="text-charming"

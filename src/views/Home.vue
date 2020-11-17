@@ -6,6 +6,7 @@
         <SectionPrestation
           :key="index"
           :prestation="prestation"
+          :progress-number="index + 2"
         />
       </template>
       <SectionAbout />
