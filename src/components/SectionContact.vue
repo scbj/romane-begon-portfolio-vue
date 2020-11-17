@@ -70,7 +70,7 @@ export default {
     cssVariables () {
       const bgImage = 'https://ucarecdn.com/928d894b-c200-47d9-a97a-52cd17a234c9/'
       const bgPosition = '35%'
-      const size = Math.max(window.innerHeight, window.innerWidth)
+      const size = Math.min(Math.max(window.innerHeight, window.innerWidth), 3000)
       const resizing = window.innerHeight > window.innerWidth
         ? `x${size}`
         : `${size}x`

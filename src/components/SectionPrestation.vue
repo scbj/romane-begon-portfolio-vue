@@ -83,7 +83,7 @@ export default {
     },
 
     backgroundImage () {
-      const size = Math.max(window.innerHeight, window.innerWidth)
+      const size = Math.min(Math.max(window.innerHeight, window.innerWidth), 3000)
       const resizing = window.innerHeight > window.innerWidth
         ? `x${size}`
         : `${size}x`

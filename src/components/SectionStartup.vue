@@ -51,7 +51,7 @@ export default {
 
     backgroundImage () {
       const url = 'https://ucarecdn.com/3aab7c22-2672-4fe6-ba7f-dbd5bc5038bc/'
-      const size = Math.max(window.innerHeight, window.innerWidth)
+      const size = Math.min(Math.max(window.innerHeight, window.innerWidth), 3000)
       const resizing = window.innerHeight > window.innerWidth
         ? `x${size}`
         : `${size}x`
