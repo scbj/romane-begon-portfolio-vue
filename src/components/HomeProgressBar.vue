@@ -54,7 +54,7 @@ export default {
     pages: () => [
       'Accueil',
       'Mariages',
-      'Portrait',
+      'Portraits',
       'Familles &\n Couples',
       'A propos',
       'Contact',

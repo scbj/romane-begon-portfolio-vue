@@ -98,6 +98,7 @@ export default {
     [carousel-end] auto [last];
   gap: 0.667rem;
 
+  height: 100vh;
   position: fixed;
   top: 0;
   right: 0;
