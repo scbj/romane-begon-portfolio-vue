@@ -76,7 +76,7 @@ export default {
         progressBar: [false, true, true, true, false, true, false],
         socialLinks: [true, true, true, true, false, true, false],
         websiteTitle: [false, true, true, true, true, false, true],
-        darkTheme: [true, true, true, true, false, true, false]
+        darkTheme: [true, true, true, true, false, true, true]
       }
     },
 

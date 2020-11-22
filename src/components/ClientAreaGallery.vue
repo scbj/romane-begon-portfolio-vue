@@ -60,7 +60,7 @@ export default {
 }
 
 .client-area-gallery__label {
-  color: var(--dark-color-2);
+  color: var(--color-light-1);
   padding: 1em;
   padding-bottom: 0;
   font-weight: 500;

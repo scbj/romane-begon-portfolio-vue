@@ -1,6 +1,6 @@
 <template>
-  <PageLayout>
-    <ThemeStyle mode="light">
+  <PageLayout background="#0e0e0e">
+    <ThemeStyle mode="dark">
       <div
         slot-scope="{ theme }"
         class="client-area"
@@ -43,7 +43,7 @@ import TextParagraph from '@/components/TextParagraph'
 import ThemeStyle from '@/components/ThemeStyle'
 
 function routeGuard (to, from, next) {
-  store.set('ui/theme@mode', 'light')
+  store.set('ui/theme@mode', 'dark')
   return next()
 }
 
@@ -76,8 +76,7 @@ export default {
 
 <style lang="scss" scoped>
 .client-area {
-  color: var(--color-dark-1);
-  background: white;
+  color: var(--color-light-1);
   min-height: 100vh;
   padding: 2.222rem;
 }

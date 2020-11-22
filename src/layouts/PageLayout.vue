@@ -51,7 +51,9 @@ export default {
 .page-layout {
   background: var(--background);
 
-  min-height: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
 
   transition: background .04s ease-out;

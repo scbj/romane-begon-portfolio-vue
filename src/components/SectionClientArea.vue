@@ -34,7 +34,6 @@
         <BaseButton
           class="section-client-area__content-recents-more"
           :route="{ name: 'clientArea' }"
-          color="black"
           icon="galleries-2"
           :icon-scale="1"
           text="VOIR LES GALLERIES"
@@ -96,7 +95,6 @@ export default {
 @import '@/assets/styles/_vars.scss';
 
 .section-client-area {
-  background: white;
   display: grid;
   align-items: stretch;
   justify-content: stretch;
@@ -139,7 +137,7 @@ export default {
 }
 
 .section-client-area__content-text {
-  color: var(--color-dark-1);
+  color: var(--color-light-1);
   grid-auto-rows: auto;
   grid-template-columns: 1fr;
   text-align: justify;
@@ -178,7 +176,7 @@ export default {
 
 .section-client-area__content-recents-label {
   font-weight: 600;
-  color: var(--color-dark-2);
+  color: var(--color-light-3);
   margin-bottom: 0.833rem;
 }
 </style>
