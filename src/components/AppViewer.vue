@@ -15,7 +15,11 @@
         </div>
       </transition>
     </div>
-    <div class="app-viewer__thumbnails">
+    <div
+      ref="thumbnails"
+      class="app-viewer__thumbnails"
+      @wheel="onThumbnailsWheel"
+    >
       <img
         v-for="(photo, index) in photos"
         :key="index"
@@ -97,6 +101,12 @@ export default {
 
     onLoad () {
       this.imageLoaded = true
+    },
+
+    onThumbnailsWheel (event) {
+      const container = this.$refs.thumbnails
+      if (event.deltaY > 0) container.scrollLeft += 16
+      else container.scrollLeft -= 16
     },
 
     image (src, dimension) {
