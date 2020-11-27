@@ -1,20 +1,21 @@
 import { make } from 'vuex-pathify'
 
+import { preload } from '@/utils/image'
+
 export const state = {
   activePhoto: '',
   activeIndex: 0,
+  pending: false,
   photos: []
 }
 
 export const mutations = make.mutations(state)
 
 export const actions = {
-  open ({ commit }, { photos, activePhoto }) {
-    const index = Math.max(0, photos.indexOf(activePhoto))
-    commit('SET_ACTIVE_INDEX', index)
-    commit('SET_ACTIVE_PHOTO', activePhoto)
+  open ({ commit, dispatch }, { photos, activePhoto }) {
     commit('SET_PHOTOS', photos)
     commit('ui/SET_IS_VIEWER_ACTIVE', true, { root: true })
+    dispatch('updateActive', activePhoto)
     window.location = '#visualiseur'
     window.onhashchange = () => {
       if (!window.location.hash) {
@@ -23,8 +24,12 @@ export const actions = {
     }
   },
 
-  updateActive ({ commit, state }, index) {
+  async updateActive ({ commit, state }, payload) {
+    const index = typeof payload === 'string' ? Math.max(0, state.photos.indexOf(payload)) : payload
     const photo = state.photos[index]
+    commit('SET_PENDING', true)
+    await preload(photo)
+    commit('SET_PENDING', false)
     commit('SET_ACTIVE_INDEX', index)
     commit('SET_ACTIVE_PHOTO', photo)
   },
