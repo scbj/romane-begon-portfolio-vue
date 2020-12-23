@@ -9,6 +9,16 @@ export const state = {
   photos: []
 }
 
+export const getters = {
+  canGoNext (state) {
+    return state.activeIndex < state.photos.length - 1
+  },
+
+  canGoPrevious (state) {
+    return state.activeIndex > 0
+  }
+}
+
 export const mutations = make.mutations(state)
 
 export const actions = {
@@ -39,12 +49,18 @@ export const actions = {
     commit('SET_ACTIVE_PHOTO', optimizedPhoto)
   },
 
-  previous ({ dispatch, state }) {
+  previous ({ dispatch, getters, state }) {
+    if (!getters.canGoPrevious) {
+      return
+    }
     const index = state.activeIndex - 1
     dispatch('updateActive', index)
   },
 
-  next ({ dispatch, state }) {
+  next ({ dispatch, getters, state }) {
+    if (!getters.canGoNext) {
+      return
+    }
     const index = state.activeIndex + 1
     dispatch('updateActive', index)
   }
@@ -53,6 +69,7 @@ export const actions = {
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions
 }

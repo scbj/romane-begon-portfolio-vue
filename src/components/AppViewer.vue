@@ -40,25 +40,33 @@
         @click="() => {}"
       />
     </div>
-    <div class="app-viewer__previous" @click="previous">
+    <div
+      v-show="canGoPrevious"
+      class="app-viewer__previous"
+      @click="previous"
+    >
       <ThemeStyle reactive>
         <BaseButton
           slot-scope="{ theme }"
           :color="theme['--text-color']"
           :style="theme"
         >
-          PREV
+          PRÉC.
         </BaseButton>
       </ThemeStyle>
     </div>
-    <div class="app-viewer__next" @click="next">
+    <div
+      v-show="canGoNext"
+      class="app-viewer__next"
+      @click="next"
+    >
       <ThemeStyle reactive>
         <BaseButton
           slot-scope="{ theme }"
           :color="theme['--text-color']"
           :style="theme"
         >
-          NEXT
+          SUIV.
         </BaseButton>
       </ThemeStyle>
     </div>
@@ -84,6 +92,8 @@ export default {
   computed: {
     activeIndex: get('viewer/activeIndex'),
     activePhoto: get('viewer/activePhoto'),
+    canGoPrevious: get('viewer/canGoPrevious'),
+    canGoNext: get('viewer/canGoNext'),
     pending: get('viewer/pending'),
     photos: get('viewer/photos')
   },
