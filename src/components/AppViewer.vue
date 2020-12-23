@@ -6,7 +6,7 @@
     <div class="app-viewer__carousel">
       <img
         class="app-viewer__image"
-        :src="image(activePhoto, 1280)"
+        :src="activePhoto"
         @load="onLoad"
       >
       <transition name="fade">
@@ -241,6 +241,7 @@ export default {
 }
 
 .app-viewer__controls {
+  display: none;
   grid-row: controls;
   grid-column: next-button;
   display: grid;

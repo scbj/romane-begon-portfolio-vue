@@ -28,10 +28,15 @@ export const actions = {
     const index = typeof payload === 'string' ? Math.max(0, state.photos.indexOf(payload)) : payload
     const photo = state.photos[index]
     commit('SET_PENDING', true)
-    await preload(photo)
+    const size = Math.min(Math.max(window.innerHeight, window.innerWidth), 3000)
+    const resizing = window.innerHeight > window.innerWidth
+      ? `x${size}`
+      : `${size}x`
+    const optimizedPhoto = `${photo}-/format/webp/-/quality/normal/-/resize/${resizing}/`
+    await preload(optimizedPhoto)
     commit('SET_PENDING', false)
     commit('SET_ACTIVE_INDEX', index)
-    commit('SET_ACTIVE_PHOTO', photo)
+    commit('SET_ACTIVE_PHOTO', optimizedPhoto)
   },
 
   previous ({ dispatch, state }) {
