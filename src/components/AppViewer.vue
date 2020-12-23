@@ -241,7 +241,6 @@ export default {
 }
 
 .app-viewer__controls {
-  display: none;
   grid-row: controls;
   grid-column: next-button;
   display: grid;
@@ -249,6 +248,7 @@ export default {
   justify-content: end;
   gap: 0.556rem;
   margin-right: 68px;
+  display: none;
 
   .icon-sun,
   .icon-fullscreen {
