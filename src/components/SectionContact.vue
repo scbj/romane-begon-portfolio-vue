@@ -6,7 +6,7 @@
     </ParallaxLayer>
 
     <ParallaxLayer class="section-contact__content" depth="base">
-      <PrestationCounter :value="6" />
+      <SectionCounter :value="6" />
       <TextTitle
         ref="title"
         class="text-charming"
@@ -38,7 +38,7 @@ import TextCharming from '@/animations/TextCharming'
 
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 import ParallaxLayer from '@/components/parallax/ParallaxLayer'
-import PrestationCounter from '@/components/PrestationCounter'
+import SectionCounter from '@/components/SectionCounter'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
@@ -48,7 +48,7 @@ export default {
   components: {
     ParallaxGroup,
     ParallaxLayer,
-    PrestationCounter,
+    SectionCounter,
     TextParagraph,
     TextTitle
   },

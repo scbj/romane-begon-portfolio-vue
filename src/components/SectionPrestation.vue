@@ -11,7 +11,7 @@
     </ParallaxLayer>
 
     <ParallaxLayer class="section-prestation__content" depth="base">
-      <PrestationCounter :value="progressNumber" />
+      <SectionCounter :value="progressNumber" />
       <TextTitle
         ref="title"
         extra-large
@@ -43,7 +43,7 @@ import { slugifyPrestationParam } from '@/router/routes'
 
 import ParallaxGroup from '@/components/parallax/ParallaxGroup'
 import ParallaxLayer from '@/components/parallax/ParallaxLayer'
-import PrestationCounter from '@/components/PrestationCounter'
+import SectionCounter from '@/components/SectionCounter'
 import TextParagraph from '@/components/TextParagraph'
 import TextTitle from '@/components/TextTitle'
 
@@ -51,7 +51,7 @@ export default {
   components: {
     ParallaxGroup,
     ParallaxLayer,
-    PrestationCounter,
+    SectionCounter,
     TextParagraph,
     TextTitle
   },
