@@ -12,7 +12,15 @@ const router = new VueRouter({
   // Automatically adds the specified class when a route matches that of a router-link
   linkActiveClass: 'active',
   linkExactActiveClass: 'exact-active',
-  routes
+  routes,
+
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 export default router

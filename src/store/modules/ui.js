@@ -6,6 +6,7 @@ const SET_IS_VIEWER_ACTIVE = 'SET_IS_VIEWER_ACTIVE'
 export const state = {
   isMenuActive: false,
   isViewerActive: false,
+  homeScrollTop: 0,
   theme: {
     mode: 'dark'
   }
