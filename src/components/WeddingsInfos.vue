@@ -69,6 +69,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_vars.scss';
+
 h1 {
   font-family: "Orpheus Pro", serif;
   font-weight: 400;
@@ -173,22 +175,30 @@ blockquote {
 
 .weddings-infos__flow {
   display: grid;
-  grid-template-columns: auto auto 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 8rem;
+
+  @media screen and (min-width: $large) {
+    grid-template-columns: auto auto 1fr;
+  }
 }
 
 .weddings-infos__flow-step-content {
-  text-align: left;
-
   h3 {
-    text-align: left;
-    display: inline-block;
+    text-align: center;
+  }
+
+  @media screen and (min-width: $large) {
+    h3 {
+      text-align: left;
+    }
   }
 }
 
 .weddings-infos__flow-step-illustration {
   background: rgba(black, 0.1);
+  justify-self: center;
   height: 6rem;
   width: 6rem;
 }
@@ -198,6 +208,11 @@ blockquote {
   border-radius: 50%;
   height: 2rem;
   width: 2rem;
+  display: none;
+
+  @media screen and (min-width: $large) {
+    display: block;
+  }
 }
 
 .weddings-infos__plans {
