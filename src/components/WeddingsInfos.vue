@@ -68,10 +68,6 @@ export default {
         {
           title: '4. Le lendemain',
           content: 'La fête fût belle et c’est le moment de vous réunir pour un dernier instant de convivialité autour d’un repas ou d’un brunch. L’occasion idéale pour échanger vos impressions, relâcher, rire et raconter les meilleures anecdotes de cette journée passée. Un beau moment que j’aime partager avec vous tout en faisant quelques photos. Il est temps pour moi de rentrer en emportant tous ces jolis souvenirs que je vous restituerai une fois sublimés. Après quelques jours de tri, de traitements et de retouche, je vous donnerai accès à une belle galerie protégée par un mot de passe. Vous aurez la possibilité d’admirer toutes vos photos, de les télécharger en différents formats (HD, web), de donner l’accès à vos proches, de mettre en privé les photos que vous ne souhaitez pas partager mais aussi de faire des listes de photos favorites et prévoir des tirages.'
-        },
-        {
-          title: '5. Le divorce',
-          content: 'Célébrer votre divorce avec un album photo ! 😅😜'
         }
       ]
     },
