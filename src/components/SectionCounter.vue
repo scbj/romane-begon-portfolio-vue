@@ -1,10 +1,10 @@
 <template>
-  <div class="prestation-counter">
-    <span class="prestation-counter__actual">
+  <div class="section-counter">
+    <span class="section-counter__actual">
       0{{ value }}
     </span>
-    <i class="prestation-counter__separator" />
-    <span class="prestation-counter__total">
+    <i class="section-counter__separator" />
+    <span class="section-counter__total">
       0{{ 7 }}
     </span>
   </div>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.prestation-counter {
+.section-counter {
   font-size: 1.222rem;
   font-weight: 500;
   font-family: "Garamond Premier Pro Display", serif;
@@ -36,15 +36,15 @@ export default {
   gap: 0.667rem;
 }
 
-.prestation-counter__actual {
+.section-counter__actual {
   color: var(--color-light-2);
 }
 
-.prestation-counter__total {
+.section-counter__total {
   color: var(--color-light-4)
 }
 
-.prestation-counter__separator {
+.section-counter__separator {
   background: var(--color-light-4);
   height: 1px;
 }

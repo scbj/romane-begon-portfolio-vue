@@ -66,15 +66,6 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_animations.scss';
 
-.prestation {
-  display: flex;
-  flex-direction: column;
-}
-
-.prestation__header {
-  align-self: flex-end;
-}
-
 .prestation_navigation-link {
   color: var(--text-color);
   opacity: .4;

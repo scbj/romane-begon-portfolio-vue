@@ -40,6 +40,7 @@ export default {
   data () {
     return {
       isReady: false
+      // hasHashChanged: false
     }
   },
   computed: {
@@ -48,22 +49,23 @@ export default {
     }
   },
 
-  watch: {
-    $route: {
-      handler (route) {
-        const hash = location.hash
-        this.onHashChange(hash)
-      }
-    }
-  },
+  // watch: {
+  //   $route: {
+  //     handler (route) {
+  //       this.hasHashChanged = true
+  //     }
+  //   }
+  // },
 
-  mounted () {
-    const hash = location.hash
-    hash && this.onHashChange(hash)
+  beforeRouteLeave (to, from, next) {
+    const scrollableContainer = document.querySelector('.parallax-container')
+    this.$store.set('ui/homeScrollTop', scrollableContainer.scrollTop)
+    next()
   },
 
   methods: {
-    onHashChange (hash) {
+    onHashChange () {
+      const hash = location.hash
       const hashSectionIndexMap = {
         '#prestations': 1,
         '#a-propos': 4,
@@ -78,6 +80,10 @@ export default {
 
     onStartupSectionReady () {
       this.isReady = true
+      this.$nextTick(() => {
+        const scrollableContainer = document.querySelector('.parallax-container')
+        scrollableContainer.scrollTop = this.$store.get('ui/homeScrollTop')
+      })
     }
   }
 }

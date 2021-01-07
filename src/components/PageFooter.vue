@@ -41,7 +41,6 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 3rem;
-  margin-top: 4rem;
 }
 
 .page-footer__copyright {
