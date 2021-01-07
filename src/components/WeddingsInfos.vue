@@ -30,7 +30,18 @@
     </section>
     <section class="weddings-infos__plans">
       <h2>Mes autres offres</h2>
-      <p>Pour un reportage de mariages complets</p>
+      <h3>Pour un reportage de mariages complets</h3>
+      <div class="weddings-infos__plan-list">
+        <div
+          v-for="plan in plans"
+          :key="plan.title"
+          class="weddings-infos__plan-item"
+        >
+          <div class="weddings-infos__plan-item-gallery" />
+          <h4 class="weddings-infos__plan-item-title" v-text="plan.title" />
+          <p class="weddings-infos__plan-item-description" v-text="plan.description" />
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -63,6 +74,26 @@ export default {
           content: 'Célébrer votre divorce avec un album photo ! 😅😜'
         }
       ]
+    },
+
+    plans () {
+      return [
+        {
+          title: 'EVJF',
+          description: 'L’enterrement de vie de célibataire des jeunes mariés est une tradition idéale pour passer une journée ou un week-end hors du temps avec vos ami-e-s. Je peux vous accompagner ou m’insérer dans votre programme sous différents formats (reportage, photos de groupes fun ou posées) pour vous laisser des souvenirs qui respirent la bonne humeur.',
+          photos: []
+        },
+        {
+          title: 'Essayages de la robe',
+          description: 'Ce moment particulier que vous allez partager avec votre meilleure amie, votre mère ou encore votre tante est teinté de beaucoup d’émotions. Je peux vous suivre lors de cette journée spéciale où vous allez partir à la rencontre de la robe qui vous procurera de la joie et de l’assurance. Celle qui vous accompagnera avec élégance tout au long d’un des plus beaux jours de votre vie.',
+          photos: []
+        },
+        {
+          title: 'Séance d’engagements',
+          description: 'Et si vous marquiez votre engagement au cours d’une belle séance photo dans un lieu qui vous ressemble et représente votre amour ? Que ce soit le lieu de votre rencontre ou un endroit que vous affectionnez particulièrement, je serai ravie de vous accompagner pour immortaliser votre complicité, et ceci avant ou après le grand jour. C’est aussi l’occasion d’apprendre à mieux vous connaître, de vous familiariser avec celle qui vous suivra tout au long de votre mariage mais aussi de vous donner assurance en votre photogénie. Oui, je vous garantis que vous allez vous aimer !',
+          photos: []
+        }
+      ]
     }
   }
 }
@@ -87,6 +118,7 @@ h2 {
   font-size: 3.833rem;
   letter-spacing: initial;
   line-height: initial;
+  text-align: center;
 
   margin: 60px 0 20px 0;
 }
@@ -150,7 +182,7 @@ blockquote {
   color: #444;
   margin: auto;
   padding: 0 2.222rem;
-  max-width: 1200px;
+  max-width: 1240px;
 }
 
 .weddings-infos__hero-content {
@@ -217,5 +249,30 @@ blockquote {
 
 .weddings-infos__plans {
   margin-top: 8rem;
+
+  h3 {
+    margin-bottom: 2rem;
+  }
+}
+
+.weddings-infos__plan-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.weddings-infos__plan-item {
+  margin: 1rem;
+  flex: 0 1;
+}
+
+.weddings-infos__plan-item-gallery {
+  background: rgba(black, 0.1);
+  height: 200px;
+  width: 340px;
+}
+
+.weddings-infos__plan-item-title {
+  margin-top: 1rem;
 }
 </style>
