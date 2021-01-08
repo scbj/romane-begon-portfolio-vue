@@ -63,7 +63,7 @@ export default {
         },
         {
           title: '3. Le jour J',
-          content: 'Le grand jour est enfin arrivé. Le stress, l’impatience et l’émotion s’entremêlent dès le début de la journée, de quoi créer des instants que je ne manquerai pas de saisir. J’aime prendre le temps de photographier et mettre en scène les éléments qui font que cette journée est exceptionnelle comme la décoration, les alliances, les accessoires des mariés ou encore la papeterie.'
+          content: 'Le grand jour est enfin arrivé. Le stress, l’impatience et l’émotion s’entremêlent dès le début de la journée, de quoi créer des instants que je ne manquerai pas de saisir. J’aime prendre le temps de photographier et mettre en scène les éléments qui font que cette journée est exceptionnelle comme la décoration, les alliances, les accessoires des mariés ou encore la papeterie.\n\nLes préparatifs des mariés est un instant chargé en émotions où je laisse parler votre spontanéité pour immortaliser toute la magie de ce moment. J’aime photographier la douceur d’un geste, l’émotion sur un visage, la joie dans un sourire et la complicité qui vous lie aux personnes qui vous entoure. Il peut arriver que je vous guide pour bénéficier de la beauté de la lumière ou d’un cadre en particulier tout en laissant libre court à vos émotions.\n\nLa cérémonie civile, laïque ou religieuse est un moment très émouvant où j’adore saisir toutes les subtilités de ce moment magique. Vos sourires, celui de vos proches, les échanges d’alliances, un enfant qui fait doucement glousser l’assemblée, l’explosion de bonheur à votre sortie… Tous ces petits détails qui marquent seront à jamais immortalisé.\n\nÇa y est, vous vous êtes enfin dit oui. Il est grand temps de vous détendre et de profiter de vos proches autour d’un verre pendant le cocktail. Un moment propice aux sourires, aux embrassades et aux éclats de rire que je ne manquerai pas de vous retransmettre grâce à mes clichés. Vos invités ne remarqueront même pas que j’ai saisi cet instant où leur spontanéité et leur naturel les rends si beau. C’est aussi le moment du traditionnel jeté de bouquet, mais qui aura l’honneur de l’attraper ?\n\nIl est venu le temps de la photo de groupe où amis d’enfance, parents ou cousins venus de loin se réunissent autour de vous. C’est un moment où l’effervescence et la joie d’être ensemble reprennent de plus belle. Créons tous ensemble une photo mémorable qu’elle soit sérieuse ou décalée pour graver à jamais ce jour spécial. Vos proches seront fiers d’afficher chez eux ce beau souvenir.\n\nLa séance photo en couple est une parenthèse où le temps s’arrête pour vous laisser souffler, vous retrouver et laisser parler votre tendresse. Un moment essentiel où je prendrai le temps de vous mettre à l’aise, de vous guider ou de vous laisser évoluer pour saisir ces petits instants d’émotions. J’affectionne particulièrement saisir la beauté de votre complicité à la lumière d’un coucher de soleil.\n\nLe repas et la soirée laissent place à la convivialité, aux discours poignants de vos témoins, aux embrassades et à la fête. Je serai encore là, au milieu de cette ébullition, pour immortaliser des instants précieux et des scènes marquantes comme l’arrivée du gâteau ou votre danse d’ouverture de bal durement travaillée. Ces moments magiques et plein de spontanéités ne n’échapperont pas à mon œil !'
         },
         {
           title: '4. Le lendemain',
@@ -215,6 +215,10 @@ blockquote {
 .weddings-infos__flow-step-content {
   h3 {
     text-align: center;
+  }
+
+  p {
+    white-space: break-spaces;
   }
 
   @media screen and (min-width: $large) {
