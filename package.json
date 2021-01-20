@@ -14,7 +14,7 @@
     "@braid/vue-formulate": "^2.4.3",
     "charming": "^3.0.2",
     "core-js": "3.6.5",
-    "gsap": "^3.5.1",
+    "gsap": "^3.6.0",
     "slugify": "1.4.4",
     "vue": "2.6.11",
     "vue-mq": "1.0.1",
